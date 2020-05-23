@@ -6,9 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/18 14:05:19 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/05/20 21:11:49 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/05/23 09:56:26 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+typedef unsigned int t_uint;
 
 typedef struct		s_point
 {
@@ -19,9 +21,9 @@ typedef struct		s_point
 
 typedef struct		s_ray
 {
-	t_point		*orig;
+	t_point		orig;
 	int			t;
-	t_point		*dir; 
+	t_point		dir; 
 }					t_ray;
 
 typedef struct 		s_setting
@@ -32,3 +34,25 @@ typedef struct 		s_setting
 	float			scale;
 	float			imageAR;
 }					t_setting;
+
+typedef	struct		s_coord
+{
+	float	x1;
+	float	x2;
+}					t_coord;
+
+typedef	struct 		s_color
+{
+	t_uint	r;
+	t_uint	g;
+	t_uint	b;
+}					t_color;
+
+
+typedef struct 		s_sphere
+{
+	t_point		ctr;
+	float		diam;
+	t_color		col;
+}					t_sphere;
+

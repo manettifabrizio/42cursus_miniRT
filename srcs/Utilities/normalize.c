@@ -6,11 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 13:51:25 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/05/19 13:55:32 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/05/23 08:55:16 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/miniRT.h"
+#include "../../include/miniRT.h"
 
 t_point	normalize(t_point p)
 {

@@ -6,13 +6,13 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 14:42:26 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/05/20 20:56:52 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/05/23 08:45:57 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/miniRT.h"
 
-void		mult_pt_mtx(t_point src, float **m, t_point dst)
+void		mult_pt_mtx(t_point src, float m[4][4], t_point dst)
 {
 	float a;
 	float b;
@@ -33,7 +33,7 @@ void		mult_pt_mtx(t_point src, float **m, t_point dst)
     dst.z = c / w;
 }
 
-void		mult_vec_mtx(t_point src, float **m, t_point dst)
+void		mult_vec_mtx(t_point src, float m[4][4], t_point dst)
 {
 	float a;
 	float b;

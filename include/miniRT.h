@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:12:06 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/05/20 21:11:07 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/05/23 11:08:31 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 #include <stdio.h>
 #include "struct.h"
 
-typedef unsigned int t_uint;
+#define F_LIMIT 3.402823466e+38F
 
-void	start(float **camtowrld, t_ray *ray, t_setting *set);
-void	render(float **camtowrld, t_ray *ray, t_setting *set);
+void	start(float camtowrld[4][4], t_ray *ray, t_setting *set);
+void	render(float camtowrld[4][4], t_ray *ray, t_setting *set, t_sphere sp);
+int		intersect(const t_ray ray, const t_sphere sp, float *t);
 
 //UTILITIES
 
@@ -29,10 +30,18 @@ t_point		fill_point(float a, float b, float c, t_point p);
 float		deg2rad(float deg);
 
 //point_ops
-t_point		point_sum(t_point p1, t_point p2);
+t_point		vector_sum(t_point p1, t_point p2);
+t_point		vector_sub(t_point p1, t_point p2);
+float		point_dist(t_point p1, t_point p2);
+float		dot_product(t_point p);
+t_point		point_mul(t_point p1, t_point p2);
 
 //matrix_ops
-void		mult_pt_mtx(t_point src, float **m, t_point dst);
-void		mult_vec_mtx(t_point src, float **m, t_point dst);
+void		mult_pt_mtx(t_point src, float m[4][4], t_point dst);
+void		mult_vec_mtx(t_point src, float m[4][4], t_point dst);
+
+//quad_solver
+int		quad_solver(const float a, const float b, const float c, float x0, float x1);
+void		ft_swap_f(float *a, float *b);
 
 t_point		normalize(t_point p);

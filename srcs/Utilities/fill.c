@@ -6,11 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 14:30:19 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/05/19 17:13:24 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/05/23 08:55:22 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/miniRT.h"
+#include "../../include/miniRT.h"
 
 t_point		fill_point(float a, float b, float c, t_point p)
 {

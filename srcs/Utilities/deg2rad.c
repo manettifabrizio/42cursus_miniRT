@@ -6,11 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/18 13:44:59 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/05/18 14:06:23 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/05/23 08:54:22 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/miniRT.h"
+#include "../../include/miniRT.h"
 
 float	deg2rad(float deg)
 {
