@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill.c                                             :+:      :+:    :+:   */
+/*   objects.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/19 14:30:19 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/05/24 21:08:43 by fmanetti         ###   ########.fr       */
+/*   Created: 2020/05/25 21:21:43 by fmanetti          #+#    #+#             */
+/*   Updated: 2020/05/26 00:38:01 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/miniRT.h"
+#include "struct.h"
 
-t_point		fill_point_1(float a)
+typedef	struct	s_sphere
 {
-	t_point p;
-	
-	p.x = a;
-	p.y = a;
-	p.z = a;
-	return (p);
-}
+	t_point				c;
+	float				d;
+	t_color				rgb;
+}				t_sphere;
 
-t_point		fill_point_2(float a, t_point p)
+typedef struct	s_plane
 {
-	p.x = a;
-	p.y = a;
-	p.z = a;
-	return (p);
-}
+	t_point				a;
+	t_point				v;
+	t_color				rgb;
+}				t_plane;
 
-t_point		fill_point_3(float a, float b, float c, t_point p)
+typedef	struct	s_shapes
 {
-	p.x = a;
-	p.y = b;
-	p.z = c;
-	return (p);
-}
+	t_sphere			sp;
+	t_plane				pl;
+	struct s_shapes		*next;
+}				t_shapes;

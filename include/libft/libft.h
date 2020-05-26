@@ -6,16 +6,14 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 18:15:22 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/04/23 18:55:03 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/05/24 17:36:12 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
+# include "srcs/get_next_line/get_next_line.h"
 
 typedef	struct		s_list
 {
@@ -68,6 +66,8 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr(int nb);
 void				ft_putnbr_fd(int n, int fdi);
+void				ft_swap_f(float *a, float *b);
+void				ft_swap(int *a, int *b);
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **alst, t_list *new);
 int					ft_lstsize(t_list *lst);

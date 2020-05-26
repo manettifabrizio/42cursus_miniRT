@@ -6,7 +6,7 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 17:50:17 by fmanetti          #+#    #+#              #
-#    Updated: 2020/05/21 01:29:10 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/05/24 17:37:55 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,11 @@ SOURCE = srcs/ft_memset.c \
 		srcs/ft_putstr_fd.c \
 		srcs/ft_putendl_fd.c \
 		srcs/ft_putnbr.c \
-		srcs/ft_putnbr_fd.c 
+		srcs/ft_putnbr_fd.c \
+		srcs/ft_swap.c \
+		srcs/ft_swap_f.c \
+		srcs/get_next_line/get_next_line.c \
+		srcs/get_next_line/get_next_line_utils.c
 
 BONUS = srcs/ft_lstnew.c \
 		srcs/ft_lstadd_front.c \
