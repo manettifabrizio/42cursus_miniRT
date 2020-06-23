@@ -6,7 +6,7 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 17:50:17 by fmanetti          #+#    #+#              #
-#    Updated: 2020/05/24 17:37:55 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/06/22 13:23:41 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SOURCE = srcs/ft_memset.c \
 		srcs/ft_isalnum.c \
 		srcs/ft_isascii.c \
 		srcs/ft_isprint.c \
+		srcs/ft_isspace.c \
 		srcs/ft_toupper.c \
 		srcs/ft_tolower.c \
 		srcs/ft_strchr.c \
@@ -41,6 +42,7 @@ SOURCE = srcs/ft_memset.c \
 		srcs/ft_strlcat.c \
 		srcs/ft_strnstr.c \
 		srcs/ft_atoi.c \
+		srcs/ft_atof.c \
 		srcs/ft_calloc.c \
 		srcs/ft_strdup.c \
 		srcs/ft_substr.c \

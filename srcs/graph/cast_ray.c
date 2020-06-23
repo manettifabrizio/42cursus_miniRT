@@ -6,15 +6,15 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:19:02 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/05/26 10:06:13 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/06/18 11:39:04 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/miniRT.h"
 
-void	get_surface_data(t_point *phit, t_point *nhit, t_coord *tex, t_sphere sp)
+void	get_surface_data(t_point *phit, t_point *nhit, t_coord *tex, t_objects sh)
 {
-	*nhit = vector_sub(*phit, sp.ctr); //calcolo la normale
+	*nhit = vector_sub(*phit, sh.shead->sp.c); //calcolo la normale
 	normalize(*nhit);
 	// In this particular case, the normal is simular to a point on a unit sphere
 	// centred around the origin. We can thus use the normal coordinates to compute
@@ -31,7 +31,7 @@ t_point	mix(t_point a, t_point b, float patt)
 			point_mul(b, fill_point_1(patt))));
 }
 
-t_point	cast_ray(t_ray *ray, t_shapes sh) //da riscrivere
+t_point	cast_ray(t_ray *ray, t_objects sh) //da riscrivere
 {
 	t_point phit; // punto di intersezione
 	t_point nhit; // normale nel p di intersezione

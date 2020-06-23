@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:07:40 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/05/26 10:19:59 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/06/05 12:10:08 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // primary rays and cast these rays into the scene. The content of the framebuffer is
 // saved to a file.
 
-void	render(float camtowrld[4][4], t_ray *ray, t_setting *set, t_shapes sh)
+void	render(float camtowrld[4][4], t_ray *ray, t_setting *set, t_objects sh)
 {
 	t_point framebuffer[set->width * set->heigth]; //array dove metto tutti i dati raccolti 
 	t_point *pix;
