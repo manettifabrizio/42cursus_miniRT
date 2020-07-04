@@ -6,13 +6,13 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:15:54 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/05/25 18:11:24 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/07/03 11:16:15 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/miniRT.h"
 
-t_uint *color(t_point *framebuffer, t_setting *set)
+static t_uint 	*color(t_color *framebuffer, t_setting *set)
 {
 	t_uint 	i;
 	t_uint	*clr;
@@ -22,9 +22,9 @@ t_uint *color(t_point *framebuffer, t_setting *set)
 		return (NULL);
 	while (i < (set->width * set->heigth))
 	{ //rgb to int rgb
-		clr[i] = (t_uint)(framebuffer[i].x);
-		clr[i] = (clr[i] << 8) + (t_uint)(framebuffer[i].y);
-		clr[i] = (clr[i] << 8) + (t_uint)(framebuffer[i].z);
+		clr[i] = (t_uint)(framebuffer[i].r);
+		clr[i] = (clr[i] << 8) + (t_uint)(framebuffer[i].g);
+		clr[i] = (clr[i] << 8) + (t_uint)(framebuffer[i].b);
 		// clr[i] = (t_uint)(255 * framebuffer[i].x);
 		// clr[i] = (clr[i] << 8) + (t_uint)(255 * framebuffer[i].y);
 		// clr[i] = (clr[i] << 8) + (t_uint)(255 * framebuffer[i].z);
@@ -34,7 +34,7 @@ t_uint *color(t_point *framebuffer, t_setting *set)
 	return (clr);
 }
 
-int		draw(t_point *framebuffer, t_setting *set)
+int				draw(t_color *framebuffer, t_setting *set)
 {
 	void	*mlx;
 	void	*win;

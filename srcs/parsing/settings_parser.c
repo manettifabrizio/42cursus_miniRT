@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 21:38:27 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/23 09:37:19 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/06/23 10:10:51 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ int				fill_ambl(char *line, t_setting *set)
 	x++;
 	// printf("line3 = %s, x = %d\n", line + x, x);
 	set->amblclr.b = my_atoi(line, &x);
-	printf("ar = %f, r = %d, g = %d, b = %d\n", set->amblrat, set->amblclr.r, set->amblclr.g, set->amblclr.b);
+	// printf("ar = %f, r = %d, g = %d, b = %d\n", set->amblrat, set->amblclr.r, set->amblclr.g, set->amblclr.b);
 	return (x);
 }

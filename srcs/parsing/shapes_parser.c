@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 13:35:27 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/23 09:37:05 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/06/23 10:16:41 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int		fill_sphere(char *line, t_objects *obj)
 	// printf("shead = %p\n", obj->shead);
 	if (check(line, 3))
 		return (-1);
+	tmp->n = 0;
 	tmp->sp.c.x = my_atof(line, &x);
 	// printf("a c.x = %f\n", tmp->sp.c.x);
 	tmp->sp.c.y = my_atof(line, &x);
@@ -43,6 +44,7 @@ int		fill_plane(char *line, t_objects *obj)
 	obj->ns = lst_check_s(&(obj->shead), obj->ns, &tmp);
 	if (check(line, 3))
 		return (-1);
+	tmp->n = 1;
 	tmp->pl.p.x = my_atof(line, &x);
 	tmp->pl.p.y = my_atof(line, &x);
 	tmp->pl.p.z = my_atof(line, &x);
@@ -64,6 +66,7 @@ int		fill_square(char *line, t_objects *obj)
 	obj->ns = lst_check_s(&(obj->shead), obj->ns, &tmp);
 	if (check(line, 4))
 		return (-1);
+	tmp->n = 2;
 	tmp->sq.p.x = my_atof(line, &x);
 	tmp->sq.p.y = my_atof(line, &x);
 	tmp->sq.p.z = my_atof(line, &x);
@@ -86,6 +89,7 @@ int		fill_cylinder(char *line, t_objects *obj)
 	obj->ns = lst_check_s(&(obj->shead), obj->ns, &tmp);
 	if (check(line, 5))
 		return (-1);
+	tmp->n = 3;
 	tmp->cy.p.x = my_atof(line, &x);
 	tmp->cy.p.y = my_atof(line, &x);
 	tmp->cy.p.z = my_atof(line, &x);
@@ -109,6 +113,7 @@ int		fill_triangle(char *line, t_objects *obj)
 	obj->ns = lst_check_s(&(obj->shead), obj->ns, &tmp);
 	if (check(line, 4))
 		return (-1);
+	tmp->n = 4;
 	tmp->tr.p1.x = my_atof(line, &x);
 	tmp->tr.p1.y = my_atof(line, &x);
 	tmp->tr.p1.z = my_atof(line, &x);

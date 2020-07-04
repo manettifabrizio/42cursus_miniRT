@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 13:08:20 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/22 13:29:51 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/07/03 10:35:06 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,12 @@ int		main(int ac, char **av)
 
 	if (ac < 2)
 	{
-		perror("Error: ");
+		ft_putstr("\033[0;31mError\033[0m : Less than two arguments\n");
 		return (0);
 	}
-	// sp1.diam = 2;
-	// sp2.diam = 0.5;
-	set.width = 1000;
-	set.heigth = 900;
 	start(camtowrld, &ray, &set, &obj);
 	start_parse(av, &set, &obj);
-	print_parse(set, &obj);
-	//render(camtowrld, &ray, &set, obj);
+	// print_parse(set, &obj);
+	render(camtowrld, &ray, &set, obj);
 	return (0);
 }

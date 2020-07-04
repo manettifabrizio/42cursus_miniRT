@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:12:06 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/22 14:28:21 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/07/03 10:43:01 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,21 @@ void		start(float camtowrld[4][4], t_ray *ray, t_setting *set, t_objects *sh);
 //GRAPH
 
 void		render(float camtowrld[4][4], t_ray *ray, t_setting *set, t_objects sh);
-t_point		cast_ray(t_ray *ray, t_objects sh);
-int			draw(t_point *framebuffer, t_setting *set);
-int 		trace(const t_ray *ray, t_objects sh, float *tnear, t_point *hitobject);
+t_color		cast_ray(t_ray *ray, t_setting set, t_objects obj);
+int			draw(t_color *framebuffer, t_setting *set);
+int			trace(const t_ray *ray, t_objects *obj, float *tnear, t_color *hitcolor);
 
-///INTERSECTIONS
-int			intersect(const t_ray ray, const t_objects *sh, float *t);
-int			sp_intersect(const t_ray ray, const t_sphere sp, float *t);
+//INTERSECTIONS
+int			intersect(const t_ray ray, const t_shapes sh, float *t, t_color *hitcolor);
+int			sp_intersect(const t_ray ray, const t_sphere sp, float *t, t_color *hitcolor);
 
 //UTILITIES
 
 //fill
 t_point		fill_point_1(float a);
-t_point		fill_point_2(float a, t_point p);
-t_point		fill_point_3(float a, float b, float c, t_point p);
+t_point		fill_point_2(float a);
+t_point		fill_point_3(float a, float b, float c);
+t_color		fill_clr_3(float a, float b, float c);
 int			my_atoi(const char *s, t_uint *y);
 float		my_atof(const char *s, t_uint *i);
 int			check(char *line, t_uint y);

@@ -6,7 +6,7 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/22 20:52:58 by fmanetti          #+#    #+#              #
-#    Updated: 2020/06/22 14:28:29 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/06/23 09:54:02 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ $(NAME): $(OBJ)
 	@cp include/libft/libft.a .
 	@cp include/minilibx/libmlx.dylib .
 	@printf "[ libmlx.dylib ] Created \033[0;32mSuccessfully\n\033[0m" $(SUCCESS)
-	@gcc -g -lmlx -L include/minilibx -framework OpenGL -framework AppKit -lz $(SOURCE) $(INCLUDE) 
+	@gcc -g -lmlx -L include/minilibx -framework OpenGL -framework AppKit -lz $(SOURCE) $(INCLUDE) -g3 -fsanitize=address
 	@printf "[ miniRT ] Compiled \033[0;32mSuccessfully\n\033[0m"
 
 bonus: $(NAME)

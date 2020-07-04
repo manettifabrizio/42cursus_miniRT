@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 21:24:39 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/05/24 21:39:52 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/06/23 12:56:00 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int		quad_solver(const float a, const float b, const float c, float *x0, float *
 	float delta;
 	float q;
 
+	// printf("a = %f\nb = %f\nc = %f\n", a, b, c);
 	delta = pow(b, 2) - (4 * a * c);
 	if (delta < 0)
 		return (0);
@@ -31,7 +32,7 @@ int		quad_solver(const float a, const float b, const float c, float *x0, float *
 		*x0 = q / a;
 	*x1 = c / q;  
 	}
-	if (*x0 >*x1)
+	if (*x0 > *x1)
 		ft_swap_f(x0, x1);
 	return (1);
 }

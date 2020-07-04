@@ -6,13 +6,13 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 13:29:54 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/05/26 10:11:55 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/07/03 10:42:21 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/miniRT.h"
 
-int		sp_intersect(const t_ray ray, const t_sphere sp, float *t)
+int		sp_intersect(const t_ray ray, const t_sphere sp, float *t, t_color *hitcolor)
 {
 	float	a;
 	float 	b;
@@ -20,12 +20,17 @@ int		sp_intersect(const t_ray ray, const t_sphere sp, float *t)
 	float	dist;
 	float t0 = 0.0, t1 = 0.0;
 
+	// printf("ray.orig(%f, %f, %f)\nray.dir(%f, %f, %f)\n", ray.orig.x, ray.orig.y, ray.orig.z, ray.dir.x, ray.dir.y, ray.dir.z);
+	// printf("c.x = %f\n", sp.c.x);
+	// printf("c.y = %f\n", sp.c.y);
+	// printf("c.z = %f\n", sp.c.z);
 	a = dot_product_1(ray.dir); //D^2
-	b = - 2 * dot_product_2(ray.dir, sp.c); // -2DC
-	c = dot_product_1(ray.orig) + dot_product_1(sp.c) - pow(sp.d * 0.5, 2); //O^2 + C^2 - R^2
+	b = 2 * dot_product_2(ray.dir, vector_sub(ray.orig, sp.c)); // -2DC
+	c = dot_product_1(vector_sub(ray.orig, sp.c)) - pow(sp.d * 0.5, 2); //O^2 + C^2 - R^2
 	// ^ era sbagliato il raggio non era alla 2 controllare
 	if (!(quad_solver(a, b, c, &t0, &t1)))
 		return (0);
+	// printf("t0 = %f\nt1 = %f\n", t0, t1);
 	if (t0 > t1)
 		ft_swap_f(&t0, &t1);
 	if (t1 < 0)
@@ -35,5 +40,6 @@ int		sp_intersect(const t_ray ray, const t_sphere sp, float *t)
 			return (0);
 	}
 	*t = t0;
+	*hitcolor = fill_clr_3(sp.clr.r, sp.clr.g, sp.clr.b);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 21:21:43 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/22 14:20:23 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/06/23 10:12:52 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ typedef	struct			s_triangle
 
 typedef struct			s_shapes
 {
+	t_uint				n;
 	t_sphere			sp;
 	t_plane				pl;
 	t_square			sq;

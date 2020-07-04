@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:19:02 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/18 11:39:04 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/07/03 10:27:27 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,27 @@ t_point	mix(t_point a, t_point b, float patt)
 			point_mul(b, fill_point_1(patt))));
 }
 
-t_point	cast_ray(t_ray *ray, t_objects sh) //da riscrivere
+t_color	cast_ray(t_ray *ray, t_setting set, t_objects obj) //da riscrivere
 {
 	t_point phit; // punto di intersezione
 	t_point nhit; // normale nel p di intersezione
 	t_coord	tex; //coordinate della texture
 	float pattern;
 	float t; // distanza ray.orig - oggetto
-	t_point hitcolor; //colore nel puntixel colpito dal raggio
-	t_point	hitobject; //puntatore verso l'oggetto colpito
+	t_color hitcolor; //colore nel puntixel colpito dal raggio
+	// t_point	hitobject; //puntatore verso l'oggetto colpito
 
-	hitobject = fill_point_1(255); //colore oggetto
-	hitcolor = fill_point_1(50); //colore di sfondo
-	if (trace(ray, sh, &t, &hitobject)) //se c'è un intersezione con un oggetto
+	// hitobject = fill_point_1(255); //colore oggetto
+	hitcolor = set.amblclr; //colore di sfondo
+	if (trace(ray, &obj, &t, &hitcolor)) //se c'è un intersezione con un oggetto
 	{
-		phit = vector_sum(ray->orig, point_mul(ray->dir, fill_point_2(t, hitcolor)));
-		get_surface_data(&phit, &nhit, &tex, sh);
-		pattern = (fmodf(tex.x1 * 4, 1) > 0.5) ^ (fmodf(tex.x2 * 4, 1) > 0.5);
-		hitcolor = point_mul(fill_point_1(dot_product_1(ray->dir)), mix(hitobject, point_mul(hitobject, fill_point_1(0.8)), pattern));
+		// phit = vector_sum(ray->orig, point_mul(ray->dir, fill_point_2(t)));
+		// get_surface_data(&phit, &nhit, &tex, sh);
+		// pattern = (fmodf(tex.x1 * 4, 1) > 0.5) ^ (fmodf(tex.x2 * 4, 1) > 0.5);
+		// hitcolor = point_mul(fill_point_1(dot_product_1(ray->dir)), mix(hitobject, point_mul(hitobject, fill_point_1(0.8)), pattern));
 		//^qui in qualche modo trasforma le coordinate della direzione del raggio in un colore
 		//aggiungendovi uno e dividendole per 2
 	}
+	// printf("hit.r = %f, hit.g = %f, hit.b = %f\n", hitcolor.x, hitcolor.y, hitcolor.z);
 	return (hitcolor);
 }

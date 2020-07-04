@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 12:07:43 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/23 09:37:40 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/06/23 14:48:01 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,5 @@ void	start(float camtowrld[4][4], t_ray *ray, t_setting *set, t_objects *sh)
 	ray->dir.x = 0.0; //dir = vettore direzione OP; O = origine ;P = pixel nell'image plane  
 	ray->dir.y = 0.0;
 	ray->dir.z = -1;
-	set->scale =  tan(deg2rad(140 * 0.5)); //alpha = angolo del campo visivo; < alfa = zoom
-	set->imageAR = set->width / (float)set->heigth; //imageAR serve per evitare la deformazione dei pixel
-	// printf ("imageAR = %u / %u = %f\n", set->width, set->heigth, set->imageAR);
+	 //alpha = angolo del campo visivo; < alfa = zoom
 }
