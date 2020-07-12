@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 11:15:09 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/05/28 19:06:42 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/07/12 07:50:36 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ int		my_atoi(const char *s, t_uint *x)
 	if (c > 1)
 		return (0);
 	(*x) += c;
+	if (s[*x] == ',')
+		(*x)++;
 	return (res * sign);
 }

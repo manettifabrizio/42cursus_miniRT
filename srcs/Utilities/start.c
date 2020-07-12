@@ -6,13 +6,13 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 12:07:43 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/23 14:48:01 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/07/10 23:21:21 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/miniRT.h"
 
-void	start(float camtowrld[4][4], t_ray *ray, t_setting *set, t_objects *sh)
+void	start(float camtowrld[4][4], t_ray *ray, t_setting *set, t_objects *obj)
 {
 	//inizializzazione basica di una matrice (matrice identità)
 	// n * mtx = n
@@ -20,14 +20,14 @@ void	start(float camtowrld[4][4], t_ray *ray, t_setting *set, t_objects *sh)
 	camtowrld[1][1] = 1;
 	camtowrld[2][2] = 1;
 	camtowrld[3][3] = 1;
-	sh->nc = 0;
-	sh->nl = 0;
-	sh->ns = 0;
-	ray->orig.x = 0.0; //orig = vettore origine (0, 0, 0)
-	ray->orig.y = 0.0;
-	ray->orig.z = 0.0;
-	ray->dir.x = 0.0; //dir = vettore direzione OP; O = origine ;P = pixel nell'image plane  
-	ray->dir.y = 0.0;
-	ray->dir.z = -1;
+	obj->nc = 0;
+	obj->nl = 0;
+	obj->ns = 0;
+	ray->orig.x = obj->chead->c.x; //orig = vettore origine (0, 0, 0)
+	ray->orig.y = obj->chead->c.y;
+	ray->orig.z = obj->chead->c.z;
+	ray->dir.x = obj->chead->v.x; //dir = vettore direzione OP; O = origine ;P = pixel nell'image plane  
+	ray->dir.y = obj->chead->v.y;
+	ray->dir.z = obj->chead->v.z;
 	 //alpha = angolo del campo visivo; < alfa = zoom
 }

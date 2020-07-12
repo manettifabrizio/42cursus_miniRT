@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 13:35:27 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/23 10:16:41 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/07/12 09:30:11 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ int		fill_sphere(char *line, t_objects *obj)
 	tmp->sp.c.y = my_atof(line, &x);
 	tmp->sp.c.z = my_atof(line, &x);
 	tmp->sp.d = my_atof(line, &x);
-	tmp->sp.clr.r = my_atof(line, &x);
-	tmp->sp.clr.g = my_atof(line, &x);
-	tmp->sp.clr.b = my_atof(line, &x);
+	tmp->sp.clr.r = my_atoi(line, &x);
+	tmp->sp.clr.g = my_atoi(line, &x);
+	tmp->sp.clr.b = my_atoi(line, &x);
+	//printf("hit.r = %u, hit.g = %u, hit.b = %u\n", tmp->sp.clr.r, tmp->sp.clr.g, tmp->sp.clr.b);
 	return (x);
 }
 
@@ -51,9 +52,11 @@ int		fill_plane(char *line, t_objects *obj)
 	tmp->pl.v.x = my_atof(line, &x);
 	tmp->pl.v.y = my_atof(line, &x);
 	tmp->pl.v.z = my_atof(line, &x);
-	tmp->pl.clr.r = my_atof(line, &x);
-	tmp->pl.clr.g = my_atof(line, &x);
-	tmp->pl.clr.b = my_atof(line, &x);
+	// printf("line[%u] = %c\n", x, line[x]);
+	tmp->pl.clr.r = my_atoi(line, &x);
+	tmp->pl.clr.g = my_atoi(line, &x);
+	tmp->pl.clr.b = my_atoi(line, &x);
+	// printf("hit.r = %u, hit.g = %u, hit.b = %u\n", tmp->pl.clr.r, tmp->pl.clr.g, tmp->pl.clr.b);
 	return (x);
 }
 
@@ -74,9 +77,9 @@ int		fill_square(char *line, t_objects *obj)
 	tmp->sq.v.y = my_atof(line, &x);
 	tmp->sq.v.z = my_atof(line, &x);
 	tmp->sq.h = my_atof(line, &x);
-	tmp->sq.clr.r = my_atof(line, &x);
-	tmp->sq.clr.g = my_atof(line, &x);
-	tmp->sq.clr.b = my_atof(line, &x);
+	tmp->sq.clr.r = my_atoi(line, &x);
+	tmp->sq.clr.g = my_atoi(line, &x);
+	tmp->sq.clr.b = my_atoi(line, &x);
 	return (x);
 }
 

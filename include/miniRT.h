@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:12:06 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/07/03 10:43:01 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/07/07 09:29:09 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int			trace(const t_ray *ray, t_objects *obj, float *tnear, t_color *hitcolor);
 //INTERSECTIONS
 int			intersect(const t_ray ray, const t_shapes sh, float *t, t_color *hitcolor);
 int			sp_intersect(const t_ray ray, const t_sphere sp, float *t, t_color *hitcolor);
+int			pl_intersect(const t_ray ray, const t_plane pl, float *t, t_color *hitcolor);
 
 //UTILITIES
 
@@ -50,12 +51,15 @@ float		deg2rad(float deg);
 
 t_point		normalize(t_point p);
 
-//GRAPH
+//MATH
+
+//distance
+float		point_dist(t_point p1, t_point p2);
+t_point		pointplane_dist(const t_ray ray, const t_plane pl);
 
 //point_ops
 t_point		vector_sum(t_point p1, t_point p2);
 t_point		vector_sub(t_point p1, t_point p2);
-float		point_dist(t_point p1, t_point p2);
 float		dot_product_1(t_point p);
 float		dot_product_2(t_point p1, t_point p2);
 t_point		point_mul(t_point p1, t_point p2);

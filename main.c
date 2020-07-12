@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 13:08:20 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/07/03 10:35:06 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/07/11 01:50:01 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int		main(int ac, char **av)
 	start(camtowrld, &ray, &set, &obj);
 	start_parse(av, &set, &obj);
 	// print_parse(set, &obj);
+	ray.orig = obj.chead->c;
+	ray.dir = obj.chead->v;
 	render(camtowrld, &ray, &set, obj);
 	return (0);
 }

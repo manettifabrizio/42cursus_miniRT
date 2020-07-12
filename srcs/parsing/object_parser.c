@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/05 13:49:41 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/23 14:46:21 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/07/12 07:43:25 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int				fill_cam(char *line, t_objects *obj)
 	// printf("5\n");
 	tmp->v.z = my_atof(line, &x);
 	tmp->alpha = my_atof(line, &x);
-	x = 5;
 	return (x);
 }
 
@@ -53,8 +52,8 @@ int				fill_light(char *line, t_objects *obj)
 	tmp->c.y = my_atof(line, &x);
 	tmp->c.z = my_atof(line, &x);
 	tmp->rat = my_atof(line, &x);
-	tmp->clr.r = my_atof(line, &x);
-	tmp->clr.g = my_atof(line, &x);
-	tmp->clr.b = my_atof(line, &x);
+	tmp->clr.r = my_atoi(line, &x);
+	tmp->clr.g = my_atoi(line, &x);
+	tmp->clr.b = my_atoi(line, &x);
 	return (x);
 }

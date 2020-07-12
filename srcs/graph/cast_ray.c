@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:19:02 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/07/03 10:27:27 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/07/12 07:24:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ t_color	cast_ray(t_ray *ray, t_setting set, t_objects obj) //da riscrivere
 	hitcolor = set.amblclr; //colore di sfondo
 	if (trace(ray, &obj, &t, &hitcolor)) //se c'è un intersezione con un oggetto
 	{
+
 		// phit = vector_sum(ray->orig, point_mul(ray->dir, fill_point_2(t)));
 		// get_surface_data(&phit, &nhit, &tex, sh);
 		// pattern = (fmodf(tex.x1 * 4, 1) > 0.5) ^ (fmodf(tex.x2 * 4, 1) > 0.5);
@@ -52,6 +53,6 @@ t_color	cast_ray(t_ray *ray, t_setting set, t_objects obj) //da riscrivere
 		//^qui in qualche modo trasforma le coordinate della direzione del raggio in un colore
 		//aggiungendovi uno e dividendole per 2
 	}
-	// printf("hit.r = %f, hit.g = %f, hit.b = %f\n", hitcolor.x, hitcolor.y, hitcolor.z);
+	// printf("hit.r = %u, hit.g = %u, hit.b = %u\n", hitcolor.r, hitcolor.g, hitcolor.b);
 	return (hitcolor);
 }

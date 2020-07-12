@@ -6,7 +6,7 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/22 20:52:58 by fmanetti          #+#    #+#              #
-#    Updated: 2020/06/23 09:54:02 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/07/07 09:29:49 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,10 @@ SOURCE = 	main.c \
 			srcs/graph/cast_ray.c \
 			srcs/graph/intersection/intersect.c \
 			srcs/graph/intersection/sp_intersect.c \
+			srcs/graph/intersection/pl_intersect.c \
 			srcs/math/matrix_ops.c \
 			srcs/math/point_ops.c \
+			srcs/math/distance.c \
 			srcs/math/quad_solver.c \
 			srcs/utilities/start.c \
 			srcs/utilities/deg2rad.c \

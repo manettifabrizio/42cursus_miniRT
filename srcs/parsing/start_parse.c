@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:25:06 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/23 14:47:32 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/07/12 09:30:29 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void		fill_setting(char **setting, t_setting *set, t_objects *obj)
 				y++;
 			y = letters(setting[x] + y, set, obj);
 			// printf("00000000000000000000000000000000\n");
-			// // print_sp(*(obj->shead));
+			// printf("cam.c.x = %f\ncam.c.y = %f\ncam.c.z = %f\ncam.v.x = %f\ncam.v.y = %f\ncam.v.z = %f\n", obj->chead->c.x, obj->chead->c.y, obj->chead->c.z, obj->chead->v.x, obj->chead->v.y, obj->chead->v.z);
 			// printf("00000000000000000000000000000000\n");
 			if (y < 0)
 				parse_errors(x, y);
@@ -128,7 +128,10 @@ void			start_parse(char **av, t_setting *set, t_objects *obj)
 	close(fd);
 	fill_setting(setting, set, obj);
 	set->imageAR = set->width / (float)set->heigth;
-	set->scale =  tan(deg2rad(obj->chead->alpha * 0.5));
+	// printf("alpha = %f\n", obj->chead->alpha);
+	if (obj->chead->alpha > 0 && obj->chead->alpha < 180) //
+		set->scale = tan(deg2rad(obj->chead->alpha * 0.5));
+	// printf("scale = %f\n", set->scale);
 	// printf("************************************************* %d\n", obj->nc);
 	if (obj->nc == 0)
 		parse_errors(0, 0);

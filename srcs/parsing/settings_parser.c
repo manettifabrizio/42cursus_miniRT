@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 21:38:27 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/23 10:10:51 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/07/12 07:54:20 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,9 @@ int				fill_ambl(char *line, t_setting *set)
 	// printf("line0 = %s, x = %d\n", line, x);
 	set->amblrat = my_atof(line, &x);
 	// printf("line1 = %s, x = %d\n", line + x, x);
-	set->amblclr.r = my_atoi(line, &x);
-	x++; //virgola che separa i colori
+	set->amblclr.r = my_atoi(line, &x);//virgola che separa i colori
 	// printf("line2 = %s, x = %d\n", line + x, x);
 	set->amblclr.g = my_atoi(line, &x);
-	x++;
 	// printf("line3 = %s, x = %d\n", line + x, x);
 	set->amblclr.b = my_atoi(line, &x);
 	// printf("ar = %f, r = %d, g = %d, b = %d\n", set->amblrat, set->amblclr.r, set->amblclr.g, set->amblclr.b);
