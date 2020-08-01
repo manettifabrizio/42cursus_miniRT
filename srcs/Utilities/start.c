@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 12:07:43 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/07/10 23:21:21 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/01 16:31:51 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	start(float camtowrld[4][4], t_ray *ray, t_setting *set, t_objects *obj)
 	ray->orig.x = obj->chead->c.x; //orig = vettore origine (0, 0, 0)
 	ray->orig.y = obj->chead->c.y;
 	ray->orig.z = obj->chead->c.z;
-	ray->dir.x = obj->chead->v.x; //dir = vettore direzione OP; O = origine ;P = pixel nell'image plane  
-	ray->dir.y = obj->chead->v.y;
-	ray->dir.z = obj->chead->v.z;
+	// ray->dir.x = obj->chead->v.x; //dir = vettore direzione OP; O = origine ;P = pixel nell'image plane  
+	// ray->dir.y = obj->chead->v.y;
+	// ray->dir.z = obj->chead->v.z;
 	 //alpha = angolo del campo visivo; < alfa = zoom
 }
