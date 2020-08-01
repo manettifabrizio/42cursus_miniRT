@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:07:40 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/07/12 09:32:22 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/07/15 11:17:05 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	render(float camtowrld[4][4], t_ray *ray, t_setting *set, t_objects obj)
 				* set->scale * set->imageAR; //moltiplicare per AR per assicurarsi che i pixel siano quadrati
 			ray->dir.y = (1 - 2 * ((j + 0.5) / set->heigth)) \
 				* set->scale; //moltiplicare per il field of view
-			printf("(%f ,", ray->dir.x);
-			printf("%f),", ray->dir.y);
+			// printf("(%f ,", ray->dir.x);
+			// printf("%f),", ray->dir.y);
 			mult_vec_mtx(ray->dir, camtowrld, ray->dir);
 			// printf("3dir.z = %f\n", ray->dir.z);
 			// printf("dir.x = %f\ndir.y = %f\ndir.z = %f\n", ray->dir.x, ray->dir.y, ray->dir.z);

@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:25:06 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/07/12 09:30:29 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/01 11:26:27 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ void			start_parse(char **av, t_setting *set, t_objects *obj)
 	fill_setting(setting, set, obj);
 	set->imageAR = set->width / (float)set->heigth;
 	// printf("alpha = %f\n", obj->chead->alpha);
-	if (obj->chead->alpha > 0 && obj->chead->alpha < 180) //
+	if (obj->chead->alpha > 0 && obj->chead->alpha < 180)
 		set->scale = tan(deg2rad(obj->chead->alpha * 0.5));
 	// printf("scale = %f\n", set->scale);
 	// printf("************************************************* %d\n", obj->nc);
