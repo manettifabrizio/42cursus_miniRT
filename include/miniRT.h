@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:12:06 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/07/07 09:29:09 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/07 19:47:12 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ t_point		fill_point_3(float a, float b, float c);
 t_color		fill_clr_3(float a, float b, float c);
 int			my_atoi(const char *s, t_uint *y);
 float		my_atof(const char *s, t_uint *i);
+
+//var0
 int			check(char *line, t_uint y);
+void		print_point(t_point p);
 
 //conversion
 float		deg2rad(float deg);

@@ -6,13 +6,14 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 13:29:54 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/01 16:44:37 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/07 18:10:22 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/miniRT.h"
 
-int		sp_intersect(const t_ray ray, const t_sphere sp, float *t, t_color *hitcolor)
+int		sp_intersect(const t_ray ray, const t_sphere sp, float *t, \
+		t_color *objcolor)
 {
 	float	a;
 	float 	b;
@@ -48,6 +49,6 @@ int		sp_intersect(const t_ray ray, const t_sphere sp, float *t, t_color *hitcolo
 			return (0);
 	}
 	*t = t0;
-	*hitcolor = fill_clr_3(sp.clr.r, sp.clr.g, sp.clr.b);
+	*objcolor = sp.clr;
 	return (1);
 }

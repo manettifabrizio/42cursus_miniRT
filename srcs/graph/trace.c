@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:18:04 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/01 15:01:50 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/08 12:24:03 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int		trace(const t_ray *ray, t_objects *obj, float *tnear, t_color *hitcolor)
 	t_uint		x; //indice del numero di oggetti
 	// t_uint objnum = 3; //numero di oggetti (da mettere nella struttura degli oggetti)
 	t_shapes	*tmp;
+	t_color		objcolor;
 	float 		t; //distanza temporanes
 
 	x = 0;
@@ -27,10 +28,11 @@ int		trace(const t_ray *ray, t_objects *obj, float *tnear, t_color *hitcolor)
 	while (tmp)
 	{
 		t = F_LIMIT;
-		if (intersect(*ray, *tmp, &t, hitcolor) && t < *tnear)
+		if (intersect(*ray, *tmp, &t, &objcolor) && t < *tnear)
 		{
 			printf("t = %f\n", t);
-			*tnear = t;
+			*tnear = t; //il t per ora è inutilizzato
+			*hitcolor = objcolor;
 		}
 		x++;
 		tmp = tmp->next;

@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/15 15:32:24 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/23 09:37:32 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/08 08:41:39 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		lst_check_c(t_cam **head, int y, t_cam **tmp)
 {
 	// printf("1\n");
-	// printf("ns = %d\n", y);
+	printf("nc = %d\n", y);
 	if (y == 0)
 	{
 		// printf("3\n");

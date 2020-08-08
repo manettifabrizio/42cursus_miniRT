@@ -1,41 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   var0.c                                             :+:      :+:    :+:   */
+/*   sq_intersect.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/29 15:01:20 by fmanetti          #+#    #+#             */
+/*   Created: 2020/08/07 18:07:48 by fmanetti          #+#    #+#             */
 /*   Updated: 2020/08/07 19:47:12 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/miniRT.h"
+#include "../../../include/miniRT.h"
 
-int		check(char *line, t_uint y)
+int		sq_intersect(const t_ray ray, const t_sphere sp, float *t, \
+		t_color *objcolor)
 {
-	t_uint	x;
-	t_uint	nbr;
-
-	x = 0;
-	nbr = 0;
-	// printf("line = %s\n", line);
-	while (line[x])
-	{
-		if (ft_isdigit(line[x]) && (line[x + 1] == ' ' || (line[x + 1] >= 8 && \
-			line[x + 1] <= 13) || line[x + 1] == '\0'))
-			nbr++;
-		x++;
-	}
-	// printf("nbr = %d\n", nbr);
-	if (nbr != y)
-		return (1);
-	return (0);
-}
-
-void	print_point(t_point p)
-{
-	printf("x = %f\n", p.x);
-	printf("y = %f\n", p.y);
-	printf("z = %f\n", p.z);
+	
 }

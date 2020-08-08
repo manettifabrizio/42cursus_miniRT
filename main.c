@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 13:08:20 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/07/11 01:50:01 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/08 11:29:27 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,12 @@ int		main(int ac, char **av)
 	}
 	start(camtowrld, &ray, &set, &obj);
 	start_parse(av, &set, &obj);
-	// print_parse(set, &obj);
+	// print_parse(set, &obj); //qui qualcosa non torna address sanitizer che spuntano a caso non ci capisco una sega
 	ray.orig = obj.chead->c;
-	ray.dir = obj.chead->v;
+	print_point(ray.orig);
+	// printf("tmp.c.x = %f\n", obj.chead->c.x);
+	// print_point(obj.chead->c);
+	// ray.dir = obj.chead->v;
 	render(camtowrld, &ray, &set, obj);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:19:02 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/01 12:54:03 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/06 16:43:28 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_color	cast_ray(t_ray *ray, t_setting set, t_objects obj) //da riscrivere
 	float pattern;
 	float t; // distanza ray.orig - oggetto
 	t_color hitcolor; //colore nel puntixel colpito dal raggio
+	t_shapes	hitobj;
 	// t_point	hitobject; //puntatore verso l'oggetto colpito
 
 	// hitobject = fill_point_1(255); //colore oggetto

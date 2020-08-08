@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/28 12:07:24 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/07/12 07:36:33 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/08 11:30:03 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,18 @@ float			my_atof(const char *s, t_uint *i)
 	t_uint			c;
 	
 	c = 0;
+	dec = 0.0;
 	while (s[*i] == ' ' || (s[*i] >= 8 && s[*i] <= 13))
 		(*i)++;
 	if ((sign = parse_sign(s, i)) == 0)
 		return (0.0);
 	x = parse_digits(s, &c, i);
+	// printf("s = %s\n", s);
 	if (s[*i] == '.')
 	{
 		(*i)++;
 		dec = parse_digits(s, &c, i);
 	}
-	// printf("s = %s\n", s);
 	while (c--)
 		dec /= 10;
 	x += dec;
