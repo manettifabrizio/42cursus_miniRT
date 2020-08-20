@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/29 15:01:20 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/07 19:47:12 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/14 15:58:57 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ int		check(char *line, t_uint y)
 	return (0);
 }
 
-void	print_point(t_point p)
+void	print_point(t_point p, char *s)
 {
+	printf("%s\n", s);
 	printf("x = %f\n", p.x);
 	printf("y = %f\n", p.y);
 	printf("z = %f\n", p.z);

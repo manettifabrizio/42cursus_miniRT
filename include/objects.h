@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 21:21:43 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/23 10:12:52 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/14 12:55:26 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 typedef struct		s_cam
 {
 	t_point			c;
-	t_point			v;
+	t_point			n;
 	float			alpha;
 	struct s_cam	*next;
 }					t_cam;
@@ -31,21 +31,21 @@ typedef struct		s_light
 typedef	struct			s_sphere
 {
 	t_point				c;
-	float				d;
+	float				diam;
 	t_color				clr;
 }						t_sphere;
 
 typedef struct			s_plane
 {
 	t_point				p;
-	t_point				v;
+	t_point				n;
 	t_color				clr;
 }						t_plane;
 
 typedef struct			s_square
 {
 	t_point				p;
-	t_point				v;
+	t_point				n;
 	float				h;
 	t_color				clr;
 }						t_square;
@@ -53,23 +53,25 @@ typedef struct			s_square
 typedef struct			s_cylinder
 {
 	t_point				p;
-	t_point				v;
-	float				d;
+	t_point				n;
+	float				diam;
 	float				h;
 	t_color				clr;
 }						t_cylinder;
 
 typedef	struct			s_triangle
 {
-	t_point				p1;
-	t_point				p2;
-	t_point				p3;
+	t_point				v0;
+	t_point				v1;
+	t_point				v2;
+	t_point				n;
+	float				dist;
 	t_color				clr;
 }						t_triangle;
 
 typedef struct			s_shapes
 {
-	t_uint				n;
+	t_uint				num;
 	t_sphere			sp;
 	t_plane				pl;
 	t_square			sq;

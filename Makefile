@@ -6,7 +6,7 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/22 20:52:58 by fmanetti          #+#    #+#              #
-#    Updated: 2020/07/07 09:29:49 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/08/18 19:07:18 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,16 @@ NAME = 		miniRT
 
 SOURCE = 	main.c \
 			srcs/graph/render.c \
-			srcs/graph/draw.c \
 			srcs/graph/trace.c \
 			srcs/graph/cast_ray.c \
+			srcs/graph/window/draw.c \
+			srcs/graph/window/hook.c \
 			srcs/graph/intersection/intersect.c \
 			srcs/graph/intersection/sp_intersect.c \
 			srcs/graph/intersection/pl_intersect.c \
+			srcs/graph/intersection/sq_intersect.c \
+			srcs/graph/intersection/cy_intersect.c \
+			srcs/graph/intersection/tr_intersect.c \
 			srcs/math/matrix_ops.c \
 			srcs/math/point_ops.c \
 			srcs/math/distance.c \

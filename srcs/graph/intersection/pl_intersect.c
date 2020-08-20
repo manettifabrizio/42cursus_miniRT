@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 10:48:01 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/08 12:21:03 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/14 14:31:32 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,20 @@
 // 	return (p);
 // }
 
-int		pl_intersect(const t_ray ray, t_plane pl, float *t, \
-	t_color *objcolor)
-{ //da ricontrollare quando faccio la luce
-	float	denom;
-
-	// pl.v = positive(pl.v);
-	pl.v = normalize(pl.v);
+int		pl_intersect(const t_ray ray, const t_plane pl, float *t, \
+			t_color *objcolor)
+{
 	// printf("pl.p.x = %f\npl.p.y = %f\npl.p.z = %f\n", pl.p.x, pl.p.y, pl.p.z);
-	// printf("pl.v.x = %f\npl.v.y = %f\npl.v.z = %f\n", pl.v.x, pl.v.y, pl.v.z);
-	denom = dot_product_2(pl.v, ray.dir);
-	// printf("denom = %f\n", denom);
-	// if (denom > 1e-6 || denom < -1e-6) 
-	// {
-							//con la sottrazione li allinei indipendentemente
-		*t = dot_product_2(vector_sub(pl.p, ray.orig), pl.v) / denom;
-		// printf ("*t = %f\n", *t);
-		if (*t >= 0)
-		{
-			// printf("hit.r = %u, hit.g = %u, hit.b = %u\n", pl.clr.r, pl.clr.g, pl.clr.b);
-			*objcolor = pl.clr;
-			return (1);
-		}
-	// }
+	// printf("pl.n.x = %f\npl.n.y = %f\npl.n.z = %f\n", pl.n.x, pl.n.y, pl.n.z);
+						//con la sottrazione li allinei indipendentemente
+	*t = dot_2(vec_sub(pl.p, ray.orig), pl.n) / \
+		dot_2(pl.n, ray.dir);
+	// printf ("*t = %f\n", *t);
+	if (*t >= 0)
+	{
+		// printf("hit.r = %u, hit.g = %u, hit.b = %u\n", pl.clr.r, pl.clr.g, pl.clr.b);
+		*objcolor = pl.clr;
+		return (1);
+	}
 	return (0);
 }

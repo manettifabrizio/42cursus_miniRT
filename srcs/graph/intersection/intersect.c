@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 10:06:58 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/07 18:40:48 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/14 15:27:18 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,22 @@
 // }
 
 int		intersect(const t_ray ray, const t_shapes sh, float *t, \
-	t_color *objcolor)
+			t_color *objcolor)
 {
-	int 		x;
-
+	// int 		x;
 	// printf("x = %d\n", x);
 	//printf("tmp.sp.c.z = %f\n", tmp->sp.c.z);
-	if (sh.n == 0)
+	// printf("*******\n");
+	// print_point(ray.dir);
+	if (sh.num == 0)
 		return (sp_intersect(ray, sh.sp, t, objcolor));
-	else if (sh.n == 1)
+	else if (sh.num == 1)
 		return (pl_intersect(ray, sh.pl, t, objcolor));
-	// else if (sh.n == 2)
-	// 	return (sq_intersect(ray, sh.pl, t, objcolor));
+	else if (sh.num == 2)
+	 	return (sq_intersect(ray, sh.sq, t, objcolor));
+	else if (sh.num == 3)
+	 	return (cy_intersect(ray, sh.cy, t, objcolor));
+	else if (sh.num == 4)
+		return (tr_intersect(ray, sh.tr, t, objcolor));
 	return (0);
 } 

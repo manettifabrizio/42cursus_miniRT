@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/18 14:05:19 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/09 19:24:25 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/19 19:56:54 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,17 @@ typedef	struct 		s_color
 	t_uint	b;
 }					t_color;
 
+typedef struct		s_mlx
+{
+	void	*mlx;
+	void	*win;
+	void	*img;
+	char	*clr;
+	int		bpp;
+	int		sz_line;
+	int		endian;
+}					t_mlx;
+
 typedef struct 		s_setting
 {
 	unsigned int	width;
@@ -48,4 +59,21 @@ typedef struct 		s_setting
 	float			scale;
 	float			imageAR;
 	void			*head;
+	t_mlx			d;
 }					t_setting;
+
+typedef struct		s_coeff
+{
+	float a;
+	float b;
+	float c;
+}					t_coeff;
+
+typedef struct		s_cobar
+{
+	float u;
+	float v;
+	t_point pvec;
+	t_point qvec;
+	t_point tvec;
+}					t_cobar;

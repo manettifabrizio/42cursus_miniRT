@@ -6,31 +6,31 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 21:24:39 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/08 12:08:14 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/08 20:35:52 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/miniRT.h"
 
-int		quad_solver(const float a, const float b, const float c, float *x0, float *x1)
+int		quad_solver(const t_coeff d, float *x0, float *x1)
 {
-	float delta;
 	float q;
+	float delta;
 
 	// printf("a = %f\nb = %f\nc = %f\n", a, b, c);
-	delta = pow(b, 2) - (4 * a * c);
+	delta = pow(d.b, 2) - (4 * d.a * d.c);
 	if (delta < 0)
 		return (0);
 	else if (delta == 0)
-		*x0 = *x1 = -0.5 * b / a;
+		*x0 = *x1 = -0.5 * d.b / d.a;
 	else
 	{
-		if (b > 0)
-			q = -0.5 * (b + sqrt(delta));
+		if (d.b > 0)
+			q = -0.5 * (d.b + sqrt(delta));
 		else 
-			q = -0.5 * (b - sqrt(delta));
-		*x0 = q / a;
-		*x1 = c / q;  
+			q = -0.5 * (d.b - sqrt(delta));
+		*x0 = q / d.a;
+		*x1 = d.c / q;  
 	}
 	if (*x0 > *x1)
 		ft_swap_f(x0, x1);

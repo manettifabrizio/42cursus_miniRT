@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 14:05:39 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/07/11 18:29:29 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/14 14:35:24 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ float		point_dist(t_point p1, t_point p2)
 }
 
 t_point		pointplane_dist(const t_ray ray, const t_plane pl)
-{
+{ //da togliere alla fine se non utilizzato
 	float 	t;
 	t_point p;
 
-	t = (pl.v.x * pl.p.x + pl.v.y * pl.p.y + pl.v.z * pl.p.z) \
-		/ (pow(pl.v.x, 2) + pow(pl.v.y, 2) + pow(pl.v.z, 2));
-	p.x = pl.v.x * t;
-	p.y = pl.v.y * t;
-	p.z = pl.v.z * t;
+	t = (pl.n.x * pl.p.x + pl.n.y * pl.p.y + pl.n.z * pl.p.z) \
+		/ (pow(pl.n.x, 2) + pow(pl.n.y, 2) + pow(pl.n.z, 2));
+	p.x = pl.n.x * t;
+	p.y = pl.n.y * t;
+	p.z = pl.n.z * t;
 	return (p);
 }

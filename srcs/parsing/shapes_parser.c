@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 13:35:27 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/07/12 09:30:11 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/14 16:29:11 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ int		fill_sphere(char *line, t_objects *obj)
 	// printf("shead = %p\n", obj->shead);
 	if (check(line, 3))
 		return (-1);
-	tmp->n = 0;
+	tmp->num = 0;
 	tmp->sp.c.x = my_atof(line, &x);
 	// printf("a c.x = %f\n", tmp->sp.c.x);
 	tmp->sp.c.y = my_atof(line, &x);
 	tmp->sp.c.z = my_atof(line, &x);
-	tmp->sp.d = my_atof(line, &x);
+	tmp->sp.diam = my_atof(line, &x);
 	tmp->sp.clr.r = my_atoi(line, &x);
 	tmp->sp.clr.g = my_atoi(line, &x);
 	tmp->sp.clr.b = my_atoi(line, &x);
@@ -45,17 +45,18 @@ int		fill_plane(char *line, t_objects *obj)
 	obj->ns = lst_check_s(&(obj->shead), obj->ns, &tmp);
 	if (check(line, 3))
 		return (-1);
-	tmp->n = 1;
+	tmp->num = 1;
 	tmp->pl.p.x = my_atof(line, &x);
 	tmp->pl.p.y = my_atof(line, &x);
 	tmp->pl.p.z = my_atof(line, &x);
-	tmp->pl.v.x = my_atof(line, &x);
-	tmp->pl.v.y = my_atof(line, &x);
-	tmp->pl.v.z = my_atof(line, &x);
+	tmp->pl.n.x = my_atof(line, &x);
+	tmp->pl.n.y = my_atof(line, &x);
+	tmp->pl.n.z = my_atof(line, &x);
 	// printf("line[%u] = %c\n", x, line[x]);
 	tmp->pl.clr.r = my_atoi(line, &x);
 	tmp->pl.clr.g = my_atoi(line, &x);
 	tmp->pl.clr.b = my_atoi(line, &x);
+	tmp->pl.n = normalize(tmp->pl.n);
 	// printf("hit.r = %u, hit.g = %u, hit.b = %u\n", tmp->pl.clr.r, tmp->pl.clr.g, tmp->pl.clr.b);
 	return (x);
 }
@@ -69,17 +70,18 @@ int		fill_square(char *line, t_objects *obj)
 	obj->ns = lst_check_s(&(obj->shead), obj->ns, &tmp);
 	if (check(line, 4))
 		return (-1);
-	tmp->n = 2;
+	tmp->num = 2;
 	tmp->sq.p.x = my_atof(line, &x);
 	tmp->sq.p.y = my_atof(line, &x);
 	tmp->sq.p.z = my_atof(line, &x);
-	tmp->sq.v.x = my_atof(line, &x);
-	tmp->sq.v.y = my_atof(line, &x);
-	tmp->sq.v.z = my_atof(line, &x);
+	tmp->sq.n.x = my_atof(line, &x);
+	tmp->sq.n.y = my_atof(line, &x);
+	tmp->sq.n.z = my_atof(line, &x);
 	tmp->sq.h = my_atof(line, &x);
 	tmp->sq.clr.r = my_atoi(line, &x);
 	tmp->sq.clr.g = my_atoi(line, &x);
 	tmp->sq.clr.b = my_atoi(line, &x);
+	tmp->sq.n = normalize(tmp->sq.n);
 	return (x);
 }
 
@@ -92,18 +94,19 @@ int		fill_cylinder(char *line, t_objects *obj)
 	obj->ns = lst_check_s(&(obj->shead), obj->ns, &tmp);
 	if (check(line, 5))
 		return (-1);
-	tmp->n = 3;
+	tmp->num = 3;
 	tmp->cy.p.x = my_atof(line, &x);
 	tmp->cy.p.y = my_atof(line, &x);
 	tmp->cy.p.z = my_atof(line, &x);
-	tmp->cy.v.x = my_atof(line, &x);
-	tmp->cy.v.y = my_atof(line, &x);
-	tmp->cy.v.z = my_atof(line, &x);
-	tmp->cy.d = my_atof(line, &x);
+	tmp->cy.n.x = my_atof(line, &x);
+	tmp->cy.n.y = my_atof(line, &x);
+	tmp->cy.n.z = my_atof(line, &x);
+	tmp->cy.diam = my_atof(line, &x);
 	tmp->cy.h = my_atof(line, &x);
-	tmp->cy.clr.r = my_atof(line, &x);
-	tmp->cy.clr.g = my_atof(line, &x);
-	tmp->cy.clr.b = my_atof(line, &x);
+	tmp->cy.clr.r = my_atoi(line, &x);
+	tmp->cy.clr.g = my_atoi(line, &x);
+	tmp->cy.clr.b = my_atoi(line, &x);
+	tmp->cy.n = normalize(tmp->cy.n);
 	return (x);
 }
 
@@ -116,18 +119,21 @@ int		fill_triangle(char *line, t_objects *obj)
 	obj->ns = lst_check_s(&(obj->shead), obj->ns, &tmp);
 	if (check(line, 4))
 		return (-1);
-	tmp->n = 4;
-	tmp->tr.p1.x = my_atof(line, &x);
-	tmp->tr.p1.y = my_atof(line, &x);
-	tmp->tr.p1.z = my_atof(line, &x);
-	tmp->tr.p2.x = my_atof(line, &x);
-	tmp->tr.p2.y = my_atof(line, &x);
-	tmp->tr.p2.z = my_atof(line, &x);
-	tmp->tr.p3.x = my_atof(line, &x);
-	tmp->tr.p3.y = my_atof(line, &x);
-	tmp->tr.p3.z = my_atof(line, &x);
-	tmp->tr.clr.r = my_atof(line, &x);
-	tmp->tr.clr.g = my_atof(line, &x);
-	tmp->tr.clr.b = my_atof(line, &x);
+	tmp->num = 4;
+	tmp->tr.v0.x = my_atof(line, &x);
+	tmp->tr.v0.y = my_atof(line, &x);
+	tmp->tr.v0.z = my_atof(line, &x);
+	tmp->tr.v1.x = my_atof(line, &x);
+	tmp->tr.v1.y = my_atof(line, &x);
+	tmp->tr.v1.z = my_atof(line, &x);
+	tmp->tr.v2.x = my_atof(line, &x);
+	tmp->tr.v2.y = my_atof(line, &x);
+	tmp->tr.v2.z = my_atof(line, &x);
+	tmp->tr.clr.r = my_atoi(line, &x);
+	tmp->tr.clr.g = my_atoi(line, &x);
+	tmp->tr.clr.b = my_atoi(line, &x);
+	tmp->tr.n = cross_2(vec_sub(tmp->tr.v1, tmp->tr.v0), \
+		vec_sub(tmp->tr.v2, tmp->tr.v0));
+	tmp->tr.dist = dot_2(tmp->tr.n, tmp->tr.v0);
 	return (x);
 }

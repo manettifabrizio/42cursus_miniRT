@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:07:40 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/08 12:40:28 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/14 16:00:33 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	render(float camtowrld[4][4], t_ray *ray, t_setting *set, t_objects obj)
 	j = 0;
 	// printf("cam.c.x = %f\ncam.c.y = %f\ncam.c.z = %f\n", ray->orig.x, ray->orig.y, ray->orig.z);
 	// printf("1dir.z = %f\n", ray->dir.z);
-	print_point(ray->orig);
+	// print_point(ray->orig);
 	while (j < set->heigth)
 	{
 		i = 0;
@@ -46,12 +46,12 @@ void	render(float camtowrld[4][4], t_ray *ray, t_setting *set, t_objects obj)
 				* set->scale; //moltiplicare per il field of view
 			mult_vec_mtx(ray->dir, camtowrld, ray->dir);
 			// printf("3dir.z = %f\n", ray->dir.z);
-			printf("dir.x = %f\ndir.y = %f\ndir.z = %f\n", ray->dir.x, ray->dir.y, ray->dir.z);
-			ray->dir.z = obj.chead->v.z;
+			// printf("dir.x = %f\ndir.y = %f\ndir.z = %f\n", ray->dir.x, ray->dir.y, ray->dir.z);
+			ray->dir.z = obj.chead->n.z;
 			ray->dir = normalize(ray->dir);
 			// printf("4dir.z = %f\n", ray->dir.z);
-			printf("dir.x = %f ,", ray->dir.x);
-			printf(" dir.y = %f\n", ray->dir.y);
+			// printf("dir.x = %f ,", ray->dir.x);
+			// printf(" dir.y = %f\n", ray->dir.y);
 			*(pix++) = cast_ray(ray, *set, obj); //provare con framebuffer
 			i++;
 		}

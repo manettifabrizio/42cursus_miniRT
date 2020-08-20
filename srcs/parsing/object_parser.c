@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/05 13:49:41 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/08 11:30:31 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/14 14:35:47 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ int				fill_cam(char *line, t_objects *obj)
 	tmp->c.z = my_atof(line, &x);
 	// printf("tmp->c.z = %f\n", tmp->c.z);
 	// // printf("\n");
-	tmp->v.x = my_atof(line, &x);
+	tmp->n.x = my_atof(line, &x);
 	// // printf("4\n");
-	tmp->v.y = my_atof(line, &x);
+	tmp->n.y = my_atof(line, &x);
 	// // printf("5\n");
-	tmp->v.z = my_atof(line, &x);
-	// //print_point(tmp->v);
+	tmp->n.z = my_atof(line, &x);
+	// //print_point(tmp->n);
 	// // printf("\n");
 	tmp->alpha = my_atof(line, &x);
 	return (x);

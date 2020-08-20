@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/30 13:20:08 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/22 13:31:23 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/19 20:12:36 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,12 @@ void	parse_errno(int errnum)
 		perror("\033[0;31mError\033[0m ");
 	}
 	exit(1);
+}
+
+void	mlx_error(t_mlx d)
+{
+	ft_memdel(&d.img);
+	//ft_strdel(&c.str);
+	ft_memdel((void*)&d);
+	exit(EXIT_FAILURE);
 }

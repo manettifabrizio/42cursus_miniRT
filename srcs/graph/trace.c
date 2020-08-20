@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:18:04 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/08 12:24:03 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/20 09:55:11 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int		trace(const t_ray *ray, t_objects *obj, float *tnear, t_color *hitcolor)
 		t = F_LIMIT;
 		if (intersect(*ray, *tmp, &t, &objcolor) && t < *tnear)
 		{
-			printf("t = %f\n", t);
+			// printf("t = %f\n", t);
+			// printf("hit.r = %u, hit.g = %u, hit.b = %u\n", objcolor.r, objcolor.g, objcolor.b);
 			*tnear = t; //il t per ora è inutilizzato
 			*hitcolor = objcolor;
 		}

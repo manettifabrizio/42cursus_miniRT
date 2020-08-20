@@ -1,43 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill.c                                             :+:      :+:    :+:   */
+/*   rotation.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/19 14:30:19 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/08 13:31:45 by fmanetti         ###   ########.fr       */
+/*   Created: 2020/08/19 11:45:58 by fmanetti          #+#    #+#             */
+/*   Updated: 2020/08/19 12:15:44 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/miniRT.h"
+#include "../../../include/miniRT.h"
 
-t_point		fill_point_1(float a)
+void	cam_rot_left(float angle, t_cam c)
 {
-	t_point p;
-	
-	p.x = a;
-	p.y = a;
-	p.z = a;
-	return (p);
-}
 
-t_point		fill_point_3(float a, float b, float c)
-{
-	t_point p;
-
-	p.x = a;
-	p.y = b;
-	p.z = c;
-	return (p);
-}
-
-t_color		fill_clr_3(float a, float b, float c)
-{
-	t_color p;
-
-	p.r = a;
-	p.g = b;
-	p.b = c;
-	return (p);
 }

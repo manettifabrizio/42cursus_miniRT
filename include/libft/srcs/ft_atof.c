@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 10:38:15 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/05/28 18:57:01 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/14 17:49:43 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ float			ft_atof(const char *s)
 		s++;
 		dec = parse_digits(&s, &c);
 	}
-	printf("s = %s\n", s);
 	while (c--)
 		dec /= 10;
 	x += dec;

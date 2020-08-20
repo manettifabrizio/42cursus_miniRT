@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:12:06 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/07 19:47:12 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/19 20:11:17 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,40 @@
 #define F_LIMIT 3.402823466e+38F
 extern int errno ;
 
-void		start(float camtowrld[4][4], t_ray *ray, t_setting *set, t_objects *sh);
+void		start(float camtowrld[4][4], t_ray *ray, t_setting *set, \
+			t_objects *sh);
 
 //GRAPH
 
-void		render(float camtowrld[4][4], t_ray *ray, t_setting *set, t_objects sh);
+void		render(float camtowrld[4][4], t_ray *ray, t_setting *set, \
+				t_objects sh);
 t_color		cast_ray(t_ray *ray, t_setting set, t_objects obj);
-int			draw(t_color *framebuffer, t_setting *set);
-int			trace(const t_ray *ray, t_objects *obj, float *tnear, t_color *hitcolor);
+int			trace(const t_ray *ray, t_objects *obj, float *tnear, \
+				t_color *hitcolor);
 
 //INTERSECTIONS
-int			intersect(const t_ray ray, const t_shapes sh, float *t, t_color *hitcolor);
-int			sp_intersect(const t_ray ray, const t_sphere sp, float *t, t_color *hitcolor);
-int			pl_intersect(const t_ray ray, const t_plane pl, float *t, t_color *hitcolor);
+int			intersect(const t_ray ray, const t_shapes sh, float *t, \
+				t_color *objcolor);
+int			sp_intersect(const t_ray ray, const t_sphere sp, float *t, \
+				t_color *objcolor);
+int			pl_intersect(const t_ray ray, const t_plane pl, float *t, \
+				t_color *objcolor);
+int			sq_intersect(const t_ray ray, const t_square sq, float *t, \
+				t_color *objcolor);
+int			cy_intersect(const t_ray ray, const t_cylinder cy, float *t, \
+				t_color *objcolor);
+int     	tr_intersect(const t_ray ray, const t_triangle tr, float *t, \
+		    	t_color *objcolor);
+
+//WINDOW
+int			draw(t_color *framebuffer, t_setting *set);
+int			key_hook(int key, void *param);
+int			close_hook(void);
 
 //UTILITIES
 
 //fill
 t_point		fill_point_1(float a);
-t_point		fill_point_2(float a);
 t_point		fill_point_3(float a, float b, float c);
 t_color		fill_clr_3(float a, float b, float c);
 int			my_atoi(const char *s, t_uint *y);
@@ -47,7 +62,7 @@ float		my_atof(const char *s, t_uint *i);
 
 //var0
 int			check(char *line, t_uint y);
-void		print_point(t_point p);
+void		print_point(t_point p, char *s);
 
 //conversion
 float		deg2rad(float deg);
@@ -61,10 +76,11 @@ float		point_dist(t_point p1, t_point p2);
 t_point		pointplane_dist(const t_ray ray, const t_plane pl);
 
 //point_ops
-t_point		vector_sum(t_point p1, t_point p2);
-t_point		vector_sub(t_point p1, t_point p2);
-float		dot_product_1(t_point p);
-float		dot_product_2(t_point p1, t_point p2);
+t_point		vec_sum(t_point p1, t_point p2);
+t_point		vec_sub(t_point p1, t_point p2);
+float		dot_1(t_point p);
+float		dot_2(t_point p1, t_point p2);
+t_point		cross_2(t_point p1, t_point p2);
 t_point		point_mul(t_point p1, t_point p2);
 
 //matrix_ops
@@ -72,7 +88,7 @@ void		mult_pt_mtx(t_point src, float m[4][4], t_point dst);
 void		mult_vec_mtx(t_point src, float m[4][4], t_point dst);
 
 //quad_solver
-int			quad_solver(const float a, const float b, const float c, float *x0, float *x1);
+int			quad_solver(const t_coeff q, float *t0, float *t1);
 void		ft_swap_f(float *a, float *b);
 
 //PARSE
@@ -107,3 +123,4 @@ t_shapes	*ft_lstlast_s(t_shapes *lst);
 
 void	parse_errors(t_uint line, int x);
 void	parse_errno(int errnum);
+void	mlx_error(t_mlx d);
