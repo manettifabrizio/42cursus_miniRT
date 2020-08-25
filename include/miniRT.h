@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:12:06 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/19 20:11:17 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/25 10:41:27 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,11 @@ void		render(float camtowrld[4][4], t_ray *ray, t_setting *set, \
 				t_objects sh);
 t_color		cast_ray(t_ray *ray, t_setting set, t_objects obj);
 int			trace(const t_ray *ray, t_objects *obj, float *tnear, \
-				t_color *hitcolor);
+				t_shapes *hitobj);
 
 //INTERSECTIONS
-int			intersect(const t_ray ray, const t_shapes sh, float *t, \
-				t_color *objcolor);
-int			sp_intersect(const t_ray ray, const t_sphere sp, float *t, \
-				t_color *objcolor);
+int			intersect(const t_ray ray, t_shapes *sh, float *t);
+int			sp_intersect(const t_ray ray, t_shapes *sh, float *t);
 int			pl_intersect(const t_ray ray, const t_plane pl, float *t, \
 				t_color *objcolor);
 int			sq_intersect(const t_ray ray, const t_square sq, float *t, \

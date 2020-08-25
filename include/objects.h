@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 21:21:43 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/14 12:55:26 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/25 10:32:34 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ typedef struct			s_shapes
 	t_square			sq;
 	t_cylinder			cy;
 	t_triangle			tr;
+	t_point				nhit;
+	t_color				objclr;
 	struct s_shapes		*next;
 }						t_shapes;
 

@@ -6,7 +6,7 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/22 20:52:58 by fmanetti          #+#    #+#              #
-#    Updated: 2020/08/18 19:07:18 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/08/25 12:03:08 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ SOURCE = 	main.c \
 			srcs/errors/errors_1.c
 
 INCLUDE =	libft.a \
-			libmlx.dylib
+			libmlx.a
 
 OBJ			= $(SOURCE:%.c=%.o)
 
@@ -64,8 +64,8 @@ $(NAME): $(OBJ)
 	@make bonus -C include/libft/
 	@make -C include/minilibx
 	@cp include/libft/libft.a .
-	@cp include/minilibx/libmlx.dylib .
-	@printf "[ libmlx.dylib ] Created \033[0;32mSuccessfully\n\033[0m" $(SUCCESS)
+	@cp include/minilibx/libmlx.a .
+	@printf "[ libmlx.a ] Created \033[0;32mSuccessfully\n\033[0m" $(SUCCESS)
 	@gcc -g -lmlx -L include/minilibx -framework OpenGL -framework AppKit -lz $(SOURCE) $(INCLUDE) -g3 -fsanitize=address
 	@printf "[ miniRT ] Compiled \033[0;32mSuccessfully\n\033[0m"
 
@@ -82,8 +82,8 @@ fclean: clean
 	@/bin/rm -f $(NAME)
 	@/bin/rm -f libft.a
 	@make fclean -C include/libft/
-	@/bin/rm -f libmlx.dylib
-	@printf "[ libmlx.dylib ] \033[0;31mremoved\n\033[0m"
+	@/bin/rm -f libmlx.a
+	@printf "[ libmlx.a ] \033[0;31mremoved\n\033[0m"
 	@/bin/rm -fr a.out*
 	@printf "[ $(NAME) ] \033[0;31mremoved\n\033[0m"
 

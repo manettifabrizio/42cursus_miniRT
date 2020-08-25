@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:15:54 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/20 11:33:43 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/24 10:21:42 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int				draw(t_color *framebuffer, t_setting *set)
 		while (++x < set->width)
 		{
 			color(x, y, set, framebuffer[++i]);
-			printf("x = %d, y = %d, i = %d\n", x, y, i);
+			// printf("x = %d, y = %d, i = %d\n", x, y, i);
 		}
 	}
 	mlx_put_image_to_window(set->d.mlx, set->d.win, set->d.img, 0, 0);
