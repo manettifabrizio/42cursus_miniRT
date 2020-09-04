@@ -6,17 +6,22 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 13:51:25 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/23 12:35:12 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/02 13:22:20 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/miniRT.h"
 
+double	norm(t_point p) //modulo
+{
+	return (p.x * p.x + p.y * p.y + p.z * p.z);
+}
+
 t_point	normalize(t_point p)
 {
-	float factor;
+	double factor;
 
-	factor = sqrt(pow(p.x, 2) + pow(p.y, 2) + pow(p.z, 2));
+	factor = sqrt(norm(p));
 	if (factor > 0)
 	{
 		p.x /= factor;

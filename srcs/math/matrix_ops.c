@@ -6,18 +6,18 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 14:42:26 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/05/23 08:45:57 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/02 13:22:20 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/miniRT.h"
 
-void		mult_pt_mtx(t_point src, float m[4][4], t_point dst)
+void		mult_pt_mtx(t_point src, double m[4][4], t_point dst)
 {
-	float a;
-	float b;
-	float c;
-	float w;
+	double a;
+	double b;
+	double c;
+	double w;
 
 	a = src.x * m[0][0] + src.y * m[1][0] + src.z *	m[2][0] \
 		+ m[3][0];
@@ -33,11 +33,11 @@ void		mult_pt_mtx(t_point src, float m[4][4], t_point dst)
     dst.z = c / w;
 }
 
-void		mult_vec_mtx(t_point src, float m[4][4], t_point dst)
+void		mult_vec_mtx(t_point src, double m[4][4], t_point dst)
 {
-	float a;
-	float b;
-	float c;
+	double a;
+	double b;
+	double c;
 
 	a = src.x * m[0][0] + src.y * m[1][0] + src.z * m[2][0];
     b = src.x * m[0][1] + src.y * m[1][1] + src.z * m[2][1];

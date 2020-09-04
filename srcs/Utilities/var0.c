@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/29 15:01:20 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/14 15:58:57 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/08/27 19:54:51 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,12 @@ void	print_point(t_point p, char *s)
 	printf("x = %f\n", p.x);
 	printf("y = %f\n", p.y);
 	printf("z = %f\n", p.z);
+}
+
+void	print_clr(t_color p, char *s)
+{
+	printf("%s\n", s);
+	printf("r = %u\n", p.r);
+	printf("g = %u\n", p.g);
+	printf("b = %u\n", p.b);
 }

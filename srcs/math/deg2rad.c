@@ -6,16 +6,16 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/18 13:44:59 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/05/23 08:54:22 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/04 11:49:53 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/miniRT.h"
 
-float	deg2rad(float deg)
+double	deg2rad(double deg)
 {
-	float rad;
+	double rad;
 
-	rad = (M_PI / 180) * deg;
+	rad = (M_PI / 360) * deg;
 	return (rad); 
 }

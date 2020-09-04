@@ -6,7 +6,7 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/22 20:52:58 by fmanetti          #+#    #+#              #
-#    Updated: 2020/08/25 12:03:08 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/09/01 18:04:41 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,10 +28,10 @@ SOURCE = 	main.c \
 			srcs/math/point_ops.c \
 			srcs/math/distance.c \
 			srcs/math/quad_solver.c \
+			srcs/math/deg2rad.c \
+			srcs/math/normalize.c \
 			srcs/utilities/start.c \
-			srcs/utilities/deg2rad.c \
 			srcs/utilities/fill.c \
-			srcs/utilities/normalize.c \
 			srcs/utilities/my_atoi.c \
 			srcs/utilities/my_atof.c \
 			srcs/utilities/var0.c \
@@ -43,6 +43,7 @@ SOURCE = 	main.c \
 			srcs/parsing/lst_check/obj_lstnew.c \
 			srcs/parsing/lst_check/obj_lstcheck.c \
 			srcs/parsing/lst_check/obj_lstlast.c \
+			srcs/parsing/lst_check/obj_lstsize.c \
 			srcs/errors/errors_1.c
 
 INCLUDE =	libft.a \

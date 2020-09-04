@@ -6,13 +6,13 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 12:07:43 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/07 19:48:20 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/02 13:22:20 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/miniRT.h"
 
-void	start(float camtowrld[4][4], t_ray *ray, t_setting *set, t_objects *obj)
+void	start(double camtowrld[4][4], t_ray *ray, t_setting *set, t_objects *obj)
 {
 	//inizializzazione basica di una matrice (matrice identità)
 	// n * mtx = n

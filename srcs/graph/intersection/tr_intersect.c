@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/12 16:27:16 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/19 20:25:38 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/02 13:22:20 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@
 //     return (0);
 // }
 			//Geometry solution
-// int     tr_intersect(const t_ray ray, const t_triangle tr, float *t, \
+// int     tr_intersect(const t_ray ray, const t_triangle tr, double *t, \
 // 		    t_color *objcolor)
 // {
-//     float denom;
+//     double denom;
 //     t_point phit;
     
 //     printf("tr.dist = %f\n", tr.dist);
@@ -49,25 +49,24 @@
 // }
 
 		//Möller-Trumbore algorithm
-int     tr_intersect(const t_ray ray, const t_triangle tr, float *t, \
-		    t_color *objcolor)
+int     tr_intersect(const t_ray ray, t_shapes *sh, double *t)
 {
-    float 	det;
+    double 	det;
 	t_cobar	c;
 
-	c.pvec = cross_2(ray.dir, vec_sub(tr.v2, tr.v0));
-	det = dot_2(vec_sub(tr.v1, tr.v0), c.pvec);
-    if (fabs(det) < 1e-08) //caso raggio parallelo al triangolo
+	c.pvec = cross_2(ray.dir, vec_sub(sh->tr.v2, sh->tr.v0));
+	det = dot_2(vec_sub(sh->tr.v1, sh->tr.v0), c.pvec);
+    if (fabs(det) < 1e-08) //caso raggio parallelo al sh->triangolo
 		return (0);
-	c.tvec = vec_sub(ray.orig, tr.v0);
+	c.tvec = vec_sub(ray.orig, sh->tr.v0);
 	c.u = dot_2(c.tvec, c.pvec) * (1 / det);
 	if (c.u < 0 || c.u > 1)
 		return (0);
-	c.qvec = cross_2(c.tvec, vec_sub(tr.v1, tr.v0));
+	c.qvec = cross_2(c.tvec, vec_sub(sh->tr.v1, sh->tr.v0));
 	c.v = dot_2(ray.dir, c.qvec) * (1 / det);
 	if (c.v < 0 || c.u + c.v > 1)
 		return (0);
-	*t = dot_2(vec_sub(tr.v2, tr.v0), c.qvec) * (1 / det);
-	*objcolor = tr.clr;
+	*t = dot_2(vec_sub(sh->tr.v2, sh->tr.v0), c.qvec) * (1 / det);
+	sh->objclr = sh->tr.clr;
 	return (1);
 }

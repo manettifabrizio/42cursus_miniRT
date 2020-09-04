@@ -6,16 +6,16 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 21:24:39 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/08 20:35:52 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/02 13:22:20 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/miniRT.h"
 
-int		quad_solver(const t_coeff d, float *x0, float *x1)
+int		quad_solver(const t_coeff d, double *x0, double *x1)
 {
-	float q;
-	float delta;
+	double q;
+	double delta;
 
 	// printf("a = %f\nb = %f\nc = %f\n", a, b, c);
 	delta = pow(d.b, 2) - (4 * d.a * d.c);

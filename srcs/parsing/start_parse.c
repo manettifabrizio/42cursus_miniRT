@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:25:06 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/08 12:42:34 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/04 11:47:09 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int		letters(char *ln, t_setting *set, t_objects *obj)
 	return (-1);
 }
 
-static int		emptyline(char	*s)
+static int		emptyline_or_comment(char *s)
 {
 	unsigned int x;
 
@@ -44,7 +44,7 @@ static int		emptyline(char	*s)
 	while (s[x] == ' ' || (s[x] >= 8 && s[x] <= 13))
 		x++;
 	// printf("s[%d] = %c\n", x, s[x]);
-	if (s[x] == '\0')
+	if (s[x] == '\0' || s[x] == '#')
 		return (1);
 	return (0);
 }
@@ -58,7 +58,7 @@ static void		fill_setting(char **setting, t_setting *set, t_objects *obj)
 	while (setting[x])
 	{
 		y = 0;
-		if (!(emptyline(setting[x])))
+		if (!(emptyline_or_comment(setting[x])))
 		{
 			while (ft_isspace(setting[x][y]))
 				y++;
@@ -127,7 +127,7 @@ void			start_parse(char **av, t_setting *set, t_objects *obj)
 		return ;
 	close(fd);
 	fill_setting(setting, set, obj);
-	set->imageAR = set->width / (float)set->heigth;
+	set->imageAR = set->width / (double)set->heigth;
 	// printf("alpha = %f\n", obj->chead->alpha);
 	if (obj->chead->alpha > 0 && obj->chead->alpha < 180)
 		set->scale = tan(deg2rad(obj->chead->alpha * 0.5));

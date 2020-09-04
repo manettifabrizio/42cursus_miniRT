@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/28 12:07:24 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/08 11:30:03 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/02 13:22:20 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ static double	parse_digits(const char *s, t_uint *count, t_uint *i)
 	return (x);
 }
 
-float			my_atof(const char *s, t_uint *i)
+double			my_atof(const char *s, t_uint *i)
 {
-	float 			x;
-	float 			dec;
+	double 			x;
+	double 			dec;
 	int				sign;
 	t_uint			c;
 	

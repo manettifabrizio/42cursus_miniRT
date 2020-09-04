@@ -6,13 +6,13 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 14:30:19 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/08 13:31:45 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/02 13:22:20 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/miniRT.h"
 
-t_point		fill_point_1(float a)
+t_point		fill_point_1(double a)
 {
 	t_point p;
 	
@@ -22,7 +22,7 @@ t_point		fill_point_1(float a)
 	return (p);
 }
 
-t_point		fill_point_3(float a, float b, float c)
+t_point		fill_point_3(double a, double b, double c)
 {
 	t_point p;
 
@@ -32,7 +32,7 @@ t_point		fill_point_3(float a, float b, float c)
 	return (p);
 }
 
-t_color		fill_clr_3(float a, float b, float c)
+t_color		fill_clr_3(double a, double b, double c)
 {
 	t_color p;
 

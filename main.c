@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 13:08:20 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/24 10:19:06 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/02 13:26:59 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void		initiate_window(t_setting *set)
 
 int		main(int ac, char **av)
 {
-	float	camtowrld[4][4];
+	double	camtowrld[4][4];
 	t_ray		ray;
 	t_setting	set;
 	t_objects	obj;
@@ -72,7 +72,7 @@ int		main(int ac, char **av)
 	start_parse(av, &set, &obj);
 	initiate_window(&set);
 	// print_parse(set, &obj);
-	ray.orig = obj.chead->c;
+	ray.orig = obj.chead->p;
 	// print_point(ray.orig);
 	// printf("tmp.c.x = %f\n", obj.chead->c.x);
 	// print_point(obj.chead->c);

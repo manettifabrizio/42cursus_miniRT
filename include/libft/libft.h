@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 18:15:22 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/22 13:22:49 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/02 13:25:53 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr(int nb);
 void				ft_putnbr_fd(int n, int fdi);
-void				ft_swap_f(float *a, float *b);
+void				ft_swap_f(double *a, double *b);
 void				ft_swap(int *a, int *b);
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **alst, t_list *new);

@@ -1,18 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotation.c                                         :+:      :+:    :+:   */
+/*   obj_lstsize.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/19 11:45:58 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/02 13:22:20 by fmanetti         ###   ########.fr       */
+/*   Created: 2020/09/01 17:58:38 by fmanetti          #+#    #+#             */
+/*   Updated: 2020/09/01 18:38:53 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/miniRT.h"
 
-void	cam_rot_left(double angle, t_cam c)
+int		ft_lstsize_c(t_cam *lst)
 {
+	int elem;
 
+	elem = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		elem++;
+	}
+	return (elem);
+}
+
+int		ft_lstsize_l(t_light *lst)
+{
+	int elem;
+
+	elem = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		elem++;
+	}
+	return (elem);
+}
+
+int		ft_lstsize_s(t_shapes *lst)
+{
+	int elem;
+
+	elem = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		elem++;
+	}
+	return (elem);
 }
