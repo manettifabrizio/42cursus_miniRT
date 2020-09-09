@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 10:06:58 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/02 13:22:20 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/09 19:47:51 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int		intersect(const t_ray ray, t_shapes *sh, double *t)
 		return (pl_intersect(ray, sh, t));
 	else if (sh->type == 2)
 	 	return (sq_intersect(ray, sh, t));
-	// else if (sh->type == 3)
-	//  	return (cy_intersect(ray, sh, t));
-	// else if (sh->type == 4)
-	// 	return (tr_intersect(ray, sh, t));
+	else if (sh->type == 3)
+	  	return (cy_intersect(ray, sh, t));
+	else if (sh->type == 4)
+	 	return (tr_intersect(ray, sh, t));
 	return (0);
 } 

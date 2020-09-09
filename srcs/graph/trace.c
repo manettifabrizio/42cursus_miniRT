@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:18:04 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/02 16:42:36 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/09 23:39:30 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		trace(const t_ray *ray, t_objects *obj, double *tnear, t_shapes *hitobj)
 		{
 			// printf("tmp->n = %d hitobj->num = %d\n", tmp->num, hitobj->num);
 			// printf("x = %d\n", x);
-			// printf("t = %f\n", t);
+			printf("t = %f\n", t);
 			// printf("hit.r = %u, hit.g = %u, hit.b = %u\n", objcolor.r, objcolor.g, objcolor.b);
 			*tnear = t;
 			*hitobj = *tmp;

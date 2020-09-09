@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 21:21:43 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/02 16:30:26 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/09 19:49:51 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ typedef struct			s_square
 {
 	t_point				p;
 	t_point				n;
+	t_point				v0;
+	t_point				v1;
+	t_point				v2;
+	t_point				v3;
 	double				h;
 	t_color				clr;
 }						t_square;
@@ -68,7 +72,6 @@ typedef	struct			s_triangle
 	t_point				v1;
 	t_point				v2;
 	t_point				n;
-	double				dist;
 	t_color				clr;
 }						t_triangle;
 

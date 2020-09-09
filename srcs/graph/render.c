@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:07:40 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/02 13:22:20 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/05 16:56:24 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	render(double camtowrld[4][4], t_ray *ray, t_setting *set, t_objects obj)
 	/* moltiplicazione punto-matrice per trasformare l'origine usando la matrice 
 	camera-to-world*/
 	// camtowrld_set() funzione da utilizzare per trasformare la camera
-	mult_pt_mtx(ray->orig, camtowrld, ray->orig);
+	// mult_pt_mtx(ray->orig, camtowrld, ray->orig);
 	j = 0;
 	// printf("cam.c.x = %f\ncam.c.y = %f\ncam.c.z = %f\n", ray->orig.x, ray->orig.y, ray->orig.z);
 	// printf("1dir.z = %f\n", ray->dir.z);
@@ -44,7 +44,7 @@ void	render(double camtowrld[4][4], t_ray *ray, t_setting *set, t_objects obj)
 				* set->scale * set->imageAR; //moltiplicare per AR per assicurarsi che i pixel siano quadrati
 			ray->dir.y = (1 - 2 * ((j + 0.5) / set->heigth)) \
 				* set->scale; //moltiplicare per il field of view
-			mult_vec_mtx(ray->dir, camtowrld, ray->dir);
+			// mult_vec_mtx(ray->dir, camtowrld, ray->dir);
 			// printf("3dir.z = %f\n", ray->dir.z);
 			// printf("dir.x = %f\ndir.y = %f\ndir.z = %f\n", ray->dir.x, ray->dir.y, ray->dir.z);
 			ray->dir.z = obj.chead->n.z;

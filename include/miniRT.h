@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:12:06 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/02 16:37:28 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/09 15:03:37 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,12 @@ double		point_dist(t_point p1, t_point p2);
 t_point		pointplane_dist(const t_ray ray, const t_plane pl);
 
 //point_ops
-t_point		vec_sum(t_point p1, t_point p2);
-t_point		vec_sub(t_point p1, t_point p2);
+t_point		sum(t_point p1, t_point p2);
+t_point		sub(t_point p1, t_point p2);
 double		dot_1(t_point p);
 double		dot_2(t_point p1, t_point p2);
 t_point		cross_2(t_point p1, t_point p2);
-t_point		point_mul(t_point p1, double x);
+t_point		mul(t_point p1, double x);
 t_color		clr_mul(t_color clr, double x);
 
 //matrix_ops

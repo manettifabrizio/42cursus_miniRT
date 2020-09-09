@@ -6,13 +6,13 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 18:07:48 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/02 16:38:34 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/09 16:38:30 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/miniRT.h"
 
-t_shapes		*sq_to_pl(t_shapes *sh)
+static t_shapes		*sq_to_pl(t_shapes *sh)
 {
 	t_plane pl;
 
@@ -21,20 +21,44 @@ t_shapes		*sq_to_pl(t_shapes *sh)
 	return (sh);
 }
 
-int			sq_intersect(const t_ray ray, t_shapes *sh, double *t)
+static void			sq_vertices(t_square *sq)
 {
-	t_point phit;
-	double	halfh;
+	t_point a;
+	t_point b;
 
+	if (fabs(sq->n.x) <= fabs(sq->n.y) && 
+		(fabs(sq->n.x) <= fabs(sq->n.z)))
+		a = fill_point_3(1, 0, (sq->n.z != 0) ? -sq->n.x / sq->n.z : 0);
+	else if (fabs(sq->n.z) <= fabs(sq->n.y) &&
+		(fabs(sq->n.z) <= fabs(sq->n.x)))
+		a = fill_point_3((sq->n.x != 0) ? -sq->n.z / sq->n.x : 0, 0, 1);
+	else if (fabs(sq->n.y) <= fabs(sq->n.x) &&
+		(fabs(sq->n.x) <= fabs(sq->n.z)))
+		a = fill_point_3(0, 1, (sq->n.z != 0) ? -sq->n.y / sq->n.z : 0);
+	a = normalize(a);
+	b = normalize(cross_2(sq->n, a));
+	sq->v0 = sum(sq->p, mul(sum(a, b), sq->h / 2));
+	sq->v1 = sum(sq->p, mul(sub(a, b), sq->h / 2));
+	sq->v2 = sum(sq->p, mul(sum(a, b), -(sq->h / 2)));
+	sq->v3 = sum(sq->p, mul(sub(b, a), sq->h / 2));
+}
+
+int					sq_intersect(const t_ray ray, t_shapes *sh, double *t)
+{
 	if (pl_intersect(ray, sq_to_pl(sh), t))
 	{
-		halfh = sh->sq.h / 2;
-		phit = vec_sum(ray.orig, point_mul(ray.dir, *t));
-		if (phit.x > (sh->sq.p.x - halfh) && phit.x < (sh->sq.p.x + halfh) &&
-			phit.y > (sh->sq.p.y - halfh) && phit.y < (sh->sq.p.y + halfh) &&
-			phit.z > (sh->sq.p.z - halfh) && phit.z < (sh->sq.p.z + halfh))
+		sq_vertices(&(sh->sq));
+		sh->tr.v0 = sh->sq.v0;
+		sh->tr.v1 = sh->sq.v1;
+		sh->tr.v2 = sh->sq.v2;
+		if (tr_intersect(ray, sh, t))
 		{
-			sh->nhit = sh->sq.n;
+			sh->objclr = sh->sq.clr;
+			return (1);
+		}
+		sh->tr.v1 = sh->sq.v3;
+		if (tr_intersect(ray, sh, t))
+		{
 			sh->objclr = sh->sq.clr;
 			return (1);
 		}

@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 13:35:27 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/01 17:41:38 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/09 19:57:00 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,8 +132,8 @@ int		fill_triangle(char *line, t_objects *obj)
 	tmp->tr.clr.r = my_atoi(line, &x);
 	tmp->tr.clr.g = my_atoi(line, &x);
 	tmp->tr.clr.b = my_atoi(line, &x);
-	tmp->tr.n = cross_2(vec_sub(tmp->tr.v1, tmp->tr.v0), \
-		vec_sub(tmp->tr.v2, tmp->tr.v0));
-	tmp->tr.dist = dot_2(tmp->tr.n, tmp->tr.v0);
+	tmp->tr.n = normalize(cross_2(sub(tmp->tr.v1, tmp->tr.v0), \
+		sub(tmp->tr.v2, tmp->tr.v0)));
+	// tmp->tr.dist = dot_2(tmp->tr.n, tmp->tr.v0);
 	return (x);
 }

@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 10:48:01 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/02 15:23:40 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/09 15:03:23 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		pl_intersect(const t_ray ray, t_shapes *sh, double *t)
 	// printf("pl.p.x = %f\npl.p.y = %f\npl.p.z = %f\n", pl.p.x, pl.p.y, pl.p.z);
 	// printf("pl.n.x = %f\npl.n.y = %f\npl.n.z = %f\n", pl.n.x, pl.n.y, pl.n.z);
 						//con la sottrazione li allinei indipendentemente
-	*t = dot_2(vec_sub(sh->pl.p, ray.orig), sh->pl.n) /
+	*t = dot_2(sub(sh->pl.p, ray.orig), sh->pl.n) /
 		dot_2(sh->pl.n, ray.dir);
 	if (*t > 0)
 	{
