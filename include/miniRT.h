@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:12:06 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/09 15:03:37 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/10 18:54:34 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,13 @@
 #define BIAS	1e-04
 extern int errno ;
 
-void		start(double camtowrld[4][4], t_ray *ray, t_setting *set, \
-			t_objects *sh);
+void		start(t_ray *ray, t_setting *set, t_objects *sh);
 
 //GRAPH
 
-void		render(double camtowrld[4][4], t_ray *ray, t_setting *set, \
-				t_objects sh);
+void		render(t_ray *ray, t_setting *set, t_objects sh);
 t_color		cast_ray(t_ray *ray, t_setting set, t_objects obj);
-int			trace(const t_ray *ray, t_objects *obj, double *tnear, \
+int			trace(const t_ray *ray, t_objects *obj, double *tnear,
 				t_shapes *hitobj);
 
 //INTERSECTIONS
@@ -49,8 +47,8 @@ int			close_hook(void);
 //UTILITIES
 
 //fill
-t_point		fill_point_1(double a);
-t_point		fill_point_3(double a, double b, double c);
+t_point		fill_p_1(double a);
+t_point		fill_p(double a, double b, double c);
 t_color		fill_clr_3(double a, double b, double c);
 int			my_atoi(const char *s, t_uint *y);
 double		my_atof(const char *s, t_uint *i);
@@ -61,6 +59,9 @@ void		print_point(t_point p, char *s);
 void		print_clr(t_color p, char *s);
 
 //MATH
+
+//rotation
+t_point		compute_rot(t_point dir, t_point ax1, t_point ax2);
 
 //conversion
 double		deg2rad(double deg);
@@ -84,7 +85,7 @@ t_color		clr_mul(t_color clr, double x);
 
 //matrix_ops
 void		mult_pt_mtx(t_point src, double m[4][4], t_point dst);
-void		mult_vec_mtx(t_point src, double m[4][4], t_point dst);
+t_point		mult_vec_mtx(t_point p, t_matrix m);
 
 //quad_solver
 int			quad_solver(const t_coeff q, double *t0, double *t1);

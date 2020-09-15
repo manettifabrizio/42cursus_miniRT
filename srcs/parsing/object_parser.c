@@ -6,11 +6,25 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/05 13:49:41 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/27 19:45:12 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/15 18:50:38 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/miniRT.h"
+
+static void		compute_axis(t_cam *c)
+{
+	c->n = normalize(c->n);
+	c->cz = normalize(mul(c->n, -1));
+	c->cx = normalize(cross_2(fill_p(0, 1, 0), c->cz));
+	if (isnan(c->cx.x) && isnan(c->cx.z) && isnan(c->cx.y))
+		c->cx = (c->cz.y > 0) ? fill_p(1, 0, 0) : fill_p(-1, 0, 0);
+	c->cy = normalize(mul(cross_2(c->cx, c->cz), -1));
+	print_point(c->n, "tmp->n");
+	print_point(c->cx, "cx");
+	print_point(c->cy, "cy");
+	print_point(c->cz, "cz");
+}
 
 int				fill_cam(char *line, t_objects *obj)
 {
@@ -21,26 +35,14 @@ int				fill_cam(char *line, t_objects *obj)
 	obj->nc = lst_check_c(&(obj->chead), obj->nc, &tmp); //funziona bene
 	if (check(line, 3))
 		return (-1);
-	// printf("1\n");
-	// printf("line = %s\n", line);
 	tmp->p.x = my_atof(line, &x);
-	// printf("tmp->p.x = %f\n", tmp->p.x);
-	// // printf("x = %u\n", x);
-	// // printf("2\n");
 	tmp->p.y = my_atof(line, &x);
-	// printf("tmp->p.y = %f\n", tmp->p.y);
-	// // printf("3\n");
 	tmp->p.z = my_atof(line, &x);
-	// printf("tmp->p.z = %f\n", tmp->p.z);
-	// // printf("\n");
 	tmp->n.x = my_atof(line, &x);
-	// // printf("4\n");
 	tmp->n.y = my_atof(line, &x);
-	// // printf("5\n");
 	tmp->n.z = my_atof(line, &x);
-	// //print_point(tmp->n);
-	// // printf("\n");
 	tmp->alpha = my_atof(line, &x);
+	compute_axis(tmp);
 	return (x);
 }
 

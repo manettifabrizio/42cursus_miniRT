@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/18 14:05:19 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/02 13:23:38 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/10 13:18:24 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,3 +77,10 @@ typedef struct		s_cobar
 	t_point qvec;
 	t_point tvec;
 }					t_cobar;
+
+typedef struct 		s_matrix
+{
+	t_point a;
+	t_point	b;
+	t_point	c;
+}					t_matrix;

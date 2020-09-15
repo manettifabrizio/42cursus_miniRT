@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/12 16:27:16 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/09 20:48:41 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/10 17:40:18 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 //         return (0);
 //     if ((*t = (dot_2(tr.n, ray.orig) + tr.dist) / denom) < 0)
 //         return (0);
-//     phit = sum(ray.orig, mul(ray.dir, fill_point_1(*t)));
+//     phit = sum(ray.orig, mul(ray.dir, fill_p_1(*t)));
 //     // print_point(phit);
 //     if (in_out_check(tr, phit))
 //     {

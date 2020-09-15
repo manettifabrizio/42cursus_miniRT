@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:19:02 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/09 23:42:47 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/10 17:40:18 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static void		get_surface_data(t_ray ray, double t, t_shapes *hitobj)
 	{
 		m = dot_2(ray.dir, hitobj->cy.n) * t + dot_2(sub(ray.orig, hitobj->cy.p), hitobj->cy.n);
 		hitobj->nhit = normalize(sub(sub(hitobj->phit, hitobj->cy.p), mul(hitobj->cy.n, m)));
-		print_point(hitobj->phit, "phit");
-		print_point(hitobj->nhit, "nhit");
+		// print_point(hitobj->phit, "phit");
+		// print_point(hitobj->nhit, "nhit");
 	}
 	else if (hitobj->type == 4)
 		hitobj->nhit = normalize(mul(hitobj->tr.n, -1));
@@ -38,8 +38,8 @@ static void		get_surface_data(t_ray ray, double t, t_shapes *hitobj)
 
 // t_point	mix(t_point a, t_point b, double patt)
 // {
-// 	return (sum(mul(a, fill_point_1(1 - patt)), \
-// 			mul(b, fill_point_1(patt))));
+// 	return (sum(mul(a, fill_p_1(1 - patt)), \
+// 			mul(b, fill_p_1(patt))));
 // }
 
 static void		get_light_data(double t, t_light *l, t_shapes hitobj)
@@ -63,14 +63,14 @@ t_color			cast_ray(t_ray *ray, t_setting set, t_objects obj) //da riscrivere
 	t_uint shadow = 1;
 	t_light *tmp = obj.lhead;
 
-	// hitobject = fill_point_1(255); //colore oggetto
+	// hitobject = fill_p_1(255); //colore oggetto
 	hitcolor = set.amblclr; //colore di sfondo
 	// printf("******************************************\n");
 	if (trace(ray, &obj, &t, &hitobj)) //se c'è un intersezione con un oggetto
 	{
 		while (tmp)
 		{
-			printf("t1 = %f\n", t);
+			// printf("t1 = %f\n", t);
 			get_surface_data(*ray, t, &hitobj);
 			// print_point(ray->dir, "ray.dir");
 			get_light_data(t, tmp, hitobj);
@@ -86,7 +86,7 @@ t_color			cast_ray(t_ray *ray, t_setting set, t_objects obj) //da riscrivere
 			// print_point(hitobj.nhit, "nhit"); print_point(tmp->dir, "tmp->dir");
 			fratio = dot_2(hitobj.nhit, tmp->shray.dir);
 			// print_point(ray->dir, "dir");
-			// print_point(normalize(mul(ray->dir, fill_point_1(-1))), "-dir");
+			// print_point(normalize(mul(ray->dir, fill_p_1(-1))), "-dir");
 			// printf ("fratio = %f, obj = %d\n", fratio, hitobj.type);
 			// print_clr(tmp->intensity, "light intensity");
 			if (fratio > 0)

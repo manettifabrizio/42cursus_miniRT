@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 21:21:43 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/09 19:49:51 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/10 17:07:20 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ typedef struct		s_cam
 {
 	t_point			p;
 	t_point			n;
+	t_point			cx;
+	t_point			cy;
+	t_point			cz;
 	double			alpha;
 	struct s_cam	*next;
 }					t_cam;

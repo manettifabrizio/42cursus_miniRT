@@ -6,7 +6,7 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/22 20:52:58 by fmanetti          #+#    #+#              #
-#    Updated: 2020/09/01 18:04:41 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/09/10 18:55:24 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SOURCE = 	main.c \
 			srcs/math/quad_solver.c \
 			srcs/math/deg2rad.c \
 			srcs/math/normalize.c \
+			srcs/math/mtx.c \
 			srcs/utilities/start.c \
 			srcs/utilities/fill.c \
 			srcs/utilities/my_atoi.c \

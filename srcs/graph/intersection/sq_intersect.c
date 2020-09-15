@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 18:07:48 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/09 16:38:30 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/10 17:38:57 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ static void			sq_vertices(t_square *sq)
 
 	if (fabs(sq->n.x) <= fabs(sq->n.y) && 
 		(fabs(sq->n.x) <= fabs(sq->n.z)))
-		a = fill_point_3(1, 0, (sq->n.z != 0) ? -sq->n.x / sq->n.z : 0);
+		a = fill_p(1, 0, (sq->n.z != 0) ? -sq->n.x / sq->n.z : 0);
 	else if (fabs(sq->n.z) <= fabs(sq->n.y) &&
 		(fabs(sq->n.z) <= fabs(sq->n.x)))
-		a = fill_point_3((sq->n.x != 0) ? -sq->n.z / sq->n.x : 0, 0, 1);
+		a = fill_p((sq->n.x != 0) ? -sq->n.z / sq->n.x : 0, 0, 1);
 	else if (fabs(sq->n.y) <= fabs(sq->n.x) &&
 		(fabs(sq->n.x) <= fabs(sq->n.z)))
-		a = fill_point_3(0, 1, (sq->n.z != 0) ? -sq->n.y / sq->n.z : 0);
+		a = fill_p(0, 1, (sq->n.z != 0) ? -sq->n.y / sq->n.z : 0);
 	a = normalize(a);
 	b = normalize(cross_2(sq->n, a));
 	sq->v0 = sum(sq->p, mul(sum(a, b), sq->h / 2));
