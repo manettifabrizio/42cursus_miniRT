@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 13:35:27 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/09 19:57:00 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/18 11:45:23 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		fill_sphere(char *line, t_objects *obj)
 	obj->ns = lst_check_s(&(obj->shead), obj->ns, &tmp);
 	// printf("tmp = %p\n", tmp);
 	// printf("shead = %p\n", obj->shead);
+	printf("line = %s\n", line);
 	if (check(line, 3))
 		return (-1);
 	tmp->type = 0;

@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/29 15:01:20 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/27 19:54:51 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/18 11:48:58 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ int		check(char *line, t_uint y)
 
 	x = 0;
 	nbr = 0;
-	// printf("line = %s\n", line);
+	printf("y = %d\n", y);
+	printf("line = %s\n", line);
 	while (line[x])
 	{
+		printf("x = %d\n", x);
 		if (ft_isdigit(line[x]) && (line[x + 1] == ' ' || (line[x + 1] >= 8 && \
 			line[x + 1] <= 13) || line[x + 1] == '\0'))
 			nbr++;

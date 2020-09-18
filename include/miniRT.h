@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:12:06 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/10 18:54:34 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/16 15:55:15 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,12 @@ double		dot_1(t_point p);
 double		dot_2(t_point p1, t_point p2);
 t_point		cross_2(t_point p1, t_point p2);
 t_point		mul(t_point p1, double x);
-t_color		clr_mul(t_color clr, double x);
+t_color		clr_sum(t_color clr0, t_color clr1);
+t_color 	clr_mul(t_color clr0, t_color clr1);
+t_color		clr_d_mul(t_color clr, double x);
+t_color		mix_clr(t_color light, t_color shape, double ratio);
+t_color		max_clr(t_color clr, t_color objclr);
+t_color		compute_clr(t_shapes o, t_light l, double fratio, double shad);
 
 //matrix_ops
 void		mult_pt_mtx(t_point src, double m[4][4], t_point dst);

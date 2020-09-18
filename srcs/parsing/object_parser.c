@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/05 13:49:41 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/15 18:50:38 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/16 16:46:59 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 static void		compute_axis(t_cam *c)
 {
+	t_point p;
+
+	p = (c->n.y == -1) ? fill_p(0, 0, 1) : fill_p(0, 1, 0);
 	c->n = normalize(c->n);
 	c->cz = normalize(mul(c->n, -1));
-	c->cx = normalize(cross_2(fill_p(0, 1, 0), c->cz));
+	c->cx = normalize(cross_2(p, c->cz));
 	if (isnan(c->cx.x) && isnan(c->cx.z) && isnan(c->cx.y))
 		c->cx = (c->cz.y > 0) ? fill_p(1, 0, 0) : fill_p(-1, 0, 0);
 	c->cy = normalize(mul(cross_2(c->cx, c->cz), -1));

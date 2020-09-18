@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:25:06 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/04 11:47:09 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/18 11:51:52 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ static void		fill_setting(char **setting, t_setting *set, t_objects *obj)
 	while (setting[x])
 	{
 		y = 0;
+		printf("line = %s\n", setting[x]);
 		if (!(emptyline_or_comment(setting[x])))
 		{
 			while (ft_isspace(setting[x][y]))
