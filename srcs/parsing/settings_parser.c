@@ -6,42 +6,39 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 21:38:27 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/07 18:54:19 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/18 19:21:36 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/miniRT.h"
 
-int				fill_res(char *line, t_setting *set)
+void	fill_res(char *line, t_uint nln, t_setting *set)
 {
 	t_uint x;
 	
 	x = 0;
 	if (check(line, 2))
-		return (-1);
-	// printf("line1 = %s\n", line);
+		rt_errors(0, "resolution", nln);
 	set->width = my_atoi(line, &x);
-	//printf("line2 = %s, x = %d\n", line, x);
 	set->heigth = my_atoi(line, &x);
-	// printf ("width = %u, heigth = %u, x = %d\n", set->width, set->heigth, x);
-	return (x);
+	if (set->width < 0)
+		rt_errors(1, "window width", nln);
+	if (set->heigth < 0)
+		rt_errors(1, "window heigth", nln);
 }
 
-int				fill_ambl(char *line, t_setting *set)
+void	fill_ambl(char *line, t_uint nln, t_setting *set)
 {
 	t_uint x;
 
 	x = 0;
 	if (check(line, 2))
-		return (-1);
-	// printf("line0 = %s, x = %d\n", line, x);
+		rt_errors(0, "ambient light", nln);
 	set->amblrat = my_atof(line, &x);
-	// printf("line1 = %s, x = %d\n", line + x, x);
-	set->amblclr.r = set->amblrat * my_atoi(line, &x);//virgola che separa i colori
-	// printf("line2 = %s, x = %d\n", line + x, x);
+	if (set->amblrat < 0 || set->amblrat > 1)
+		rt_errors(1, "ambient light ratio", nln);
+	set->amblclr.r = set->amblrat * my_atoi(line, &x);
 	set->amblclr.g = set->amblrat * my_atoi(line, &x);
-	// printf("line3 = %s, x = %d\n", line + x, x);
 	set->amblclr.b = set->amblrat * my_atoi(line, &x);
-	// printf("ar = %f, r = %d, g = %d, b = %d\n", set->amblrat, set->amblclr.r, set->amblclr.g, set->amblclr.b);
-	return (x);
+	check_clr(set->amblclr, "ambient light color", nln);
 }

@@ -6,13 +6,13 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/22 20:52:58 by fmanetti          #+#    #+#              #
-#    Updated: 2020/09/10 18:55:24 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/09/18 16:55:00 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 		miniRT
 
-SOURCE = 	main.c \
+SOURCE = 	miniRT.c \
 			srcs/graph/render.c \
 			srcs/graph/trace.c \
 			srcs/graph/cast_ray.c \
@@ -36,7 +36,7 @@ SOURCE = 	main.c \
 			srcs/utilities/my_atoi.c \
 			srcs/utilities/my_atof.c \
 			srcs/utilities/var0.c \
-			srcs/parsing/start_parse.c \
+			srcs/parsing/parse.c \
 			srcs/parsing/settings_parser.c \
 			srcs/parsing/shapes_parser.c \
 			srcs/parsing/object_parser.c \

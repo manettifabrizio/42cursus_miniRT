@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:12:06 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/16 15:55:15 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/18 21:38:43 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 #define BIAS	1e-04
 extern int errno ;
 
-void		start(t_ray *ray, t_setting *set, t_objects *sh);
+void	start(int ac, char **av, t_objects *obj, t_setting *set);
 
 //GRAPH
 
-void		render(t_ray *ray, t_setting *set, t_objects sh);
+void		render(t_ray *ray, t_setting *set, t_objects obj);
 t_color		cast_ray(t_ray *ray, t_setting set, t_objects obj);
 int			trace(const t_ray *ray, t_objects *obj, double *tnear,
 				t_shapes *hitobj);
@@ -40,7 +40,7 @@ int			cy_intersect(const t_ray ray, t_shapes *sh, double *t);
 int     	tr_intersect(const t_ray ray, t_shapes *sh, double *t);
 
 //WINDOW
-int			draw(t_color *framebuffer, t_setting *set);
+int			draw(t_color *clr, t_setting *set, t_objects obj);
 int			key_hook(int key, void *param);
 int			close_hook(void);
 
@@ -54,7 +54,10 @@ int			my_atoi(const char *s, t_uint *y);
 double		my_atof(const char *s, t_uint *i);
 
 //var0
+int			emptyline_or_comment(char *s);
 int			check(char *line, t_uint y);
+void		check_norm(t_point p, char *s, t_uint nln);
+void		check_clr(t_color c, char *s, t_uint nln);
 void		print_point(t_point p, char *s);
 void		print_clr(t_color p, char *s);
 
@@ -98,16 +101,16 @@ void		ft_swap_f(double *a, double *b);
 
 //PARSE
 
-void		start_parse(char **av, t_setting *set, t_objects *obj);
-int			fill_res(char *line, t_setting *set);
-int			fill_ambl(char *line, t_setting *set);
-int			fill_cam(char *line, t_objects *obj);
-int			fill_light(char *line, t_objects *obj);
-int			fill_sphere(char *line, t_objects *obj);
-int			fill_plane(char *line, t_objects *obj);
-int			fill_square(char *line, t_objects *obj);
-int			fill_cylinder(char *line, t_objects *obj);
-int			fill_triangle(char *line, t_objects *obj);
+void		parse(char **av, t_setting *set, t_objects *obj);
+void		fill_res(char *line, t_uint nln, t_setting *set);
+void		fill_ambl(char *line, t_uint nln, t_setting *set);
+void		fill_cam(char *line, t_uint nln, t_objects *obj);
+void		fill_light(char *line, t_uint nln, t_objects *obj);
+void		fill_sphere(char *line, t_uint nln, t_objects *obj);
+void		fill_plane(char *line, t_uint nln, t_objects *obj);
+void		fill_square(char *line, t_uint nln, t_objects *obj);
+void		fill_cylinder(char *line, t_uint nln, t_objects *obj);
+void		fill_triangle(char *line, t_uint nln, t_objects *obj);
 
 //LST_CHECK
 
@@ -129,6 +132,8 @@ int			ft_lstsize_s(t_shapes *lst);
 
 //ERRORS
 
-void	parse_errors(t_uint line, int x);
-void	parse_errno(int errnum);
+void	start_errors(int ac, char **av, t_objects *obj);
 void	mlx_error(t_mlx d);
+void	parse_errors(t_uint x);
+void	parse_errno(int errnum);
+void	rt_errors(t_uint x, char *obj, t_uint nline);

@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:15:54 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/24 10:21:42 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/18 21:27:57 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,26 +59,26 @@ static void		color(t_uint x, t_uint y, t_setting *set, t_color f)
 	// printf("b = %d, g = %d, r = %d\n", f.b, f.g, f.r);
 }
 
-int				draw(t_color *framebuffer, t_setting *set)
+int				draw(t_color *clr, t_setting *set, t_objects obj)
 {
 	int x;
 	int y;
 	int i;
+	t_hook h;
 
+	h.set = set;
+	h.obj = obj;
 	y = -1;
 	i = -1;
 	while (++y < set->heigth)
 	{
 		x = -1;
 		while (++x < set->width)
-		{
-			color(x, y, set, framebuffer[++i]);
-			// printf("x = %d, y = %d, i = %d\n", x, y, i);
-		}
+			color(x, y, set, clr[++i]);
 	}
 	mlx_put_image_to_window(set->d.mlx, set->d.win, set->d.img, 0, 0);
 	mlx_hook(set->d.win, 17, 0, close_hook, &(set->d));
-	mlx_key_hook(set->d.win, key_hook, &(set->d));
+	mlx_key_hook(set->d.win, key_hook, &(h));
 	mlx_loop(set->d.mlx);
 	return (1);
 }
