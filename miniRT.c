@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 11:55:18 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/18 23:25:38 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 00:00:17 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,5 @@ int		main(int ac, char **av)
 	initiate_window(&set);
 	obj.ctmp = obj.chead;
 	render(&ray, &set, obj);
-	while (1);
 	return (0);
 }
