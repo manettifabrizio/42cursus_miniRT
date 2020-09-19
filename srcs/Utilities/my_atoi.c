@@ -6,11 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 11:15:09 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 17:43:10 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/miniRT.h"
+#include "../../include/minirt.h"
 
 int		spaces_and_sign(const char *s, int *x, int *c)
 {

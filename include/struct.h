@@ -6,85 +6,90 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/18 14:05:19 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 17:17:02 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:30:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef unsigned int t_uint;
+#ifndef STRUCT_H
+# define STRUCT_H
 
-typedef struct		s_point
-{
-	double	x;
-	double	y;
-	double	z;
-}					t_point;
+typedef unsigned int	t_uint;
 
-typedef struct		s_ray
+typedef struct			s_point
 {
-	t_point		orig;
-	int			t;
-	t_point		dir; 
-}					t_ray;
+	double				x;
+	double				y;
+	double				z;
+}						t_point;
 
-typedef	struct		s_coord
+typedef struct			s_ray
 {
-	double	x1;
-	double	x2;
-}					t_coord;
+	t_point				orig;
+	int					t;
+	t_point				dir;
+}						t_ray;
 
-typedef	struct 		s_color
+typedef	struct			s_coord
 {
-	t_uint	r;
-	t_uint	g;
-	t_uint	b;
-}					t_color;
+	double				x1;
+	double				x2;
+}						t_coord;
 
-typedef struct		s_mlx
+typedef	struct			s_color
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	char	*clr;
-	int		bpp;
-	int		sz_line;
-	int		endian;
-}					t_mlx;
+	t_uint				r;
+	t_uint				g;
+	t_uint				b;
+}						t_color;
 
-typedef struct		s_coeff
+typedef struct			s_mlx
 {
-	double a;
-	double b;
-	double c;
-}					t_coeff;
+	void				*mlx;
+	void				*win;
+	void				*img;
+	char				*clr;
+	int					bpp;
+	int					sz_line;
+	int					endian;
+}						t_mlx;
 
-typedef struct		s_cobar
+typedef struct			s_coeff
 {
-	double u;
-	double v;
-	t_point pvec;
-	t_point qvec;
-	t_point tvec;
-}					t_cobar;
+	double				a;
+	double				b;
+	double				c;
+}						t_coeff;
 
-typedef struct 		s_matrix
+typedef struct			s_cobar
 {
-	t_point a;
-	t_point	b;
-	t_point	c;
-}					t_matrix;
+	double				u;
+	double				v;
+	t_point				pvec;
+	t_point				qvec;
+	t_point				tvec;
+}						t_cobar;
 
-typedef struct 		s_setting
+typedef struct			s_matrix
 {
-	int				width;
-	int				heigth;
-	double			amblrat;
-	t_color			amblclr;
-	double			imageAR;
-	void			*head;
-	t_mlx			d;
-	t_uint			save;
-	t_matrix		xmtx;
-	t_matrix		ymtx;
-	int				inversex;
-	int				inversey;
-}					t_setting;
+	t_point				a;
+	t_point				b;
+	t_point				c;
+}						t_matrix;
+
+typedef struct			s_setting
+{
+	int					width;
+	int					heigth;
+	double				amblrat;
+	t_color				amblclr;
+	double				imagear;
+	void				*head;
+	t_mlx				d;
+	t_uint				save;
+	t_matrix			xmtx;
+	t_matrix			ymtx;
+	int					inversex;
+	int					inversey;
+}						t_setting;
+
+#endif

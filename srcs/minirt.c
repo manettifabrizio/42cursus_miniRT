@@ -6,11 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 00:07:59 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 17:20:10 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/miniRT.h"
+#include "../include/minirt.h"
 
 static void		val_init(t_objects *obj, t_setting *set)
 {

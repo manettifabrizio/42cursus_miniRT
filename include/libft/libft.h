@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 18:15:22 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/02 13:25:53 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:31:07 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include "srcs/get_next_line/get_next_line.h"
+
 typedef	struct		s_list
 {
 	void			*content;

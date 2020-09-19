@@ -6,11 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 03:15:05 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 16:56:16 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/miniRT.h"
+#include "../../include/minirt.h"
 
 void	free_array(char **a, int nln)
 {
@@ -34,7 +34,7 @@ void	free_array(char **a, int nln)
 }
 
 void	free_lists(t_objects *obj)
-{	
+{
 	if (obj->nc != 0)
 		ft_lstclear_c(&(obj->chead));
 	if (obj->nl != 0)

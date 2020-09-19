@@ -6,14 +6,14 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 20:22:17 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 00:54:36 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/miniRT.h"
+#include "../../../include/minirt.h"
 
-static double		check_cy(const t_ray ray, const t_cylinder cy, double t0, \
-					double t1)
+static double		check_cy(const t_ray ray, const t_cylinder cy, double t0,
+															double t1)
 {
 	double m0;
 	double m1;
@@ -31,7 +31,7 @@ static double		check_cy(const t_ray ray, const t_cylinder cy, double t0, \
 	return (0);
 }
 
-int				cy_intersect(const t_ray ray, t_shapes *sh, double *t)
+int					cy_intersect(const t_ray ray, t_shapes *sh, double *t)
 {
 	double	t0;
 	double	t1;

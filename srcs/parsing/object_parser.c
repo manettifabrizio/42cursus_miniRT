@@ -6,11 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/05 13:49:41 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 17:38:26 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/miniRT.h"
+#include "../../include/minirt.h"
 
 static void		compute_cam_axis(t_cam *c)
 {
@@ -25,10 +25,10 @@ static void		compute_cam_axis(t_cam *c)
 	c->cy = normalize(mul(cross_2(c->cx, c->cz), -1));
 }
 
-int			fill_cam(char *line, t_uint nln, t_objects *obj)
+int				fill_cam(char *line, t_uint nln, t_objects *obj)
 {
-	int 		x;
-	t_cam		*tmp;
+	int		x;
+	t_cam	*tmp;
 
 	x = 0;
 	obj->nc = lst_check_c(&(obj->chead), obj->nc, &tmp);
@@ -49,9 +49,9 @@ int			fill_cam(char *line, t_uint nln, t_objects *obj)
 	return (0);
 }
 
-int			fill_light(char *line, t_uint nln, t_objects *obj)
+int				fill_light(char *line, t_uint nln, t_objects *obj)
 {
-	int 		x;
+	int			x;
 	t_light		*tmp;
 
 	x = 0;

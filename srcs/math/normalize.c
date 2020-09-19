@@ -6,13 +6,13 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 13:51:25 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/02 13:22:20 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/miniRT.h"
+#include "../../include/minirt.h"
 
-double	norm(t_point p) //modulo
+double	norm(t_point p)
 {
 	return (p.x * p.x + p.y * p.y + p.z * p.z);
 }

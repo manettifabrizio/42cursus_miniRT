@@ -6,17 +6,17 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 19:01:26 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 17:48:09 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/miniRT.h"
+#include "../../../include/minirt.h"
 
 int		key_hook(int key, void *param)
 {
-	t_hook *h;
-	t_ray r;
-	
+	t_hook	*h;
+	t_ray	r;
+
 	h = param;
 	if ((key == 257 || key == 258) && h->obj.nc != 1)
 	{

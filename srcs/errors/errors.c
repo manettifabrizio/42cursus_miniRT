@@ -6,11 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 15:47:39 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 17:02:00 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:14:11 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/miniRT.h"
+#include "../../include/minirt.h"
 
 void	start_errors(int ac, char **av)
 {
@@ -29,7 +29,7 @@ void	start_errors(int ac, char **av)
 	else
 	{
 		x = ft_strlen(av[1]);
-		if (!(av[1][x - 1] == 't' && av[1][x - 2] == 'r' 
+		if (!(av[1][x - 1] == 't' && av[1][x - 2] == 'r'
 				&& av[1][x - 3] == '.'))
 		{
 			ft_putstr("\033[0;31mError:\033[0m Invalid file format.\n");
@@ -55,15 +55,9 @@ void	parse_errors(t_uint x, char **a, int nln)
 	exit(0);
 }
 
-void	parse_errno(int errnum, int fd)
+void	parse_errno(int fd)
 {
-	if (errnum == 0)
-		ft_putstr_fd("\033[0;31mError\033[0m : File is empty.\n", 2);
-	else
-	{
-		strerror(errnum);
-		perror("\033[0;31mError:\033[0m fd reading failed\n");
-	}
+	ft_putstr("\033[0;31mError:\033[0m fd reading failed\n");
 	close(fd);
 	exit(0);
 }

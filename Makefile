@@ -6,7 +6,7 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/22 20:52:58 by fmanetti          #+#    #+#              #
-#    Updated: 2020/09/19 18:18:50 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/09/19 19:29:10 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,14 +25,13 @@ SOURCE = 	srcs/minirt.c \
 			srcs/graph/intersection/sq_intersect.c \
 			srcs/graph/intersection/cy_intersect.c \
 			srcs/graph/intersection/tr_intersect.c \
-			srcs/math/matrix_ops.c \
-			srcs/math/point_ops.c \
-			srcs/math/distance.c \
+			srcs/math/point_ops0.c \
+			srcs/math/point_ops1.c \
+			srcs/math/clr_ops.c \
 			srcs/math/quad_solver.c \
 			srcs/math/deg2rad.c \
 			srcs/math/normalize.c \
 			srcs/math/mtx.c \
-			srcs/utilities/start.c \
 			srcs/utilities/fill.c \
 			srcs/utilities/my_atoi.c \
 			srcs/utilities/my_atof.c \

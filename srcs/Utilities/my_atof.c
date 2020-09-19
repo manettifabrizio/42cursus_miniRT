@@ -6,16 +6,16 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/28 12:07:24 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 16:42:11 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/miniRT.h"
+#include "../../include/minirt.h"
 
 static int		parse_sign(const char *s, int *i)
 {
-	int 			sign;
-	t_uint 			x;
+	int			sign;
+	t_uint		x;
 
 	x = 0;
 	sign = 1;
@@ -48,11 +48,11 @@ static double	parse_digits(const char *s, t_uint *count, int *i)
 
 double			my_atof(const char *s, int *i)
 {
-	double 			x;
-	double 			dec;
-	int				sign;
-	t_uint			c;
-	
+	double		x;
+	double		dec;
+	int			sign;
+	t_uint		c;
+
 	c = 0;
 	dec = 0.0;
 	while (s[*i] == ' ' || (s[*i] >= 8 && s[*i] <= 13))

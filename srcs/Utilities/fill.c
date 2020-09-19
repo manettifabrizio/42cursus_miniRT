@@ -6,16 +6,16 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 14:30:19 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/10 17:40:18 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/miniRT.h"
+#include "../../include/minirt.h"
 
 t_point		fill_p_1(double a)
 {
 	t_point p;
-	
+
 	p.x = a;
 	p.y = a;
 	p.z = a;

@@ -6,16 +6,16 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 21:38:27 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 17:27:34 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/miniRT.h"
+#include "../../include/minirt.h"
 
 int		fill_res(char *line, t_uint nln, t_setting *set)
 {
 	int x;
-	
+
 	x = 0;
 	if (check(line, 2))
 		return (rt_errors(0, "resolution", nln));

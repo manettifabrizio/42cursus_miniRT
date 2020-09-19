@@ -6,11 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 18:07:48 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 00:53:26 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/miniRT.h"
+#include "../../../include/minirt.h"
 
 static t_shapes		*sq_to_pl(t_shapes *sh)
 {
@@ -25,7 +25,7 @@ static void			sq_vertices(t_square *sq)
 	t_point b;
 
 	a = fill_p_1(0);
-	if (fabs(sq->n.x) <= fabs(sq->n.y) && 
+	if (fabs(sq->n.x) <= fabs(sq->n.y) &&
 		(fabs(sq->n.x) <= fabs(sq->n.z)))
 		a = fill_p(1, 0, (sq->n.z != 0) ? -sq->n.x / sq->n.z : 0);
 	else if (fabs(sq->n.z) <= fabs(sq->n.y) &&

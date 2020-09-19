@@ -6,11 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 12:12:00 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/06/18 13:03:00 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/miniRT.h"
+#include "../../../include/minirt.h"
 
 void	ft_lstadd_back_c(t_cam **alst, t_cam *new)
 {

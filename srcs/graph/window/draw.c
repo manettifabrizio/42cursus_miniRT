@@ -6,29 +6,29 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:15:54 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 01:34:03 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/miniRT.h"
+#include "../../../include/minirt.h"
 
 static void		color(t_uint x, t_uint y, t_setting *set, t_color f)
 {
 	int pixel;
 
 	pixel = (x + (y * set->width)) * 4;
-    (set->d.clr)[pixel] = (char)f.b;
-    (set->d.clr)[pixel + 1] = (char)f.g;
-    (set->d.clr)[pixel + 2] = (char)f.r;
+	(set->d.clr)[pixel] = (char)f.b;
+	(set->d.clr)[pixel + 1] = (char)f.g;
+	(set->d.clr)[pixel + 2] = (char)f.r;
 	(set->d.clr)[pixel + 3] = (char)0;
 }
 
 int				draw(t_color *clr, t_setting set, t_objects obj)
 {
-	int x;
-	int y;
-	int i;
-	t_hook h;
+	int		x;
+	int		y;
+	int		i;
+	t_hook	h;
 
 	h.set = set;
 	h.obj = obj;

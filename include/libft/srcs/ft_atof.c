@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 10:38:15 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/08/14 17:49:43 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:32:32 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int		parse_sign(const char **const s)
 {
-	int 			sign;
-	unsigned int 	x;
+	int				sign;
+	unsigned int	x;
 
 	x = 0;
 	sign = 1;
@@ -47,11 +47,11 @@ static double	parse_digits(const char **const s, unsigned int *count)
 
 float			ft_atof(const char *s)
 {
-	float 			x;
-	float 			dec;
+	float			x;
+	float			dec;
 	int				sign;
 	unsigned int	c;
-	
+
 	c = 0;
 	while (*s == ' ' || (*s >= 8 && *s <= 13))
 		s++;

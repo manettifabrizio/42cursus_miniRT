@@ -6,17 +6,17 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 13:35:27 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 16:43:35 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/miniRT.h"
+#include "../../include/minirt.h"
 
 int		fill_sphere(char *line, t_uint nln, t_objects *obj)
 {
-	int 		x;
+	int			x;
 	t_shapes	*tmp;
-	
+
 	x = 0;
 	obj->ns = lst_check_s(&(obj->shead), obj->ns, &tmp);
 	if (check(line, 3))
@@ -34,7 +34,7 @@ int		fill_sphere(char *line, t_uint nln, t_objects *obj)
 
 int		fill_plane(char *line, t_uint nln, t_objects *obj)
 {
-	int		x;
+	int			x;
 	t_shapes	*tmp;
 
 	x = 0;
@@ -59,7 +59,7 @@ int		fill_plane(char *line, t_uint nln, t_objects *obj)
 
 int		fill_square(char *line, t_uint nln, t_objects *obj)
 {
-	int		x;
+	int			x;
 	t_shapes	*tmp;
 
 	x = 0;
@@ -85,7 +85,7 @@ int		fill_square(char *line, t_uint nln, t_objects *obj)
 
 int		fill_cylinder(char *line, t_uint nln, t_objects *obj)
 {
-	int		x;
+	int			x;
 	t_shapes	*tmp;
 
 	x = 0;
@@ -112,7 +112,7 @@ int		fill_cylinder(char *line, t_uint nln, t_objects *obj)
 
 int		fill_triangle(char *line, t_uint nln, t_objects *obj)
 {
-	int		x;
+	int			x;
 	t_shapes	*tmp;
 
 	x = 0;

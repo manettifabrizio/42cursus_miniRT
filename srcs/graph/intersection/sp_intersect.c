@@ -6,17 +6,17 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 13:29:54 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/09 15:03:23 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/miniRT.h"
+#include "../../../include/minirt.h"
 
 int		sp_intersect(const t_ray ray, t_shapes *sh, double *t)
 {
-	double 	t0;
-	double	t1;
-	t_coeff q;
+	double		t0;
+	double		t1;
+	t_coeff		q;
 
 	q.a = dot_1(ray.dir);
 	q.b = 2 * dot_2(ray.dir, sub(ray.orig, sh->sp.c));
@@ -34,5 +34,4 @@ int		sp_intersect(const t_ray ray, t_shapes *sh, double *t)
 	*t = t0;
 	sh->objclr = sh->sp.clr;
 	return (1);
-	//controllare se funziona
 }

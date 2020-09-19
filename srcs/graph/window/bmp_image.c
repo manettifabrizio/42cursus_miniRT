@@ -6,11 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 00:15:04 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 00:49:42 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/miniRT.h"
+#include "../../../include/minirt.h"
 
 void		write_number_in_file(int nb, int fd)
 {
@@ -42,7 +42,7 @@ void		create_bmp(char *clr, int width, int heigth)
 	int		y;
 	int		x;
 
-	fd = open("./file.bmp", O_CREAT | O_WRONLY, 777);
+	fd = open("./image.bmp", O_CREAT | O_WRONLY, 777);
 	write_header(fd, width, heigth);
 	y = heigth - 1;
 	while (y >= 0)
