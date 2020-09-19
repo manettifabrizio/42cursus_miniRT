@@ -6,7 +6,7 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 17:50:17 by fmanetti          #+#    #+#              #
-#    Updated: 2020/06/22 13:23:41 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/09/19 18:21:16 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,14 +81,7 @@ FLAGS 		= -Wall -Wextra -Werror
 
 all: $(NAME)
 
-%.o: %.c
-	@printf "[ libft ] Compiling.  \r"
-	@gcc $(FLAGS) -c -g $< -o $@
-	@printf "[ libft ] Compiling . \r"
-	@printf "[ libft ] Compiling  .\r"
-
 $(NAME): $(OBJ)
-	@printf "[ libft ] Compiled \033[0;32mSuccessfully\n\033[0m"
 	@ar rc $(NAME) $^
 	@ranlib $(NAME)
 	@printf "[ $(NAME) ] Created \033[0;32mSuccessfully\n\033[0m" $(SUCCESS)

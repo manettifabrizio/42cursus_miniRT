@@ -6,7 +6,7 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/22 20:52:58 by fmanetti          #+#    #+#              #
-#    Updated: 2020/09/19 17:58:55 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/09/19 18:18:50 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,33 +50,24 @@ SOURCE = 	srcs/minirt.c \
 			srcs/errors/memory_free.c \
 			srcs/errors/lstclear.c
 
-INCLUDE =	libft.a \
-			libmlx.a
+INCLUDE =	include/libft/libft.a \
+			include/minilibx/libmlx.a
 
-OBJ			= $(SOURCE:.c=.o)
+OBJ			= $(SOURCE:%.c=%.o)
 
 CC			= gcc
 
-FLAGS 		= -L includes/minilibx -lmlx -framework OpenGL -framework Appkit -fsanitize=address -O0 -g3
+FLAGS 		= -L include/minilibx -lmlx -framework OpenGL -framework Appkit -fsanitize=address -O0 -g3
 CFLAGS		= -Wall -Wextra -Werror -I include/
 
 FSANITIZE	= -g3 -fsanitize=address
 
 all: $(NAME)
 
-%.o: %.c
-	@printf "[ miniRT ] Compiling.  \r"
-	@printf "[ miniRT ] Compiling . \r"
-	@printf "[ miniRT ] Compiling  .\r"
-
 $(NAME): $(OBJ)
 	@make -C include/libft/
 	@make bonus -C include/libft/
-	@make -C include/minilibx
-	@cp include/libft/libft.a .
-	@cp include/minilibx/libmlx.a .
-	@printf "[ libmlx.a ] Created \033[0;32mSuccessfully\n\033[0m" $(SUCCESS)
-	@$(CC) -o $(NAME) $(FLAGS) $(OBJ) $(INCLUDE)
+	@$(CC) -o $(NAME) $(FLAGS) $(OBJ) $(INCLUDE) $(FSANITIZE)
 	@printf "[ miniRT ] Compiled \033[0;32mSuccessfully\n\033[0m"
 
 bonus: $(NAME)
@@ -84,7 +75,6 @@ bonus: $(NAME)
 
 clean:
 	@make clean -C include/libft/
-	@make clean -C include/minilibx/
 	@/bin/rm -f $(OBJ)
 	@printf "Object files \033[0;31mremoved\n\033[0m"
 
@@ -92,9 +82,7 @@ fclean: clean
 	@/bin/rm -f $(NAME)
 	@/bin/rm -f libft.a
 	@make fclean -C include/libft/
-	@/bin/rm -f libmlx.a
-	@printf "[ libmlx.a ] \033[0;31mremoved\n\033[0m"
-	@/bin/rm -fr a.out*
+	@/bin/rm -f image.bmp
 	@printf "[ $(NAME) ] \033[0;31mremoved\n\033[0m"
 
 re: fclean all
