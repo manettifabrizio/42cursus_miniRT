@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 21:21:43 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/18 22:17:19 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 02:03:49 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct		s_cam
 	t_point			cy;
 	t_point			cz;
 	double			alpha;
+	double			scale;
 	struct s_cam	*next;
 }					t_cam;
 
@@ -97,7 +98,7 @@ typedef	struct			s_objects
 {
 	t_cam				*chead;
 	t_cam				*ctmp;
-	t_uint				ntmp;
+	int					ntmp;
 	int					nc;
 	t_light				*lhead;
 	int					nl;
@@ -107,6 +108,6 @@ typedef	struct			s_objects
 
 typedef struct 			s_hook
 {
-	t_setting 			*set;
+	t_setting 			set;
 	t_objects			obj;
 }						t_hook;

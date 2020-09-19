@@ -6,13 +6,13 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/28 12:07:24 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/02 13:22:20 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 16:42:11 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/miniRT.h"
 
-static int		parse_sign(const char *s, t_uint *i)
+static int		parse_sign(const char *s, int *i)
 {
 	int 			sign;
 	t_uint 			x;
@@ -31,7 +31,7 @@ static int		parse_sign(const char *s, t_uint *i)
 	return (sign);
 }
 
-static double	parse_digits(const char *s, t_uint *count, t_uint *i)
+static double	parse_digits(const char *s, t_uint *count, int *i)
 {
 	double	x;
 
@@ -46,7 +46,7 @@ static double	parse_digits(const char *s, t_uint *count, t_uint *i)
 	return (x);
 }
 
-double			my_atof(const char *s, t_uint *i)
+double			my_atof(const char *s, int *i)
 {
 	double 			x;
 	double 			dec;
@@ -60,7 +60,6 @@ double			my_atof(const char *s, t_uint *i)
 	if ((sign = parse_sign(s, i)) == 0)
 		return (0.0);
 	x = parse_digits(s, &c, i);
-	// printf("s = %s\n", s);
 	if (s[*i] == '.')
 	{
 		(*i)++;
@@ -71,7 +70,6 @@ double			my_atof(const char *s, t_uint *i)
 	x += dec;
 	if (sign < 0)
 		x *= -1;
-	// printf("s[%d] = %c\n", *i, s[*i]);
 	if (s[*i] == ',')
 		(*i)++;
 	return (x);

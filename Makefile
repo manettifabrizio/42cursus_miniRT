@@ -6,18 +6,19 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/22 20:52:58 by fmanetti          #+#    #+#              #
-#    Updated: 2020/09/18 16:55:00 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/09/19 17:58:55 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 		miniRT
 
-SOURCE = 	miniRT.c \
+SOURCE = 	srcs/minirt.c \
 			srcs/graph/render.c \
 			srcs/graph/trace.c \
 			srcs/graph/cast_ray.c \
 			srcs/graph/window/draw.c \
 			srcs/graph/window/hook.c \
+			srcs/graph/window/bmp_image.c \
 			srcs/graph/intersection/intersect.c \
 			srcs/graph/intersection/sp_intersect.c \
 			srcs/graph/intersection/pl_intersect.c \
@@ -45,14 +46,21 @@ SOURCE = 	miniRT.c \
 			srcs/parsing/lst_check/obj_lstcheck.c \
 			srcs/parsing/lst_check/obj_lstlast.c \
 			srcs/parsing/lst_check/obj_lstsize.c \
-			srcs/errors/errors_1.c
+			srcs/errors/errors.c \
+			srcs/errors/memory_free.c \
+			srcs/errors/lstclear.c
 
 INCLUDE =	libft.a \
 			libmlx.a
 
-OBJ			= $(SOURCE:%.c=%.o)
+OBJ			= $(SOURCE:.c=.o)
 
-FLAGS 		= -Wall -Wextra -Werror
+CC			= gcc
+
+FLAGS 		= -L includes/minilibx -lmlx -framework OpenGL -framework Appkit -fsanitize=address -O0 -g3
+CFLAGS		= -Wall -Wextra -Werror -I include/
+
+FSANITIZE	= -g3 -fsanitize=address
 
 all: $(NAME)
 
@@ -68,7 +76,7 @@ $(NAME): $(OBJ)
 	@cp include/libft/libft.a .
 	@cp include/minilibx/libmlx.a .
 	@printf "[ libmlx.a ] Created \033[0;32mSuccessfully\n\033[0m" $(SUCCESS)
-	@gcc -g -lmlx -L include/minilibx -framework OpenGL -framework AppKit -lz $(SOURCE) $(INCLUDE) -g3 -fsanitize=address
+	@$(CC) -o $(NAME) $(FLAGS) $(OBJ) $(INCLUDE)
 	@printf "[ miniRT ] Compiled \033[0;32mSuccessfully\n\033[0m"
 
 bonus: $(NAME)

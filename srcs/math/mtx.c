@@ -6,24 +6,17 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 12:23:26 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/16 17:50:42 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 17:18:42 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/miniRT.h"
 
-// void	create_trasl_mtx(t_point p, double (*mtx)[4][4])
-// {
-// 	start_identity_mtx(mtx);
-// 	(*mtx)[0][3] = p.x;
-// 	(*mtx)[1][3] = p.y;
-// 	(*mtx)[2][3] = p.z;
-// }
-
-t_matrix	create_rot_mtx(t_point u, double angle, t_matrix mtx)
+static	t_matrix	create_rot_mtx(t_point u, double angle)
 {
-	double s;
-	double c;
+	double 		s;
+	double 		c;
+	t_matrix	mtx;
 
 	s = sin(angle);
 	c = cos(angle);
@@ -39,21 +32,18 @@ t_matrix	create_rot_mtx(t_point u, double angle, t_matrix mtx)
 	return (mtx);
 }
 
-t_point		compute_rot(t_point dir, t_point ax1, t_point ax2)
+t_matrix			compute_rot(t_point ax1, t_point ax2, t_setting *set)
 {
 	double		angle;
 	t_point 	axis;
-	t_matrix 	mtx;
+	t_matrix	mtx;
 
 	angle = acos(dot_2(ax1, ax2));
-	// printf("angle = %f\n", angle);
 	axis = normalize(cross_2(ax2, ax1));
-	// print_point(axis, "axis");
-	mtx = create_rot_mtx(axis, angle, mtx);
-	dir = normalize(mult_vec_mtx(dir, mtx));
-	if (angle == M_PI)
-		dir.y *= -1;
-	// print_point(dir, "dir rot");
-	// printf("\n");
-	return (dir);
+	mtx = create_rot_mtx(axis, angle);
+	if (angle == M_PI && ax2.x == 1)
+		set->inversex = -1;
+	if (angle == M_PI && ax2.y == 1)
+		set->inversey = -1;
+	return (mtx);
 }

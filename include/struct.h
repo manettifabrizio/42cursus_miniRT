@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/18 14:05:19 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/18 13:55:49 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 17:17:02 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,6 @@ typedef struct		s_mlx
 	int		endian;
 }					t_mlx;
 
-typedef struct 		s_setting
-{
-	unsigned int	width;
-	unsigned int	heigth;
-	double			amblrat;
-	t_color			amblclr;
-	double			scale;
-	double			imageAR;
-	void			*head;
-	t_mlx			d;
-	t_uint			save;
-}					t_setting;
-
 typedef struct		s_coeff
 {
 	double a;
@@ -85,3 +72,19 @@ typedef struct 		s_matrix
 	t_point	b;
 	t_point	c;
 }					t_matrix;
+
+typedef struct 		s_setting
+{
+	int				width;
+	int				heigth;
+	double			amblrat;
+	t_color			amblclr;
+	double			imageAR;
+	void			*head;
+	t_mlx			d;
+	t_uint			save;
+	t_matrix		xmtx;
+	t_matrix		ymtx;
+	int				inversex;
+	int				inversey;
+}					t_setting;

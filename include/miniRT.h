@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:12:06 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/18 21:38:43 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 17:26:47 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 
 #define F_LIMIT 3.402823466e+38F
 #define BIAS	1e-04
+#define MAX_WIDTH 1680
+#define MAX_HEIGTH 1050
 extern int errno ;
-
-void	start(int ac, char **av, t_objects *obj, t_setting *set);
 
 //GRAPH
 
-void		render(t_ray *ray, t_setting *set, t_objects obj);
+void		render(t_ray *ray, t_setting set, t_objects obj);
 t_color		cast_ray(t_ray *ray, t_setting set, t_objects obj);
 int			trace(const t_ray *ray, t_objects *obj, double *tnear,
 				t_shapes *hitobj);
@@ -40,9 +40,10 @@ int			cy_intersect(const t_ray ray, t_shapes *sh, double *t);
 int     	tr_intersect(const t_ray ray, t_shapes *sh, double *t);
 
 //WINDOW
-int			draw(t_color *clr, t_setting *set, t_objects obj);
+int			draw(t_color *clr, t_setting set, t_objects obj);
 int			key_hook(int key, void *param);
 int			close_hook(void);
+void		create_bmp(char *clr, int width, int heigth);
 
 //UTILITIES
 
@@ -50,21 +51,22 @@ int			close_hook(void);
 t_point		fill_p_1(double a);
 t_point		fill_p(double a, double b, double c);
 t_color		fill_clr_3(double a, double b, double c);
-int			my_atoi(const char *s, t_uint *y);
-double		my_atof(const char *s, t_uint *i);
+int			my_atoi(const char *s, int *y);
+double		my_atof(const char *s, int *i);
 
 //var0
 int			emptyline_or_comment(char *s);
 int			check(char *line, t_uint y);
-void		check_norm(t_point p, char *s, t_uint nln);
-void		check_clr(t_color c, char *s, t_uint nln);
+int			check_norm(t_point p, char *s, t_uint nln);
+int			check_clr(t_color c, char *s, t_uint nln);
+t_uint		lines_nbr(char *av);
 void		print_point(t_point p, char *s);
 void		print_clr(t_color p, char *s);
 
 //MATH
 
 //rotation
-t_point		compute_rot(t_point dir, t_point ax1, t_point ax2);
+t_matrix	compute_rot(t_point ax1, t_point ax2, t_setting *set);
 
 //conversion
 double		deg2rad(double deg);
@@ -102,15 +104,15 @@ void		ft_swap_f(double *a, double *b);
 //PARSE
 
 void		parse(char **av, t_setting *set, t_objects *obj);
-void		fill_res(char *line, t_uint nln, t_setting *set);
-void		fill_ambl(char *line, t_uint nln, t_setting *set);
-void		fill_cam(char *line, t_uint nln, t_objects *obj);
-void		fill_light(char *line, t_uint nln, t_objects *obj);
-void		fill_sphere(char *line, t_uint nln, t_objects *obj);
-void		fill_plane(char *line, t_uint nln, t_objects *obj);
-void		fill_square(char *line, t_uint nln, t_objects *obj);
-void		fill_cylinder(char *line, t_uint nln, t_objects *obj);
-void		fill_triangle(char *line, t_uint nln, t_objects *obj);
+int			fill_res(char *line, t_uint nln, t_setting *set);
+int			fill_ambl(char *line, t_uint nln, t_setting *set);
+int			fill_cam(char *line, t_uint nln, t_objects *obj);
+int			fill_light(char *line, t_uint nln, t_objects *obj);
+int			fill_sphere(char *line, t_uint nln, t_objects *obj);
+int			fill_plane(char *line, t_uint nln, t_objects *obj);
+int			fill_square(char *line, t_uint nln, t_objects *obj);
+int			fill_cylinder(char *line, t_uint nln, t_objects *obj);
+int			fill_triangle(char *line, t_uint nln, t_objects *obj);
 
 //LST_CHECK
 
@@ -132,8 +134,13 @@ int			ft_lstsize_s(t_shapes *lst);
 
 //ERRORS
 
-void	start_errors(int ac, char **av, t_objects *obj);
+void	start_errors(int ac, char **av);
 void	mlx_error(t_mlx d);
-void	parse_errors(t_uint x);
-void	parse_errno(int errnum);
-void	rt_errors(t_uint x, char *obj, t_uint nline);
+void	parse_errors(t_uint x, char **a, int nln);
+void	parse_errno(int errnum, int fd);
+int		rt_errors(t_uint x, char *obj, int nline);
+void	free_array(char **a, int nln);
+void	free_lists(t_objects *obj);
+void	ft_lstclear_c(t_cam **lst);
+void	ft_lstclear_l(t_light **lst);
+void	ft_lstclear_s(t_shapes **lst);

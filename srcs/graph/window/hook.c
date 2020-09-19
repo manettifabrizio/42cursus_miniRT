@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 19:01:26 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/18 23:32:29 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 17:48:09 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 int		key_hook(int key, void *param)
 {
 	t_hook *h;
-	t_ray *r;
+	t_ray r;
 	
 	h = param;
-	printf("key = %d\n", key);
 	if ((key == 257 || key == 258) && h->obj.nc != 1)
 	{
 		h->obj.ntmp++;
@@ -28,11 +27,14 @@ int		key_hook(int key, void *param)
 			h->obj.ntmp = 0;
 			h->obj.ctmp = h->obj.chead;
 		}
-		r->orig = h->obj.ctmp->p;
-		render(r, h->set, h->obj);
+		r.orig = h->obj.ctmp->p;
+		render(&r, h->set, h->obj);
 	}
 	if (key == 53 || key == 12)
+	{
+		free_lists(&(h->obj));
 		exit(EXIT_SUCCESS);
+	}
 	return (0);
 }
 

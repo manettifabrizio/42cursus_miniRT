@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/05 13:49:41 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/18 19:04:35 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 17:38:26 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ static void		compute_cam_axis(t_cam *c)
 	c->cy = normalize(mul(cross_2(c->cx, c->cz), -1));
 }
 
-void			fill_cam(char *line, t_uint nln, t_objects *obj)
+int			fill_cam(char *line, t_uint nln, t_objects *obj)
 {
-	t_uint 		x;
+	int 		x;
 	t_cam		*tmp;
 
 	x = 0;
 	obj->nc = lst_check_c(&(obj->chead), obj->nc, &tmp);
 	if (check(line, 3))
-		rt_errors(0, "camera", nln);
+		return (rt_errors(0, "camera", nln));
 	tmp->p.x = my_atof(line, &x);
 	tmp->p.y = my_atof(line, &x);
 	tmp->p.z = my_atof(line, &x);
@@ -44,23 +44,28 @@ void			fill_cam(char *line, t_uint nln, t_objects *obj)
 	compute_cam_axis(tmp);
 	check_norm(tmp->n, "camera orientation vector", nln);
 	if (tmp->alpha < 0 || tmp->alpha > 180)
-		rt_errors(1, "camera field of view", nln);
+		return (rt_errors(1, "camera field of view", nln));
+	tmp->scale = tan(deg2rad(tmp->alpha * 0.5));
+	return (0);
 }
 
-void			fill_light(char *line, t_uint nln, t_objects *obj)
+int			fill_light(char *line, t_uint nln, t_objects *obj)
 {
-	t_uint 		x;
+	int 		x;
 	t_light		*tmp;
 
 	x = 0;
 	obj->nl = lst_check_l(&(obj->lhead), obj->nl, &tmp);
 	if (check(line, 3))
-		rt_errors(0, "light", nln);
+		return (rt_errors(0, "light", nln));
 	tmp->p.x = my_atof(line, &x);
 	tmp->p.y = my_atof(line, &x);
 	tmp->p.z = my_atof(line, &x);
 	tmp->rat = my_atof(line, &x);
+	if (tmp->rat < 0 || tmp->rat > 1)
+		return (rt_errors(1, "light ratio", nln));
 	tmp->clr.r = my_atoi(line, &x);
 	tmp->clr.g = my_atoi(line, &x);
 	tmp->clr.b = my_atoi(line, &x);
+	return (check_clr(tmp->clr, "light color", nln));
 }

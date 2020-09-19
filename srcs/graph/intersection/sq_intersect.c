@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 18:07:48 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/10 17:38:57 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 00:53:26 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 static t_shapes		*sq_to_pl(t_shapes *sh)
 {
-	t_plane pl;
-
 	sh->pl.p = sh->sq.p;
 	sh->pl.n = sh->sq.n;
 	return (sh);
@@ -26,6 +24,7 @@ static void			sq_vertices(t_square *sq)
 	t_point a;
 	t_point b;
 
+	a = fill_p_1(0);
 	if (fabs(sq->n.x) <= fabs(sq->n.y) && 
 		(fabs(sq->n.x) <= fabs(sq->n.z)))
 		a = fill_p(1, 0, (sq->n.z != 0) ? -sq->n.x / sq->n.z : 0);

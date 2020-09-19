@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/29 15:01:20 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/18 19:03:49 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 17:03:03 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,47 @@ int		check(char *line, t_uint y)
 	return (0);
 }
 
-void		check_norm(t_point p, char *s, t_uint nln)
+int		check_norm(t_point p, char *s, t_uint nln)
 {
 
 	if (p.x < -1 || p.x > 1 || 
 		p.y < -1 || p.y > 1 || 
 		p.z < -1 || p.z > 1)
-			rt_errors(1, s, nln);
+			return (rt_errors(1, s, nln));
+	return (0);
 }
 
-void		check_clr(t_color c, char *s, t_uint nln)
+int		check_clr(t_color c, char *s, t_uint nln)
 {
 	if (c.r < 0 || c.r > 255 || 
 		c.g < 0 || c.g > 255 ||
 		c.b < 0 || c.b > 255)
-			rt_errors(1, s, nln);
+			return (rt_errors(1, s, nln));
+	return (0);
+}
+
+t_uint	lines_nbr(char *av)
+{
+	int		r;
+	int		fd;
+	t_uint	lines;
+	char 	*line;
+	
+	lines = 0;
+	if (!(fd = open(av, O_RDONLY)))
+		parse_errno(errno, fd);
+	while ((r = get_next_line(fd, &line)))	
+	{
+		if (r == -1)
+			parse_errors(1, &(line), 0);
+		lines++;
+		free(line);
+	}
+	free(line);
+	close(fd);
+	if (lines != 0)
+		return (lines + 1);
+	return (0);
 }
 
 void	print_point(t_point p, char *s)

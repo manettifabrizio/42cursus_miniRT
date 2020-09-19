@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:19:02 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/16 17:24:00 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/09/19 00:45:55 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void		get_surface_data(t_ray ray, double t, t_shapes *hitobj)
 // 			mul(b, fill_p_1(patt))));
 // }
 
-static void		get_light_data(double t, t_light *l, t_shapes hitobj)
+static void		get_light_data(t_light *l, t_shapes hitobj)
 {
 	l->dir = sub(hitobj.phit, l->p); //direz
 	// print_point(l->dir, "l->dir");
@@ -88,7 +88,7 @@ t_color			cast_ray(t_ray *ray, t_setting set, t_objects obj) //da riscrivere
 		{
 			// printf("t1 = %f\n", t);
 			// print_point(ray->dir, "ray.dir");
-			get_light_data(t, tmp, hitobj);
+			get_light_data(tmp, hitobj);
 			// print_clr(hitobj.objclr, "clr");
 			shadow = trace(&(tmp->shray), &obj, &t, &hitobj2) ? 0 : 1;
 			if ((t > point_dist(hitobj.phit, tmp->p)))
