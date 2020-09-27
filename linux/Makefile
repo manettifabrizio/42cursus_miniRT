@@ -6,7 +6,7 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/22 20:52:58 by fmanetti          #+#    #+#              #
-#    Updated: 2020/09/27 17:21:25 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/09/27 18:44:27 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,7 @@ FSANITIZE	=	-g3 -O0 -fsanitize=address
 all: $(NAME)
 
 $(NAME): $(OBJ)
+	@make -C include/libft
 	@printf "[ miniRT ] Compiling...\r"
 	@($(CC) -o $(NAME) $(SOURCE) $(INCLUDE) $(FSANITIZE) $(FLAGS) $(CFLAGS) $(FSANITIZE))
 	@printf "[ miniRT ] Compiled \033[0;32mSuccessfully\n\033[0m"
@@ -76,6 +77,7 @@ xlib:
 	@make re -C include/minilibx-linux
 
 clean:
+	@make clean -C include/libft
 	@/bin/rm -f $(OBJ)
 	@printf "Object files \033[0;31mremoved\n\033[0m"
 
