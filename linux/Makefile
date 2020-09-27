@@ -56,8 +56,9 @@ OBJ			=	$(SOURCE:%.c=%.o)
 
 CC			= 	clang
 
-FLAGS 		=	-I include/minirt.h -L include/minilibx-linux -lmlx_Linux -lXext -lX11 -lm -lbsd -lmlx
-CFLAGS		=	-Wall -Wextra -Werror -L/usr/lib/x86_64-linux-gnu
+FLAGS 		=	-I include/minirt.h -L include/minilibx-linux -lmlx_Linux \
+			-lXext -lX11 -lm -lbsd -lmlx
+CFLAGS		=	-Wall -Wextra -Werror
 FSANITIZE	=	-g3 -O0 -fsanitize=address
 
 all: $(NAME)
