@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 00:15:04 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/26 21:41:33 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/03 01:15:42 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,5 @@ void		create_bmp(char *clr, int width, int heigth)
 		}
 		y--;
 	}
+	exit(EXIT_SUCCESS);
 }
