@@ -6,11 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 15:03:26 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 20:30:27 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/02 21:27:46 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minirt.h"
+#include "minirt.h"
 
 static int		letters(char *ln, t_uint nln, t_setting *set, t_objects *obj)
 {

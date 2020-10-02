@@ -6,11 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 19:23:09 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/02 21:27:46 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minirt.h"
+#include "minirt.h"
 
 t_point		cross_2(t_point p1, t_point p2)
 {

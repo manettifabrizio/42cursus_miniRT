@@ -6,11 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/28 12:07:24 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/02 21:27:46 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minirt.h"
+#include "minirt.h"
 
 static int		parse_sign(const char *s, int *i)
 {

@@ -6,11 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 13:29:54 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/02 21:28:33 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/minirt.h"
+#include "minirt.h"
 
 int		sp_intersect(const t_ray ray, t_shapes *sh, double *t)
 {

@@ -6,11 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 19:01:26 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/02 21:28:33 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/minirt.h"
+#include "minirt.h"
 
 int		key_hook(int key, void *param)
 {

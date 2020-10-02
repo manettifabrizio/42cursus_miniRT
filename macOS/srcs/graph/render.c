@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:07:40 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/26 21:41:10 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/02 20:39:46 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void			render(t_ray *ray, t_setting set, t_objects obj)
 			ray->dir.y = (1 - 2 * ((j + 0.5) / set.heigth))
 				* obj.ctmp->scale;
 			compute_raydir(ray, set, obj);
-			*(pix++) = cast_ray(ray, set, obj);
+			*(pix++) = cast_ray(*ray, set, obj);
 		}
 	}
 	draw(clr, set, obj);

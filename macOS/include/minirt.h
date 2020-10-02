@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   miniRT.h                                           :+:      :+:    :+:   */
+/*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 20:20:52 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/26 20:50:37 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/02 21:26:06 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define MAX_HEIGTH 1050
 
 void		render(t_ray *ray, t_setting set, t_objects obj);
-t_color		cast_ray(t_ray *ray, t_setting set, t_objects obj);
-int			trace(const t_ray *ray, t_objects *obj, double *tnear,
+t_color		cast_ray(t_ray ray, t_setting set, t_objects obj);
+int			trace(const t_ray ray, t_objects *obj, double *tnear,
 				t_shapes *hitobj);
 int			intersect(const t_ray ray, t_shapes *sh, double *t);
 int			sp_intersect(const t_ray ray, t_shapes *sh, double *t);
@@ -49,8 +49,6 @@ int			check(char *line, t_uint y);
 int			check_norm(t_point p, char *s, t_uint nln);
 int			check_clr(t_color c, char *s, t_uint nln);
 t_uint		lines_nbr(char *av);
-void		print_point(t_point p, char *s);
-void		print_clr(t_color p, char *s);
 t_matrix	compute_rot(t_point ax1, t_point ax2, t_setting *set);
 double		deg2rad(double deg);
 t_point		normalize(t_point p);

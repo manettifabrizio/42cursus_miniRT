@@ -6,11 +6,11 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:07:40 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 20:30:27 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/02 21:27:46 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minirt.h"
+#include "minirt.h"
 
 static void		compute_raydir(t_ray *ray, t_setting set, t_objects obj)
 {
@@ -53,7 +53,7 @@ void			render(t_ray *ray, t_setting set, t_objects obj)
 			ray->dir.y = (1 - 2 * ((j + 0.5) / set.heigth))
 				* obj.ctmp->scale;
 			compute_raydir(ray, set, obj);
-			*(pix++) = cast_ray(ray, set, obj);
+			*(pix++) = cast_ray(*ray, set, obj);
 		}
 	}
 	draw(clr, set, obj);

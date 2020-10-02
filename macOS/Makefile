@@ -6,7 +6,7 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/22 20:52:58 by fmanetti          #+#    #+#              #
-#    Updated: 2020/09/27 17:17:39 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/10/02 21:24:54 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ OBJ			=	$(SOURCE:%.c=%.o)
 
 CC			= 	gcc
 
-FLAGS		=	-I include/minirt.h -L include/minilibx -lmlx -framework OpenGL \
+FLAGS		=	-L include/minilibx -lmlx -framework OpenGL \
 				-framework Appkit
 CFLAGS		= 	-Wall -Wextra -Werror -I include/
 FSANITIZE	= 	-g3 -O0 -fsanitize=address
@@ -82,6 +82,7 @@ clean:
 fclean: clean
 	@/bin/rm -f $(NAME)
 	@/bin/rm -f image.bmp
+	@/bin/rm -rf $(NAME).*
 	@printf "[ $(NAME) ] \033[0;31mremoved\n\033[0m"
 
 re: fclean all

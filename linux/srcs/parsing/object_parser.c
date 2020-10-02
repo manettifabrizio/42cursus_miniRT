@@ -6,17 +6,17 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/05 13:49:41 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 20:03:13 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/02 21:27:46 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minirt.h"
+#include "minirt.h"
 
 static void		compute_cam_axis(t_cam *c)
 {
 	t_point p;
 
-	p = (c->n.y == -1) ? fill_p(0, 0, 1) : fill_p(0, 1, 0);
+	p = (c->n.y == 1 || c->n.y == -1) ? fill_p(0, 0, 1) : fill_p(0, 1, 0);
 	c->n = normalize(c->n);
 	c->cz = normalize(mul(c->n, -1));
 	c->cx = normalize(cross_2(p, c->cz));
