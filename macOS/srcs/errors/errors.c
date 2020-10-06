@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 15:47:39 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/27 16:26:50 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/06 15:40:38 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void	start_errors(int ac, char **av)
 	}
 }
 
-void	mlx_error(t_mlx d)
+void	mlx_error(t_mlbx mlx)
 {
-	ft_memdel(&d.img);
-	ft_memdel((void*)&d);
+	ft_memdel(&mlx.img);
+	ft_memdel((void*)&mlx);
 	exit(EXIT_FAILURE);
 }
 
@@ -66,7 +66,7 @@ int		rt_errors(t_uint x, char *obj, int nline)
 {
 	if (x == 0)
 	{
-		ft_putstr("\033[0;31mMissing Parameter\033[0m in ");
+		ft_putstr("\033[0;31mWrong Numeber of Parameters\033[0m in ");
 		ft_putstr(obj);
 		ft_putstr(" declaration at line: ");
 	}

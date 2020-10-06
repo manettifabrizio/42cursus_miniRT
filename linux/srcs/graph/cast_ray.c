@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:19:02 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/02 21:36:44 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/06 14:36:39 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static void			get_surface_data(t_ray ray, double t, t_shapes *hitobj)
 	}
 	else if (hitobj->type == 4)
 		hitobj->nhit = hitobj->tr.n;
+	if (dot_2(ray.dir, hitobj->nhit) > 1e-08)
+		hitobj->nhit = mul(hitobj->nhit, -1);
 }
 
 static void			get_light_data(t_light *l, t_shapes hitobj)
@@ -43,7 +45,7 @@ static void			get_light_data(t_light *l, t_shapes hitobj)
 	l->shray.dir = normalize(mul(l->dir, -1));
 }
 
-static void			shadow_and_fratio(t_ray ray, double *fratio, t_uint *shadow,
+static void			shadow_and_fratio(double *fratio, t_uint *shadow,
 										t_objects obj)
 {
 	double t;
@@ -53,8 +55,6 @@ static void			shadow_and_fratio(t_ray ray, double *fratio, t_uint *shadow,
 	if ((t > point_dist(obj.hitobj.phit, obj.ltmp->p)) ||
 		(point_dist(obj.hitobj.phit, obj.ltmp->p) - t < 1e-03))
 		(*shadow) = 1;
-	if (dot_2(ray.dir, obj.hitobj.nhit) > 1e-08)
-		(*shadow) = 0;
 	(*fratio) = dot_2(obj.hitobj.nhit, obj.ltmp->shray.dir);
 	if ((*fratio) < 0)
 		(*fratio) = 0;
@@ -86,13 +86,12 @@ t_color				cast_ray(t_ray ray, t_setting set, t_objects obj)
 		while (obj.ltmp)
 		{
 			get_light_data(obj.ltmp, obj.hitobj);
-			shadow_and_fratio(ray, &fratio, &shadow, obj);
+			shadow_and_fratio(&fratio, &shadow, obj);
 			hitcolor = clr_sum(hitcolor, compute_clr(obj.hitobj, *obj.ltmp,
 				fratio, shadow));
 			obj.ltmp = obj.ltmp->next;
 		}
-		hitcolor = clr_sum(ambcolor, hitcolor);
-		hitcolor = max_clr(hitcolor, obj.hitobj.objclr);
+		hitcolor = max_clr(clr_sum(ambcolor, hitcolor), obj.hitobj.objclr);
 	}
 	return (hitcolor);
 }

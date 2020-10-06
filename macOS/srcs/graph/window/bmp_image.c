@@ -6,18 +6,40 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 00:15:04 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/03 01:30:46 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/06 15:20:15 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void		write_number_in_file(int nb, int fd)
+static void		charging_bar(int x, int y, int width, int heigth)
+{
+	int n;
+
+	x += (width * y);
+	n = ((width - 1) * (heigth - 1)) / 100;
+	if (x % (int)n == 0)
+	{
+		ft_putstr("\rCreating BMP image...");
+		ft_putstr(" [");
+		ft_putnbr(100 - (x / n));
+		ft_putstr("%]");
+	}
+	if (x == 0)
+	{
+		ft_putchar('\n');
+		ft_putstr("[ miniRT ] BMP Image created ");
+		ft_putstr("\033[0;32mSuccessfully\n\033[0m");
+		ft_putstr("Use 'open image.bmp' to open.\n");
+	}
+}
+
+static void		write_number_in_file(int nb, int fd)
 {
 	write(fd, &nb, sizeof(int));
 }
 
-static void	write_header(int fd, int width, int heigth)
+static void		write_header(int fd, int width, int heigth)
 {
 	write(fd, "BM", 2);
 	write_number_in_file(54 + 4 * width * heigth, fd);
@@ -35,20 +57,21 @@ static void	write_header(int fd, int width, int heigth)
 	write_number_in_file(0, fd);
 }
 
-void		create_bmp(char *clr, int width, int heigth)
+void			create_bmp(char *clr, int width, int heigth)
 {
 	int		fd;
 	char	c;
 	int		y;
 	int		x;
 
-	fd = open("./image.bmp", O_CREAT | O_WRONLY, 777);
+	fd = open("./image.bmp", O_CREAT | O_WRONLY | O_TRUNC, S_IRWXU);
 	write_header(fd, width, heigth);
-	y = heigth - 1;
-	while (y >= 0)
+	ft_putchar('\n');
+	y = heigth;
+	while (--y >= 0)
 	{
-		x = 0;
-		while (x < width)
+		x = -1;
+		while (++x < width)
 		{
 			c = clr[(y * width + x) * 4];
 			write(fd, &c, 1);
@@ -58,9 +81,7 @@ void		create_bmp(char *clr, int width, int heigth)
 			write(fd, &c, 1);
 			c = (char)255;
 			write(fd, &c, 1);
-			x++;
+			charging_bar(x, y, width, heigth);
 		}
-		y--;
 	}
-	exit(EXIT_SUCCESS);
 }

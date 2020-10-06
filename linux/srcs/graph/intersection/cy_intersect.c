@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 20:22:17 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/02 21:28:33 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/06 14:37:12 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,17 @@ static double		check_cy(const t_ray ray, const t_cylinder cy, double t0,
 	m0 = (m0 > -(cy.h / 2) && m0 < cy.h / 2) ? 1 : 0;
 	m1 = (m1 > -(cy.h / 2) && m1 < cy.h / 2) ? 1 : 0;
 	if (m0 && m1)
-		return ((t0 > t1) ? t1 : t0);
+	{
+		if (t0 > t1)
+			ft_swap_f(&t0, &t1);
+		if (t0 < 0)
+		{
+			t0 = t1;
+			if (t0 < 0)
+				return (0);
+		}
+		return (t0);
+	}
 	else if (m0 && !(m1))
 		return (t0);
 	else if (!(m0) && m1)

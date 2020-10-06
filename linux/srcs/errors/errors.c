@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 15:47:39 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/02 21:27:46 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/06 15:40:18 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void	start_errors(int ac, char **av)
 	}
 }
 
-void	mlx_error(t_mlx d)
+void	mlx_error(t_mlbx mlx)
 {
-	ft_memdel(&d.img);
-	ft_memdel((void*)&d);
+	ft_memdel(&mlx.img);
+	ft_memdel((void*)&mlx);
 	exit(EXIT_FAILURE);
 }
 

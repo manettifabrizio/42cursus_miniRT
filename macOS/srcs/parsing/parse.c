@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 15:03:26 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/26 21:41:10 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/06 14:04:25 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ void			parse(char **av, t_setting *set, t_objects *obj)
 {
 	char	**rtfile;
 
+	ft_putstr("Parsing...\n");
 	rtfile = NULL;
 	rtfile = reading(av, rtfile);
 	fill_all(rtfile, set, obj);

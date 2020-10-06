@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/18 14:05:19 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 20:30:13 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/06 15:39:37 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef	struct			s_color
 	t_uint				b;
 }						t_color;
 
-typedef struct			s_mlx
+typedef struct			s_mlbx
 {
 	void				*mlx;
 	void				*win;
@@ -51,7 +51,8 @@ typedef struct			s_mlx
 	int					bpp;
 	int					sz_line;
 	int					endian;
-}						t_mlx;
+	t_color				*rgbclr;
+}						t_mlbx;
 
 typedef struct			s_coeff
 {
@@ -84,7 +85,7 @@ typedef struct			s_setting
 	t_color				amblclr;
 	double				imagear;
 	void				*head;
-	t_mlx				d;
+	t_mlbx				mlx;
 	t_uint				save;
 	t_matrix			xmtx;
 	t_matrix			ymtx;
