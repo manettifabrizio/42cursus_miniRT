@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 00:15:04 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/06 15:20:15 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/06 16:08:19 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ static void		charging_bar(int x, int y, int width, int heigth)
 		ft_putchar('\n');
 		ft_putstr("[ miniRT ] BMP Image created ");
 		ft_putstr("\033[0;32mSuccessfully\n\033[0m");
-		ft_putstr("Use 'open image.bmp' to open.\n");
 	}
 }
 
