@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 20:20:52 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/02 21:21:28 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/06 16:01:45 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int			ft_lstsize_c(t_cam *lst);
 int			ft_lstsize_l(t_light *lst);
 int			ft_lstsize_s(t_shapes *lst);
 void		start_errors(int ac, char **av);
-void		mlx_error(t_mlx d);
+void		mlx_error(t_mlbx d);
 void		parse_errors(t_uint x, char **a, int nln);
 void		parse_errno(int fd);
 int			rt_errors(t_uint x, char *obj, int nline);
