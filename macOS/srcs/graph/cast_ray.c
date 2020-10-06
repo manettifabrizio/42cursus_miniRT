@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:19:02 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/06 14:36:39 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/06 16:51:24 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ static void			get_surface_data(t_ray ray, double t, t_shapes *hitobj)
 static void			get_light_data(t_light *l, t_shapes hitobj)
 {
 	l->dir = sub(hitobj.phit, l->p);
-	l->intensity = clr_d_mul(l->clr, l->rat);
 	l->dir = normalize(l->dir);
 	l->shray.orig = sum(hitobj.phit, mul(l->dir, -BIAS));
 	l->shray.dir = normalize(mul(l->dir, -1));
@@ -79,6 +78,7 @@ t_color				cast_ray(t_ray ray, t_setting set, t_objects obj)
 
 	obj.ltmp = obj.lhead;
 	hitcolor = fill_clr_3(0, 0, 0);
+	set.amblclr = clr_mul(set.amblclr, set.amblrat);
 	if (trace(ray, &obj, &t, &(obj.hitobj)))
 	{
 		ambcolor = mix_clr(set.amblclr, obj.hitobj.objclr, 1);

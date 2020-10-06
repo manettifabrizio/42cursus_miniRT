@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 21:21:43 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/19 20:24:36 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/06 16:44:20 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct			s_light
 	t_color				clr;
 	t_point				dir;
 	t_ray				shray;
-	t_color				intensity;
 	struct s_light		*next;
 }						t_light;
 

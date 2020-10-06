@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 21:38:27 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/02 21:27:46 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/06 16:59:10 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int		fill_ambl(char *line, t_uint nln, t_setting *set)
 	set->amblrat = my_atof(line, &x);
 	if (set->amblrat < 0 || set->amblrat > 1)
 		return (rt_errors(1, "ambient light ratio", nln));
-	set->amblclr.r = set->amblrat * my_atoi(line, &x);
-	set->amblclr.g = set->amblrat * my_atoi(line, &x);
-	set->amblclr.b = set->amblrat * my_atoi(line, &x);
+	set->amblclr.r = my_atoi(line, &x);
+	set->amblclr.g = my_atoi(line, &x);
+	set->amblclr.b = my_atoi(line, &x);
 	return (check_clr(set->amblclr, "ambient light color", nln));
 }

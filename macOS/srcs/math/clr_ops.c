@@ -6,19 +6,19 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 19:21:53 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/26 21:41:10 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/06 16:48:57 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_color		clr_mul(t_color clr0, t_color clr1)
+t_color		clr_mul(t_color clr0, double t)
 {
 	t_color clr;
 
-	clr.r = clr0.r * clr1.r;
-	clr.g = clr0.g * clr1.g;
-	clr.b = clr0.b * clr1.b;
+	clr.r = clr0.r * t;
+	clr.g = clr0.g * t;
+	clr.b = clr0.b * t;
 	return (clr);
 }
 
