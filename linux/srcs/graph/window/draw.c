@@ -6,13 +6,13 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:15:54 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/07 17:49:15 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/07 17:51:39 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static void		redraw(void *param)
+static int		redraw(void *param)
 {
 	t_setting *set;
 
