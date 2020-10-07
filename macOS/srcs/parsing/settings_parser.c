@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 21:38:27 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/07 11:09:07 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/07 17:20:05 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		fill_ambl(char *line, t_parse p, t_setting *set)
 	x = 0;
 	if (check(line, 2))
 		return (rt_errors(0, "ambient light", p.nln));
-	set->amblrat = my_atof(line, &x, p, "ambient light");
+	set->amblrat = my_atof(line, &x, p, "ambient light ratio");
 	if (set->amblrat < 0 || set->amblrat > 1)
 		return (rt_errors(1, "ambient light ratio", p.nln));
 	set->amblclr.r = my_atoi(line, &x, p, "ambient light color");

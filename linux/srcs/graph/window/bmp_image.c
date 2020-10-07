@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 00:15:04 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/07 12:00:00 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/07 14:56:45 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void		charging_bar(int x, int y, int width, int heigth)
 	x += (width * y);
 	n = ((width - 1) * (heigth - 1)) / 100;
 	if (x == width * (heigth - 1))
-		ft_putchar("\n");
+		ft_putchar('\n');
 	if (x % (int)n == 0)
 	{
 		ft_putstr("\rCreating BMP image...");

@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/29 15:01:20 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/02 21:27:46 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/07 17:42:12 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int		check(char *line, t_uint y)
 	nbr = 0;
 	while (line[x])
 	{
-		if (ft_isdigit(line[x]) && (line[x + 1] == ' ' || (line[x + 1] >= 8 &&
-			line[x + 1] <= 13) || line[x + 1] == '\0'))
+		if (ft_isdigit(line[x]) && (ft_isspace(line[x + 1]) ||
+		line[x + 1] == '\0'))
 			nbr++;
 		x++;
 	}

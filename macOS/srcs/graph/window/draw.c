@@ -6,12 +6,19 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 17:15:54 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/06 15:44:41 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/07 17:02:39 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
+static void		mlx_draw(t_setting set, t_hook h)
+{
+	mlx_put_image_to_window(set.mlx.mlx, set.mlx.win, set.mlx.img, 0, 0);
+	mlx_key_hook(set.mlx.win, key_hook, &h);
+	mlx_hook(set.mlx.win, 17, 1L << 17, close_hook, &(set.mlx));
+	mlx_loop(set.mlx.mlx);
+}
 static void		color(t_uint x, t_uint y, t_setting *set, t_color f)
 {
 	int pixel;
@@ -40,13 +47,9 @@ int				draw(t_color *clr, t_setting set, t_objects obj)
 		while (++x < set.width)
 			color(x, y, &set, clr[++i]);
 	}
-	mlx_put_image_to_window(set.mlx.mlx, set.mlx.win, set.mlx.img, 0, 0);
-	mlx_hook(set.mlx.win, 17, 0, close_hook, &(set.mlx));
-	mlx_key_hook(set.mlx.win, key_hook, &(h));
-	if (set.save == 1)
-		create_bmp(set.mlx.clr, set.width, set.heigth);
+	if (set.save == 0)
+		mlx_draw(set, h);
 	else
-		mlx_loop(set.mlx.mlx);
-	exit(EXIT_SUCCESS);
+		create_bmp(set.mlx.clr, set.width, set.heigth);
 	return (1);
 }

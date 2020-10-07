@@ -6,7 +6,7 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/22 20:52:58 by fmanetti          #+#    #+#              #
-#    Updated: 2020/10/06 15:21:07 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/10/07 17:45:03 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,10 @@ SOURCE		=	srcs/minirt.c \
 INCLUDE		=	include/libft/libft.a \
 				include/minilibx/libmlx.a
 
+HEADERS		=	include/minirt.h \
+				include/objects.h \
+				include/struct.h
+
 OBJ			=	$(SOURCE:%.c=%.o)
 
 CC			= 	gcc
@@ -63,9 +67,9 @@ FSANITIZE	= 	-g3 -O0 -fsanitize=address
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(HEADERS)
 	@printf "[ miniRT ] Compiling...\r"
-	@($(CC) -o $(NAME) $(SOURCE) $(INCLUDE) $(FLAGS) $(CFLAGS) $(FSANITIZE))
+	@($(CC) -o $(NAME) $(SOURCE) $(INCLUDE) $(FLAGS) $(CFLAGS))
 	@printf "[ miniRT ] Compiled \033[0;32mSuccessfully\n\033[0m"
 
 lib:

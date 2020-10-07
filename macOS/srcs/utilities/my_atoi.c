@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 11:15:09 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/07 11:02:47 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/07 17:41:30 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void		check_letter_or_symbol(char c, int *i, t_parse p, char *obj)
 	}
 }
 
-int		spaces_and_sign(const char *s, int *x, int *c)
+int				spaces_and_sign(const char *s, int *x, int *c)
 {
 	if (s[*x] == '\0')
 		return (1);
@@ -40,7 +40,7 @@ int		spaces_and_sign(const char *s, int *x, int *c)
 	return (0);
 }
 
-int		my_atoi(const char *s, int *i, t_parse p, char *obj)
+int				my_atoi(const char *s, int *i, t_parse p, char *obj)
 {
 	int c;
 	int res;
@@ -56,6 +56,6 @@ int		my_atoi(const char *s, int *i, t_parse p, char *obj)
 		(*i)++;
 	}
 	(*i) += c;
-	check_letter_or_symbol(s[*i], i, p, obj);	
+	check_letter_or_symbol(s[*i], i, p, obj);
 	return (res);
 }

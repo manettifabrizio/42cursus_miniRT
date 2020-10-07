@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 13:35:27 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/07 11:08:24 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/07 17:21:28 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ int		fill_plane(char *line, t_parse p, t_objects *obj)
 	if (check(line, 3))
 		return (rt_errors(0, "plane", p.nln));
 	tmp->type = 1;
-	tmp->pl.p.x = my_atof(line, &x, p, "plane");
-	tmp->pl.p.y = my_atof(line, &x, p, "plane");
-	tmp->pl.p.z = my_atof(line, &x, p, "plane");
-	tmp->pl.n.x = my_atof(line, &x, p, "plane");
-	tmp->pl.n.y = my_atof(line, &x, p, "plane");
-	tmp->pl.n.z = my_atof(line, &x, p, "plane");
+	tmp->pl.p.x = my_atof(line, &x, p, "plane point");
+	tmp->pl.p.y = my_atof(line, &x, p, "plane point");
+	tmp->pl.p.z = my_atof(line, &x, p, "plane point");
+	tmp->pl.n.x = my_atof(line, &x, p, "plane orientation vector");
+	tmp->pl.n.y = my_atof(line, &x, p, "plane orientation vector");
+	tmp->pl.n.z = my_atof(line, &x, p, "plane orientation vector");
 	tmp->pl.clr.r = my_atoi(line, &x, p, "plane color");
 	tmp->pl.clr.g = my_atoi(line, &x, p, "plane color");
 	tmp->pl.clr.b = my_atoi(line, &x, p, "plane color");

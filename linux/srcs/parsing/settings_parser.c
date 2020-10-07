@@ -6,25 +6,25 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 21:38:27 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/06 16:59:10 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/07 17:20:05 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int		fill_res(char *line, t_uint nln, t_setting *set)
+int		fill_res(char *line, t_parse p, t_setting *set)
 {
 	int x;
 
 	x = 0;
 	if (check(line, 2))
-		return (rt_errors(0, "resolution", nln));
-	set->width = my_atoi(line, &x);
-	set->heigth = my_atoi(line, &x);
+		return (rt_errors(0, "resolution", p.nln));
+	set->width = my_atoi(line, &x, p, "width");
+	set->heigth = my_atoi(line, &x, p, "heigth");
 	if (set->width <= 0)
-		return (rt_errors(1, "window width", nln));
+		return (rt_errors(1, "window width", p.nln));
 	if (set->heigth <= 0)
-		return (rt_errors(1, "window heigth", nln));
+		return (rt_errors(1, "window heigth", p.nln));
 	if (set->width > MAX_WIDTH)
 		set->width = MAX_WIDTH;
 	if (set->heigth > MAX_HEIGTH)
@@ -32,18 +32,18 @@ int		fill_res(char *line, t_uint nln, t_setting *set)
 	return (0);
 }
 
-int		fill_ambl(char *line, t_uint nln, t_setting *set)
+int		fill_ambl(char *line, t_parse p, t_setting *set)
 {
 	int x;
 
 	x = 0;
 	if (check(line, 2))
-		return (rt_errors(0, "ambient light", nln));
-	set->amblrat = my_atof(line, &x);
+		return (rt_errors(0, "ambient light", p.nln));
+	set->amblrat = my_atof(line, &x, p, "ambient light ratio");
 	if (set->amblrat < 0 || set->amblrat > 1)
-		return (rt_errors(1, "ambient light ratio", nln));
-	set->amblclr.r = my_atoi(line, &x);
-	set->amblclr.g = my_atoi(line, &x);
-	set->amblclr.b = my_atoi(line, &x);
-	return (check_clr(set->amblclr, "ambient light color", nln));
+		return (rt_errors(1, "ambient light ratio", p.nln));
+	set->amblclr.r = my_atoi(line, &x, p, "ambient light color");
+	set->amblclr.g = my_atoi(line, &x, p, "ambient light color");
+	set->amblclr.b = my_atoi(line, &x, p, "ambient light color");
+	return (check_clr(set->amblclr, "ambient light color", p.nln));
 }

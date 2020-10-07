@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 20:20:52 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/06 17:02:06 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/07 17:39:04 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define MINIRT_H
 
 # include <math.h>
+# include <stdio.h>
+# include <fcntl.h>
 # include "objects.h"
 # include "libft/libft.h"
 # include "minilibx-linux/mlx.h"
@@ -40,8 +42,8 @@ void		create_bmp(char *clr, int width, int heigth);
 t_point		fill_p_1(double a);
 t_point		fill_p(double a, double b, double c);
 t_color		fill_clr_3(double a, double b, double c);
-int			my_atoi(const char *s, int *y);
-double		my_atof(const char *s, int *i);
+int			my_atoi(const char *s, int *i, t_parse p, char *obj);
+double		my_atof(const char *s, int *i, t_parse p, char *obj);
 int			emptyline_or_comment(char *s);
 int			check(char *line, t_uint y);
 int			check_norm(t_point p, char *s, t_uint nln);
@@ -59,22 +61,22 @@ double		dot_2(t_point p1, t_point p2);
 t_point		cross_2(t_point p1, t_point p2);
 t_point		mul(t_point p1, double x);
 t_color		clr_sum(t_color clr0, t_color clr1);
-t_color		clr_mul(t_color clr0, double x);
+t_color		clr_mul(t_color clr0, double t);
 t_color		mix_clr(t_color light, t_color shape, double ratio);
 t_color		max_clr(t_color clr, t_color objclr);
 t_point		mult_vec_mtx(t_point p, t_matrix m);
 int			quad_solver(const t_coeff q, double *t0, double *t1);
 void		ft_swap_f(double *a, double *b);
 void		parse(char **av, t_setting *set, t_objects *obj);
-int			fill_res(char *line, t_uint nln, t_setting *set);
-int			fill_ambl(char *line, t_uint nln, t_setting *set);
-int			fill_cam(char *line, t_uint nln, t_objects *obj);
-int			fill_light(char *line, t_uint nln, t_objects *obj);
-int			fill_sphere(char *line, t_uint nln, t_objects *obj);
-int			fill_plane(char *line, t_uint nln, t_objects *obj);
-int			fill_square(char *line, t_uint nln, t_objects *obj);
-int			fill_cylinder(char *line, t_uint nln, t_objects *obj);
-int			fill_triangle(char *line, t_uint nln, t_objects *obj);
+int			fill_res(char *line, t_parse p, t_setting *set);
+int			fill_ambl(char *line, t_parse p, t_setting *set);
+int			fill_cam(char *line, t_parse p, t_objects *obj);
+int			fill_light(char *line, t_parse p, t_objects *obj);
+int			fill_sphere(char *line, t_parse p, t_objects *obj);
+int			fill_plane(char *line, t_parse p, t_objects *obj);
+int			fill_square(char *line, t_parse p, t_objects *obj);
+int			fill_cylinder(char *line, t_parse p, t_objects *obj);
+int			fill_triangle(char *line, t_parse p, t_objects *obj);
 int			lst_check_c(t_cam **head, int y, t_cam **tmp);
 int			lst_check_l(t_light **head, int y, t_light **tmp);
 int			lst_check_s(t_shapes **head, int y, t_shapes **tmp);
