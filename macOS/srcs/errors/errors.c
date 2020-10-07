@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 15:47:39 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/07 17:18:51 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/07 18:11:59 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		rt_errors(t_uint x, char *obj, int nline)
 {
 	if (x == 0)
 	{
-		ft_putstr("\033[0;31mError:\033[0m Wrong Numeber of Parameters in ");
+		ft_putstr("\033[0;31mError:\033[0m Wrong Number of Parameters in ");
 		ft_putstr(obj);
 		ft_putstr(" declaration at line: ");
 	}

@@ -6,7 +6,7 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/22 20:52:58 by fmanetti          #+#    #+#              #
-#    Updated: 2020/10/07 17:45:03 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/10/07 18:10:31 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SOURCE		=	srcs/minirt.c \
 				srcs/utilities/fill.c \
 				srcs/utilities/my_atoi.c \
 				srcs/utilities/my_atof.c \
+				srcs/utilities/my_isprint.c \
 				srcs/utilities/var0.c \
 				srcs/parsing/parse.c \
 				srcs/parsing/settings_parser.c \

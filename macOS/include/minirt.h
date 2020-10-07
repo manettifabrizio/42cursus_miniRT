@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 20:20:52 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/07 17:09:40 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/07 18:11:16 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_point		fill_p(double a, double b, double c);
 t_color		fill_clr_3(double a, double b, double c);
 int			my_atoi(const char *s, int *i, t_parse p, char *obj);
 double		my_atof(const char *s, int *i, t_parse p, char *obj);
+int			my_isprint(int c);
 int			emptyline_or_comment(char *s);
 int			check(char *line, t_uint y);
 int			check_norm(t_point p, char *s, t_uint nln);
