@@ -6,11 +6,24 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/28 12:07:24 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/26 21:41:10 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/07 11:02:51 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+static void		check_letter_or_symbol(char c, int *i, t_parse p, char *obj)
+{
+	if (c == ',')
+		(*i)++;
+	else if (ft_isspace(c) == 0 && c != '\0')
+	{
+		rt_errors(1, obj, p.nln);
+		free_array(p.rtfile, -1);
+		free_lists(p.obj);
+		exit(EXIT_FAILURE);
+	}
+}
 
 static int		parse_sign(const char *s, int *i)
 {
@@ -46,7 +59,7 @@ static double	parse_digits(const char *s, t_uint *count, int *i)
 	return (x);
 }
 
-double			my_atof(const char *s, int *i)
+double			my_atof(const char *s, int *i, t_parse p, char *obj)
 {
 	double		x;
 	double		dec;
@@ -70,7 +83,6 @@ double			my_atof(const char *s, int *i)
 	x += dec;
 	if (sign < 0)
 		x *= -1;
-	if (s[*i] == ',')
-		(*i)++;
+	check_letter_or_symbol(s[*i], i, p, obj);
 	return (x);
 }

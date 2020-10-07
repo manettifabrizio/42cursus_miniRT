@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 00:15:04 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/06 16:08:19 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/07 12:00:00 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static void		charging_bar(int x, int y, int width, int heigth)
 
 	x += (width * y);
 	n = ((width - 1) * (heigth - 1)) / 100;
+	if (x == width * (heigth - 1))
+		ft_putchar("\n");
 	if (x % (int)n == 0)
 	{
 		ft_putstr("\rCreating BMP image...");
@@ -65,7 +67,6 @@ void			create_bmp(char *clr, int width, int heigth)
 
 	fd = open("./image.bmp", O_CREAT | O_WRONLY | O_TRUNC, S_IRWXU);
 	write_header(fd, width, heigth);
-	ft_putchar('\n');
 	y = heigth;
 	while (--y >= 0)
 	{
@@ -83,4 +84,5 @@ void			create_bmp(char *clr, int width, int heigth)
 			charging_bar(x, y, width, heigth);
 		}
 	}
+	exit(EXIT_SUCCESS);
 }

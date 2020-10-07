@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 21:21:43 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/06 16:44:20 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/07 10:21:18 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,13 @@ typedef	struct			s_hook
 	t_setting			set;
 	t_objects			obj;
 }						t_hook;
+
+typedef struct			s_parse
+{
+	char				**rtfile;
+	char				*objname;
+	t_uint				nln;
+	t_objects			*obj;
+}						t_parse;
 
 #endif

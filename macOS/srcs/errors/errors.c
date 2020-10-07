@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 15:47:39 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/06 15:40:38 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/07 10:56:39 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	start_errors(int ac, char **av)
 	if (ac < 2)
 	{
 		ft_putstr("\033[0;31mError:\033[0m Missing .rt file.\n");
-		exit(0);
+		exit(EXIT_FAILURE);
 	}
 	else if (ac > 3)
 	{
 		ft_putstr("\033[0;31mError:\033[0m Too many arguments.\n");
-		exit(0);
+		exit(EXIT_FAILURE);
 	}
 	else
 	{
@@ -33,7 +33,7 @@ void	start_errors(int ac, char **av)
 				&& av[1][x - 3] == '.'))
 		{
 			ft_putstr("\033[0;31mError:\033[0m Invalid file format.\n");
-			exit(0);
+			exit(EXIT_FAILURE);
 		}
 	}
 }
@@ -52,14 +52,14 @@ void	parse_errors(t_uint x, char **a, int nln)
 	else if (x == 1)
 		ft_putstr("\033[0;31mError:\033[0m fd reading failed\n");
 	free_array(a, nln);
-	exit(0);
+	exit(EXIT_FAILURE);
 }
 
 void	parse_errno(int fd)
 {
 	ft_putstr("\033[0;31mError:\033[0m fd reading failed\n");
 	close(fd);
-	exit(0);
+	exit(EXIT_FAILURE);
 }
 
 int		rt_errors(t_uint x, char *obj, int nline)
