@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/29 15:01:20 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/08 10:23:32 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/08 18:51:35 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int		check(char *line, t_uint y)
 			nbr++;
 		x++;
 	}
-	printf("nbr = %u\ny = %u\n", nbr, y);
 	if (nbr != y)
 		return (1);
 	return (0);
