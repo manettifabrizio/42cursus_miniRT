@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 15:47:39 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/07 18:11:59 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/08 19:20:18 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ int		rt_errors(t_uint x, char *obj, int nline)
 		ft_putstr(" at line: ");
 	}
 	else
-		ft_putstr("\033[0;31mError:\033[0m Missing parameters in "
-				".rt file at line: ");
+		ft_putstr("\033[0;31mError:\033[0m Missing parameters / Wrong type in"
+				" .rt file at line: ");
 	ft_putnbr(nline + 1);
 	ft_putstr(".\n");
 	return (-1);
