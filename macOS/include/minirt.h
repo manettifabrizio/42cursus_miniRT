@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 20:20:52 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/07 18:11:16 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/10 00:03:14 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,12 @@
 # define BIAS	1e-04
 # define MAX_WIDTH 1680
 # define MAX_HEIGTH 1050
+# define ESC 53
+# define Q 12
+# define SHIFT_1 257
+# define SHIFT_2 258
 
-void		render(t_ray *ray, t_setting set, t_objects obj);
+void		render(t_ray *ray, t_setting set, t_objects *obj);
 t_color		cast_ray(t_ray ray, t_setting set, t_objects obj);
 int			trace(const t_ray ray, t_objects *obj, double *tnear,
 				t_shapes *hitobj);
@@ -35,7 +39,7 @@ int			pl_intersect(const t_ray ray, t_shapes *sh, double *t);
 int			sq_intersect(const t_ray ray, t_shapes *sh, double *t);
 int			cy_intersect(const t_ray ray, t_shapes *sh, double *t);
 int			tr_intersect(const t_ray ray, t_shapes *sh, double *t);
-int			draw(t_color *clr, t_setting set, t_objects obj);
+void		create_mlx_img(t_color *clr, t_setting set, t_objects *obj);
 int			key_hook(int key, void *param);
 int			close_hook(void);
 void		create_bmp(char *clr, int width, int heigth);
@@ -78,6 +82,7 @@ int			fill_plane(char *line, t_parse p, t_objects *obj);
 int			fill_square(char *line, t_parse p, t_objects *obj);
 int			fill_cylinder(char *line, t_parse p, t_objects *obj);
 int			fill_triangle(char *line, t_parse p, t_objects *obj);
+int			check_cylinder(t_cylinder cy, t_parse p);
 int			lst_check_c(t_cam **head, int y, t_cam **tmp);
 int			lst_check_l(t_light **head, int y, t_light **tmp);
 int			lst_check_s(t_shapes **head, int y, t_shapes **tmp);
@@ -94,7 +99,7 @@ int			ft_lstsize_c(t_cam *lst);
 int			ft_lstsize_l(t_light *lst);
 int			ft_lstsize_s(t_shapes *lst);
 void		start_errors(int ac, char **av);
-void		mlx_error(t_mlbx d);
+void		mlx_error(t_mlbx mlx, t_objects *obj, t_uint x);
 void		parse_errors(t_uint x, char **a, int nln);
 void		parse_errno(int fd);
 int			rt_errors(t_uint x, char *obj, int nline);

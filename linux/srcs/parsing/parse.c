@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 15:03:26 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/07 17:38:09 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/10 09:48:17 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int		letters(char *ln, t_parse p, t_setting *set, t_objects *obj)
 		return (fill_cylinder(ln + 3, p, obj));
 	else if (ft_strncmp(ln, "tr ", 3) == 0 || ft_strncmp(ln, "tr\t", 3) == 0)
 		return (fill_triangle(ln + 3, p, obj));
-	return (rt_errors(2, ln, p.nln));
+	return (rt_errors(3, ln, p.nln));
 }
 
 static void		fill_all(t_parse *p, t_setting *set, t_objects *obj)
@@ -89,26 +89,26 @@ static char		**reading(char **av, t_parse *p)
 	return (p->rtfile);
 }
 
-static void		check_parse(t_setting *set, t_objects *obj)
+static void		check_required_types(t_setting *set, t_objects *obj)
 {
 	if (set->width == -1 || set->heigth == -1)
 	{
-		ft_putstr("\033[0;31mSyntax Error\033[0m ");
-		ft_putstr("in .rt file: missing resolution.\n");
+		ft_putstr("\033[0;31mError:\033[0m: Missing resolution");
+		ft_putstr(" in .rt file.\n");
 		free_lists(obj);
 		exit(0);
 	}
 	else if (set->amblrat == -1)
 	{
-		ft_putstr("\033[0;31mSyntax Error\033[0m ");
-		ft_putstr("in .rt file: missing ambient light.\n");
+		ft_putstr("\033[0;31mError:\033[0m Missing ambient light");
+		ft_putstr(" in .rt file.\n");
 		free_lists(obj);
 		exit(0);
 	}
 	else if (obj->nc == 0)
 	{
-		ft_putstr("\033[0;31mSyntax Error\033[0m ");
-		ft_putstr("in .rt file: missing camera.\n");
+		ft_putstr("\033[0;31mError:\033[0m Missing camera");
+		ft_putstr(" in .rt file.\n");
 		free_lists(obj);
 		exit(0);
 	}
@@ -124,5 +124,5 @@ void			parse(char **av, t_setting *set, t_objects *obj)
 	fill_all(&p, set, obj);
 	free_array(p.rtfile, -1);
 	set->imagear = set->width / (double)set->heigth;
-	check_parse(set, obj);
+	check_required_types(set, obj);
 }

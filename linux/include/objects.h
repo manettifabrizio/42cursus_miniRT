@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/25 21:21:43 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/07 17:38:01 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/09 00:11:42 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct			s_cam
 	t_point				cz;
 	double				alpha;
 	double				scale;
+	char				*clr;
+	void				*img;
 	struct s_cam		*next;
 }						t_cam;
 
@@ -95,10 +97,21 @@ typedef struct			s_shapes
 	struct s_shapes		*next;
 }						t_shapes;
 
+typedef struct			s_mlbx
+{
+	void				*mlx;
+	void				*win;
+	int					bpp;
+	int					sz_line;
+	int					endian;
+	t_color				*rgbclr;
+}						t_mlbx;
+
 typedef	struct			s_objects
 {
 	t_cam				*chead;
 	t_cam				*ctmp;
+	t_mlbx				mlx;
 	int					ntmp;
 	int					nc;
 	t_light				*lhead;
@@ -106,8 +119,8 @@ typedef	struct			s_objects
 	int					nl;
 	t_shapes			*shead;
 	t_shapes			hitobj;
-	t_shapes			hitobj2;
 	int					ns;
+	t_shapes			hitobj2;
 }						t_objects;
 
 typedef	struct			s_hook

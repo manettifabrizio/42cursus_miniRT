@@ -6,7 +6,7 @@
 #    By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/22 20:52:58 by fmanetti          #+#    #+#              #
-#    Updated: 2020/10/07 18:13:59 by fmanetti         ###   ########.fr        #
+#    Updated: 2020/10/10 00:14:55 by fmanetti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SOURCE		=	srcs/minirt.c \
 				srcs/graph/render.c \
 				srcs/graph/trace.c \
 				srcs/graph/cast_ray.c \
-				srcs/graph/window/draw.c \
+				srcs/graph/window/create_mlx_img.c \
 				srcs/graph/window/hook.c \
 				srcs/graph/window/bmp_image.c \
 				srcs/graph/intersection/intersect.c \
@@ -37,6 +37,7 @@ SOURCE		=	srcs/minirt.c \
 				srcs/utilities/my_atof.c \
 				srcs/utilities/my_isprint.c \
 				srcs/utilities/var0.c \
+				srcs/utilities/var1.c \
 				srcs/parsing/parse.c \
 				srcs/parsing/settings_parser.c \
 				srcs/parsing/shapes_parser.c \
@@ -70,7 +71,7 @@ all: $(NAME)
 $(NAME): $(OBJ) $(HEADERS)
 	@make -C include/libft
 	@printf "[ miniRT ] Compiling...\r"
-	@($(CC) -o $(NAME) $(SOURCE) $(INCLUDE) $(FSANITIZE) $(FLAGS) $(CFLAGS))
+	@($(CC) -o $(NAME) $(SOURCE) $(INCLUDE) $(FLAGS) $(CFLAGS))
 	@printf "[ miniRT ] Compiled \033[0;32mSuccessfully\n\033[0m"
 
 lib:

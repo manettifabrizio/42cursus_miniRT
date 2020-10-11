@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 21:07:40 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/07 16:54:54 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/09 18:45:15 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,7 @@ static void		charging_bar(int x, int y, t_setting set, t_objects obj)
 		ft_putstr("%]");
 	}
 	if (x == (set.width * set.heigth - 1) && set.save == 0)
-	{
 		ft_putchar('\n');
-		ft_putstr("[ miniRT ] Rendered \033[0;32mSuccessfully\n\033[0m");
-		ft_putstr("Use SHIFT to change between cameras.\n");
-		ft_putstr("Use ESC or Q to \033[0;31mEXIT\033[0m.\n");
-	}
 }
 
 static void		compute_raydir(t_ray *ray, t_setting set, t_objects obj)
@@ -57,16 +52,16 @@ static void		compute_rot_mtx(t_setting *set, t_objects obj)
 	set->ymtx = compute_rot(obj.ctmp->cy, fill_p(0, 1, 0), set);
 }
 
-void			render(t_ray *ray, t_setting set, t_objects obj)
+void			render(t_ray *ray, t_setting set, t_objects *obj)
 {
 	int		y;
 	int		x;
 	t_color *tmp;
 
-	compute_rot_mtx(&set, obj);
-	if (!(set.mlx.rgbclr = malloc((set.width * set.heigth) * sizeof(t_color))))
+	compute_rot_mtx(&set, *obj);
+	if (!(obj->mlx.rgbclr = malloc((set.width * set.heigth) * sizeof(t_color))))
 		return ;
-	tmp = set.mlx.rgbclr;
+	tmp = obj->mlx.rgbclr;
 	y = -1;
 	while (++y < set.heigth)
 	{
@@ -74,13 +69,13 @@ void			render(t_ray *ray, t_setting set, t_objects obj)
 		while (++x < set.width)
 		{
 			ray->dir.x = (2 * ((x + 0.5) / set.width) - 1)
-				* obj.ctmp->scale * set.imagear;
+				* obj->ctmp->scale * set.imagear;
 			ray->dir.y = (1 - 2 * ((y + 0.5) / set.heigth))
-				* obj.ctmp->scale;
-			compute_raydir(ray, set, obj);
-			*(tmp++) = cast_ray(*ray, set, obj);
-			charging_bar(x, y, set, obj);
+				* obj->ctmp->scale;
+			compute_raydir(ray, set, *obj);
+			*(tmp++) = cast_ray(*ray, set, *obj);
+			charging_bar(x, y, set, *obj);
 		}
 	}
-	draw(set.mlx.rgbclr, set, obj);
+	create_mlx_img(obj->mlx.rgbclr, set, obj);
 }

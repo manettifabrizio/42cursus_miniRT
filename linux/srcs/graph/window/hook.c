@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 19:01:26 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/02 21:28:33 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/09 20:26:16 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 int		key_hook(int key, void *param)
 {
-	t_hook	*h;
-	t_ray	r;
+	t_objects	*obj;
 
-	h = param;
-	if ((key == 65505 || key == 65506) && h->obj.nc != 1)
+	obj = param;
+	if ((key == SHIFT_1 || key == SHIFT_2) && obj->nc != 1)
 	{
-		h->obj.ntmp++;
-		h->obj.ctmp = h->obj.ctmp->next;
-		if (h->obj.ntmp == h->obj.nc)
+		obj->ntmp++;
+		obj->ctmp = obj->ctmp->next;
+		if (obj->ntmp == obj->nc)
 		{
-			h->obj.ntmp = 0;
-			h->obj.ctmp = h->obj.chead;
+			obj->ntmp = 0;
+			obj->ctmp = obj->chead;
 		}
-		r.orig = h->obj.ctmp->p;
-		render(&r, h->set, h->obj);
+		mlx_put_image_to_window(obj->mlx.mlx, obj->mlx.win,
+			obj->ctmp->img, 0, 0);
+		mlx_expose_hook(obj->mlx.win, redraw, obj);
 	}
-	if (key == 65307 || key == 113)
+	if (key == ESC || key == Q)
 		exit(EXIT_SUCCESS);
 	return (0);
 }

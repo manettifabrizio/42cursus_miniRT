@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook.c                                             :+:      :+:    :+:   */
+/*   create_mlx_img.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/18 19:01:26 by fmanetti          #+#    #+#             */
+/*   Created: 2020/10/08 23:25:02 by fmanetti          #+#    #+#             */
 /*   Updated: 2020/10/09 20:32:17 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int		key_hook(int key, void *param)
+void				create_mlx_img(t_color *clr, t_setting set, t_objects *obj)
 {
-	t_objects	*obj;
+	int		x;
+	int		y;
+	int		i;
+	int		pixel;
 
-	obj = param;
-	if ((key == SHIFT_1 || key == SHIFT_2) && obj->nc != 1)
+	y = -1;
+	i = -1;
+	while (++y < set.heigth)
 	{
-		obj->ntmp++;
-		obj->ctmp = obj->ctmp->next;
-		if (obj->ntmp == obj->nc)
+		x = -1;
+		while (++x < set.width)
 		{
-			obj->ntmp = 0;
-			obj->ctmp = obj->chead;
+			pixel = (x + (y * set.width)) * 4;
+			(obj->ctmp->clr)[pixel] = (char)clr[++i].b;
+			(obj->ctmp->clr)[pixel + 1] = (char)clr[i].g;
+			(obj->ctmp->clr)[pixel + 2] = (char)clr[i].r;
+			(obj->ctmp->clr)[pixel + 3] = (char)0;
 		}
-		mlx_put_image_to_window(obj->mlx.mlx, obj->mlx.win,
-			obj->ctmp->img, 0, 0);
 	}
-	if (key == ESC || key == Q)
-		exit(EXIT_SUCCESS);
-	return (0);
-}
-
-int		close_hook(void)
-{
-	exit(EXIT_SUCCESS);
-	return (0);
+	if (set.save == 1)
+		create_bmp(obj->chead->clr, set.width, set.heigth);
+	free(clr);
 }

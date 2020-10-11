@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/18 14:05:19 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/07 10:21:23 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/09 23:35:56 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,10 @@ typedef	struct			s_coord
 
 typedef	struct			s_color
 {
-	t_uint				r;
-	t_uint				g;
-	t_uint				b;
+	int					r;
+	int					g;
+	int					b;
 }						t_color;
-
-typedef struct			s_mlbx
-{
-	void				*mlx;
-	void				*win;
-	void				*img;
-	char				*clr;
-	int					bpp;
-	int					sz_line;
-	int					endian;
-	t_color				*rgbclr;
-}						t_mlbx;
 
 typedef struct			s_coeff
 {
@@ -84,8 +72,6 @@ typedef struct			s_setting
 	double				amblrat;
 	t_color				amblclr;
 	double				imagear;
-	void				*head;
-	t_mlbx				mlx;
 	t_uint				save;
 	t_matrix			xmtx;
 	t_matrix			ymtx;
