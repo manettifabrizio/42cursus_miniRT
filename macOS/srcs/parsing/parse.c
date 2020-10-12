@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 15:03:26 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/09 19:02:14 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/10 09:54:20 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int		letters(char *ln, t_parse p, t_setting *set, t_objects *obj)
 		return (fill_cylinder(ln + 3, p, obj));
 	else if (ft_strncmp(ln, "tr ", 3) == 0 || ft_strncmp(ln, "tr\t", 3) == 0)
 		return (fill_triangle(ln + 3, p, obj));
-	return (rt_errors(2, ln, p.nln));
+	return (rt_errors(3, ln, p.nln));
 }
 
 static void		fill_all(t_parse *p, t_setting *set, t_objects *obj)

@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 13:35:27 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/10 00:05:46 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/10 09:54:41 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ int		fill_sphere(char *line, t_parse p, t_objects *obj)
 	x = 0;
 	obj->ns = lst_check_s(&(obj->shead), obj->ns, &tmp);
 	if (check(line, 3))
-		return (rt_errors(0, "sphere", p.nln));
+		return (rt_errors(1, "sphere", p.nln));
 	tmp->type = 0;
 	tmp->sp.c.x = my_atof(line, &x, p, "sphere center");
 	tmp->sp.c.y = my_atof(line, &x, p, "sphere center");
 	tmp->sp.c.z = my_atof(line, &x, p, "sphere center");
 	tmp->sp.diam = my_atof(line, &x, p, "sphere diameter");
 	if (tmp->sp.diam < 0)
-		return (rt_errors(1, "sphere diameter", p.nln));
+		return (rt_errors(2, "sphere diameter", p.nln));
 	tmp->sp.clr.r = my_atoi(line, &x, p, "sphere color");
 	tmp->sp.clr.g = my_atoi(line, &x, p, "sphere color");
 	tmp->sp.clr.b = my_atoi(line, &x, p, "sphere color");
@@ -42,7 +42,7 @@ int		fill_plane(char *line, t_parse p, t_objects *obj)
 	x = 0;
 	obj->ns = lst_check_s(&(obj->shead), obj->ns, &tmp);
 	if (check(line, 3))
-		return (rt_errors(0, "plane", p.nln));
+		return (rt_errors(1, "plane", p.nln));
 	tmp->type = 1;
 	tmp->pl.p.x = my_atof(line, &x, p, "plane point");
 	tmp->pl.p.y = my_atof(line, &x, p, "plane point");
@@ -67,7 +67,7 @@ int		fill_square(char *line, t_parse p, t_objects *obj)
 	x = 0;
 	obj->ns = lst_check_s(&(obj->shead), obj->ns, &tmp);
 	if (check(line, 4))
-		return (rt_errors(0, "square", p.nln));
+		return (rt_errors(1, "square", p.nln));
 	tmp->type = 2;
 	tmp->sq.p.x = my_atof(line, &x, p, "square center");
 	tmp->sq.p.y = my_atof(line, &x, p, "square center");
@@ -77,7 +77,7 @@ int		fill_square(char *line, t_parse p, t_objects *obj)
 	tmp->sq.n.z = my_atof(line, &x, p, "square orientation vector");
 	tmp->sq.h = my_atof(line, &x, p, "square heigth");
 	if (tmp->sq.h < 0)
-		return (rt_errors(1, "square heigth", p.nln));
+		return (rt_errors(2, "square heigth", p.nln));
 	tmp->sq.clr.r = my_atoi(line, &x, p, "square color");
 	tmp->sq.clr.g = my_atoi(line, &x, p, "square color");
 	tmp->sq.clr.b = my_atoi(line, &x, p, "square color");
@@ -95,7 +95,7 @@ int		fill_cylinder(char *line, t_parse p, t_objects *obj)
 	x = 0;
 	obj->ns = lst_check_s(&(obj->shead), obj->ns, &tmp);
 	if (check(line, 5))
-		return (rt_errors(0, "cylinder", p.nln));
+		return (rt_errors(1, "cylinder", p.nln));
 	tmp->type = 3;
 	tmp->cy.p.x = my_atof(line, &x, p, "cylinder center");
 	tmp->cy.p.y = my_atof(line, &x, p, "cylinder center");
@@ -124,7 +124,7 @@ int		fill_triangle(char *line, t_parse p, t_objects *obj)
 	x = 0;
 	obj->ns = lst_check_s(&(obj->shead), obj->ns, &tmp);
 	if (check(line, 4))
-		return (rt_errors(0, "triangle", p.nln));
+		return (rt_errors(1, "triangle", p.nln));
 	tmp->type = 4;
 	tmp->tr.v0.x = my_atof(line, &x, p, "triangle vertex 1");
 	tmp->tr.v0.y = my_atof(line, &x, p, "triangle vertex 1");

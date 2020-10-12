@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 15:47:39 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/09 18:51:24 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/10 11:00:59 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	start_errors(int ac, char **av)
 		ft_putstr("\033[0;31mError:\033[0m Missing .rt file.\n");
 		exit(EXIT_FAILURE);
 	}
-	else if (ac > 3)
+	else if (ac > 2 && (ft_strcmp(av[2], "-save") != 0))
 	{
 		ft_putstr("\033[0;31mError:\033[0m Too many arguments.\n");
 		exit(EXIT_FAILURE);
@@ -67,11 +67,17 @@ int		rt_errors(t_uint x, char *obj, int nline)
 {
 	if (x == 0)
 	{
+		ft_putstr("\033[0;31mError:\033[0m Multiple declaration of ");
+		ft_putstr(obj);
+		ft_putstr(" in .rt file at line: ");
+	}
+	else if (x == 1)
+	{
 		ft_putstr("\033[0;31mError:\033[0m Wrong Number of Parameters in ");
 		ft_putstr(obj);
 		ft_putstr(" declaration at line: ");
 	}
-	else if (x == 1)
+	else if (x == 2)
 	{
 		ft_putstr("\033[0;31mError:\033[0m Invalid Value for the ");
 		ft_putstr(obj);
