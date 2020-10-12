@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/29 15:01:20 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/10 09:48:27 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/10 00:15:16 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		check_norm(t_point p, char *s, t_uint nln)
 	if (p.x < -1 || p.x > 1 ||
 		p.y < -1 || p.y > 1 ||
 		p.z < -1 || p.z > 1)
-		return (rt_errors(2, s, nln));
+		return (rt_errors(1, s, nln));
 	return (0);
 }
 
@@ -57,7 +57,7 @@ int		check_clr(t_color c, char *s, t_uint nln)
 	if (c.r < 0 || c.r > 255 ||
 		c.g < 0 || c.g > 255 ||
 		c.b < 0 || c.b > 255)
-		return (rt_errors(2, s, nln));
+		return (rt_errors(1, s, nln));
 	return (0);
 }
 

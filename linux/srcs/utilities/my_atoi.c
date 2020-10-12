@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 11:15:09 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/10/10 09:48:27 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/08 18:49:54 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void		check_letter_or_symbol(char c, int *i, t_parse p, char *obj)
 		(*i)++;
 	else if (ft_isspace(c) == 0 && c != '#' && c != '\0')
 	{
-		rt_errors(2, obj, p.nln);
+		rt_errors(1, obj, p.nln);
 		free_array(p.rtfile, -1);
 		free_lists(p.obj);
 		exit(EXIT_FAILURE);
