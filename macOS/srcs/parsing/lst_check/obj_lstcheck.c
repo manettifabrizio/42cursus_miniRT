@@ -6,7 +6,7 @@
 /*   By: fmanetti <fmanetti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/15 15:32:24 by fmanetti          #+#    #+#             */
-/*   Updated: 2020/09/26 21:41:33 by fmanetti         ###   ########.fr       */
+/*   Updated: 2020/10/26 12:11:35 by fmanetti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int		lst_check_c(t_cam **head, int y, t_cam **tmp)
 		if (!(*head = ft_lstnew_c()))
 			return (-1);
 		*tmp = *head;
-		y = 1;
 		return (1);
 	}
 	if (!(*tmp = ft_lstnew_c()))
@@ -35,7 +34,6 @@ int		lst_check_l(t_light **head, int y, t_light **tmp)
 		if (!(*head = ft_lstnew_l()))
 			return (-1);
 		*tmp = *head;
-		y = 1;
 		return (1);
 	}
 	if (!(*tmp = ft_lstnew_l()))
@@ -51,7 +49,6 @@ int		lst_check_s(t_shapes **head, int y, t_shapes **tmp)
 		if (!(*head = ft_lstnew_s()))
 			return (-1);
 		*tmp = *head;
-		y = 1;
 		return (1);
 	}
 	if (!(*tmp = ft_lstnew_s()))
