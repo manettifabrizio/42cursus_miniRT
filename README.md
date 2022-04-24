@@ -30,16 +30,20 @@ At 42 school when we program in C we are subject to a set of rules called [**the
 <p align="center">
 	Red Sphere
 </p>
+<p align="center" float="left">
 <img src="examples/sphere1.png" width="330" />
 <img src="examples/sphere2.png" width="330" /> 
 <img src="examples/sphere3.png" width="330" />
-
+</p>
+	
 <p align="center">
 	Two Pyramids
 </p>
+<p align="center" float="left">
 <img src="examples/pyramid1.png" width="330" />
 <img src="examples/pyramid2.png" width="330" /> 
 <img src="examples/pyramid3.png" width="330" />
+</p>
 
 <p align="center">
 	Sphere RGB
@@ -77,7 +81,7 @@ To launch use the executable `miniRT` and choose a scene from the [`scenes`](mac
 $ ./miniRT scenes/[C4O3H6/FM/indiana/pyramids/RGB/sphere].rt
 ```
 
-To customizise a scene go to the [`macOS|linux`]/scenes directory and modify values.
+To customizise a scene go to the `macOS|linux`/scenes directory and modify values.
 
 ## Sources
 
