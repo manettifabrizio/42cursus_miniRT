@@ -31,18 +31,18 @@ At 42 school when we program in C we are subject to a set of rules called [**the
 	Red Sphere
 </p>
 <p align="center" float="left">
-<img src="examples/sphere1.png" width="330" />
-<img src="examples/sphere2.png" width="330" /> 
-<img src="examples/sphere3.png" width="330" />
+<img src="examples/sphere1.png" width="270" />
+<img src="examples/sphere2.png" width="270" /> 
+<img src="examples/sphere3.png" width="270" />
 </p>
 	
 <p align="center">
 	Two Pyramids
 </p>
 <p align="center" float="left">
-<img src="examples/pyramid1.png" width="330" />
-<img src="examples/pyramid2.png" width="330" /> 
-<img src="examples/pyramid3.png" width="330" />
+<img src="examples/pyramid1.png" width="270" />
+<img src="examples/pyramid2.png" width="270" /> 
+<img src="examples/pyramid3.png" width="270" />
 </p>
 
 <p align="center">
